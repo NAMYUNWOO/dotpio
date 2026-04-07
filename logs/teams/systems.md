@@ -5954,3 +5954,15 @@
 ## 2026-04-08 01:58 KST — Cycle IP149 ALT19 docs-order slice
 - Completed ALT19 vertical slice: added helper + payload/eval/rationale rows and wired regression parity/diagnostics through `...legaltpinvfxalt19*NonPassRows`.
 - Verification PASS: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+
+## 2026-04-08 02:31 KST — Cycle IP137 ALT20 docs-order slice
+- Context: ACTION_ITEMS/TASKS/POST_RC were fully checked, so Game Director cycle executed.
+- Shipped: ALT20 docs-order phrase coverage (, , ) with regression payload/non-pass diagnostics wiring.
+- Verification:  + ok: trendScoreBand dispatch-hint/momentum-band regression checks passed + .
+- Follow-up: ALT20 sparse first-diverged diagnostics tightening + ALT19/ALT20 readability comparator row queued.
+
+## 2026-04-08 02:31 KST — Cycle IP137 ALT20 docs-order slice
+- Context: ACTION_ITEMS/TASKS/POST_RC were fully checked, so Game Director cycle executed.
+- Shipped: ALT20 docs-order phrase coverage (`...LEGALTPINVFXALT20`, `...ALT20LEN`, `...ALT20R`) with regression payload/non-pass diagnostics wiring.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+- Follow-up: ALT20 sparse first-diverged diagnostics tightening + ALT19/ALT20 readability comparator row queued.

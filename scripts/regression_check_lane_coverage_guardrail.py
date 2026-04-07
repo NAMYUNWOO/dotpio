@@ -4234,24 +4234,25 @@ def run_fixture_case(
         "docs-order waypoint-vs-vector helper note (design/world+ux, report-only gate): **ALT14=GLINT waypoint** keeps route anchor readability while **ALT15=GLINT vector** keeps directional handoff readability; both preserve SAFE brace rollback wording."
         in md_text
     ), f"{name}: markdown output must include ALT14 vs ALT15 waypoint/vector helper note for one-scan docs readability"
-    alt14_alt19_waypoint_vector_adjacency_matches = re.findall(
+    alt14_alt20_waypoint_vector_adjacency_matches = re.findall(
         r"- docs-order ALT14 helper callout \(design/world\+ux\): `\.\.\.LEGALTPINVFXALT14` keeps \*\*GLINT=waypoint pin handoff intent\*\* \+ \*\*SHIELD=SAFE brace readability cue\*\* for one-scan triage\.\n"
         r"- docs-order ALT15 helper callout \(design/world\+ux\): `\.\.\.LEGALTPINVFXALT15` keeps \*\*GLINT=vector pin handoff intent\*\* \+ \*\*SHIELD=SAFE brace readability cue\*\* for one-scan triage\.\n"
         r"- docs-order ALT16 helper callout \(design/world\+ux\): `\.\.\.LEGALTPINVFXALT16` keeps \*\*GLINT=beeline pin intent\*\* \+ \*\*SHIELD=SAFE brace readability cue\*\* for one-scan triage\.\n"
         r"- docs-order ALT17 helper callout \(design/world\+ux\): `\.\.\.LEGALTPINVFXALT17` keeps \*\*GLINT=trajectory pin intent\*\* \+ \*\*SHIELD=SAFE brace readability cue\*\* for one-scan triage\.\n"
         r"- docs-order ALT18 helper callout \(design/world\+ux\): `\.\.\.LEGALTPINVFXALT18` keeps \*\*GLINT=compass pin intent\*\* \+ \*\*SHIELD=SAFE brace readability cue\*\* for one-scan triage\.\n"
         r"- docs-order ALT19 helper callout \(design/world\+ux\): `\.\.\.LEGALTPINVFXALT19` keeps \*\*GLINT=bearing pin intent\*\* \+ \*\*SHIELD=SAFE brace readability cue\*\* for one-scan triage\.\n"
+        r"- docs-order ALT20 helper callout \(design/world\+ux\): `\.\.\.LEGALTPINVFXALT20` keeps \*\*GLINT=heading pin intent\*\* \+ \*\*SHIELD=SAFE brace readability cue\*\* for one-scan triage\.\n"
         r"- docs-order waypoint-vs-vector helper note \(design/world\+ux, report-only gate\): \*\*ALT14=GLINT waypoint\*\* keeps route anchor readability while \*\*ALT15=GLINT vector\*\* keeps directional handoff readability; both preserve SAFE brace rollback wording\.",
         md_text,
     )
-    assert len(alt14_alt19_waypoint_vector_adjacency_matches) >= 1, (
-        f"{name}: ALT14/ALT15/ALT16/ALT17/ALT18/ALT19 helper callouts must stay immediately adjacent to waypoint-vs-vector helper note for one-scan docs readability"
+    assert len(alt14_alt20_waypoint_vector_adjacency_matches) >= 1, (
+        f"{name}: ALT14/ALT15/ALT16/ALT17/ALT18/ALT19/ALT20 helper callouts must stay immediately adjacent to waypoint-vs-vector helper note for one-scan docs readability"
     )
     assert (
         "docs-order assertion-label helper (design/world+ux): PINLEN=`assertionLabel=<...legaltpinlenNonPassRows>` | "
         "PINSAFE=`assertionLabel=<...legaltpinsafeNonPassRows>` | SAFE=`assertionLabel=<...legaltsafeNonPassRows>` | "
         "ALTLEN=`assertionLabel=<...legaltlenNonPassRows>` | ALT8=`assertionLabel=<...legaltpinvfxalt8NonPassRows>` | "
-        "ALT8LEN=`assertionLabel=<...legaltpinvfxalt8lenNonPassRows>` | ALT9=`assertionLabel=<...legaltpinvfxalt9NonPassRows>` | ALT9LEN=`assertionLabel=<...legaltpinvfxalt9lenNonPassRows>` | ALT10=`assertionLabel=<...legaltpinvfxalt10NonPassRows>` | ALT10LEN=`assertionLabel=<...legaltpinvfxalt10lenNonPassRows>` | ALT11=`assertionLabel=<...legaltpinvfxalt11NonPassRows>` | ALT11LEN=`assertionLabel=<...legaltpinvfxalt11lenNonPassRows>` | ALT12=`assertionLabel=<...legaltpinvfxalt12NonPassRows>` | ALT12LEN=`assertionLabel=<...legaltpinvfxalt12lenNonPassRows>` | ALT13=`assertionLabel=<...legaltpinvfxalt13NonPassRows>` | ALT13LEN=`assertionLabel=<...legaltpinvfxalt13lenNonPassRows>` | ALT14=`assertionLabel=<...legaltpinvfxalt14NonPassRows>` | ALT14LEN=`assertionLabel=<...legaltpinvfxalt14lenNonPassRows>` | ALT15=`assertionLabel=<...legaltpinvfxalt15NonPassRows>` | ALT15LEN=`assertionLabel=<...legaltpinvfxalt15lenNonPassRows>` | ALT16=`assertionLabel=<...legaltpinvfxalt16NonPassRows>` | ALT16LEN=`assertionLabel=<...legaltpinvfxalt16lenNonPassRows>` | ALT16R=`assertionLabel=<...legaltpinvfxalt16rNonPassRows>` | ALT17=`assertionLabel=<...legaltpinvfxalt17NonPassRows>` | ALT17LEN=`assertionLabel=<...legaltpinvfxalt17lenNonPassRows>` | ALT17R=`assertionLabel=<...legaltpinvfxalt17rNonPassRows>` | ALT18=`assertionLabel=<...legaltpinvfxalt18NonPassRows>` | ALT18LEN=`assertionLabel=<...legaltpinvfxalt18lenNonPassRows>` | ALT18R=`assertionLabel=<...legaltpinvfxalt18rNonPassRows>` | ALT19=`assertionLabel=<...legaltpinvfxalt19NonPassRows>` | ALT19LEN=`assertionLabel=<...legaltpinvfxalt19lenNonPassRows>` | ALT19R=`assertionLabel=<...legaltpinvfxalt19rNonPassRows>`."
+        "ALT8LEN=`assertionLabel=<...legaltpinvfxalt8lenNonPassRows>` | ALT9=`assertionLabel=<...legaltpinvfxalt9NonPassRows>` | ALT9LEN=`assertionLabel=<...legaltpinvfxalt9lenNonPassRows>` | ALT10=`assertionLabel=<...legaltpinvfxalt10NonPassRows>` | ALT10LEN=`assertionLabel=<...legaltpinvfxalt10lenNonPassRows>` | ALT11=`assertionLabel=<...legaltpinvfxalt11NonPassRows>` | ALT11LEN=`assertionLabel=<...legaltpinvfxalt11lenNonPassRows>` | ALT12=`assertionLabel=<...legaltpinvfxalt12NonPassRows>` | ALT12LEN=`assertionLabel=<...legaltpinvfxalt12lenNonPassRows>` | ALT13=`assertionLabel=<...legaltpinvfxalt13NonPassRows>` | ALT13LEN=`assertionLabel=<...legaltpinvfxalt13lenNonPassRows>` | ALT14=`assertionLabel=<...legaltpinvfxalt14NonPassRows>` | ALT14LEN=`assertionLabel=<...legaltpinvfxalt14lenNonPassRows>` | ALT15=`assertionLabel=<...legaltpinvfxalt15NonPassRows>` | ALT15LEN=`assertionLabel=<...legaltpinvfxalt15lenNonPassRows>` | ALT16=`assertionLabel=<...legaltpinvfxalt16NonPassRows>` | ALT16LEN=`assertionLabel=<...legaltpinvfxalt16lenNonPassRows>` | ALT16R=`assertionLabel=<...legaltpinvfxalt16rNonPassRows>` | ALT17=`assertionLabel=<...legaltpinvfxalt17NonPassRows>` | ALT17LEN=`assertionLabel=<...legaltpinvfxalt17lenNonPassRows>` | ALT17R=`assertionLabel=<...legaltpinvfxalt17rNonPassRows>` | ALT18=`assertionLabel=<...legaltpinvfxalt18NonPassRows>` | ALT18LEN=`assertionLabel=<...legaltpinvfxalt18lenNonPassRows>` | ALT18R=`assertionLabel=<...legaltpinvfxalt18rNonPassRows>` | ALT19=`assertionLabel=<...legaltpinvfxalt19NonPassRows>` | ALT19LEN=`assertionLabel=<...legaltpinvfxalt19lenNonPassRows>` | ALT19R=`assertionLabel=<...legaltpinvfxalt19rNonPassRows>` | ALT20=`assertionLabel=<...legaltpinvfxalt20NonPassRows>` | ALT20LEN=`assertionLabel=<...legaltpinvfxalt20lenNonPassRows>` | ALT20R=`assertionLabel=<...legaltpinvfxalt20rNonPassRows>`."
         in md_text
     ), f"{name}: markdown output must include docs-order PINLEN/PINSAFE/SAFE/ALTLEN/ALT8 assertion-label helper row for one-scan triage"
     assert (
@@ -6608,6 +6609,34 @@ def run_fixture_case(
         if payload
         != "GLINT bearing keeps pin handoff explicit|SAFE brace preserves readability"
     )
+    nfxqbackstaf2ctrlwnrblglegaltpinvfxalt20_payload_values = re.findall(
+        r"\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFXALT20:([^*\n]+)\*\*",
+        md_text,
+    )
+    nfxqbackstaf2ctrlwnrblglegaltpinvfxalt20_payload_mismatch_rows = tuple(
+        f"occurrence={index} payload={payload}"
+        for index, payload in enumerate(nfxqbackstaf2ctrlwnrblglegaltpinvfxalt20_payload_values)
+        if payload != "PIN=GLINT heading|SAFE=SHIELD brace"
+    )
+    nfxqbackstaf2ctrlwnrblglegaltpinvfxalt20len_eval_rows = re.findall(
+        r"\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFXALT20LEN:([^*\n]+)\*\*",
+        md_text,
+    )
+    nfxqbackstaf2ctrlwnrblglegaltpinvfxalt20len_payload_mismatch_rows = tuple(
+        f"occurrence={index} payload={payload}"
+        for index, payload in enumerate(nfxqbackstaf2ctrlwnrblglegaltpinvfxalt20len_eval_rows)
+        if payload != "B35|C35|LIM72|PASS"
+    )
+    nfxqbackstaf2ctrlwnrblglegaltpinvfxalt20r_payload_values = re.findall(
+        r"\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFXALT20R:([^*\n]+)\*\*",
+        md_text,
+    )
+    nfxqbackstaf2ctrlwnrblglegaltpinvfxalt20r_payload_mismatch_rows = tuple(
+        f"occurrence={index} payload={payload}"
+        for index, payload in enumerate(nfxqbackstaf2ctrlwnrblglegaltpinvfxalt20r_payload_values)
+        if payload
+        != "GLINT heading keeps pin handoff explicit|SAFE brace preserves readability"
+    )
     nfxqbackstaf2ctrlwnrb_payload_mismatch_rows = tuple(
         f"occurrence={index} payload={payload}"
         for index, payload in enumerate(nfxqbackstaf2ctrlwnrb_payload_values)
@@ -7655,6 +7684,9 @@ def run_fixture_case(
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt19RowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFXALT19:PIN=GLINT bearing|SAFE=SHIELD brace**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt19lenRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFXALT19LEN:B35|C35|LIM72|PASS**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt19rRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFXALT19R:GLINT bearing keeps pin handoff explicit|SAFE brace preserves readability**"),
+        "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt20RowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFXALT20:PIN=GLINT heading|SAFE=SHIELD brace**"),
+        "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt20lenRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFXALT20LEN:B35|C35|LIM72|PASS**"),
+        "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt20rRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFXALT20R:GLINT heading keeps pin handoff explicit|SAFE brace preserves readability**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltsafeRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTSAFE:B13|C13|LIM72|PASS**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltlenRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTLEN:B63|C63|LIM72|PASS**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblgleglenRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGLEN:B53|C53|LIM72|PASS**"),
@@ -7746,6 +7778,9 @@ def run_fixture_case(
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt19NonPassRows": " || ".join(nfxqbackstaf2ctrlwnrblglegaltpinvfxalt19_payload_mismatch_rows),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt19lenNonPassRows": " || ".join(nfxqbackstaf2ctrlwnrblglegaltpinvfxalt19len_payload_mismatch_rows),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt19rNonPassRows": " || ".join(nfxqbackstaf2ctrlwnrblglegaltpinvfxalt19r_payload_mismatch_rows),
+        "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt20NonPassRows": " || ".join(nfxqbackstaf2ctrlwnrblglegaltpinvfxalt20_payload_mismatch_rows),
+        "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt20lenNonPassRows": " || ".join(nfxqbackstaf2ctrlwnrblglegaltpinvfxalt20len_payload_mismatch_rows),
+        "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt20rNonPassRows": " || ".join(nfxqbackstaf2ctrlwnrblglegaltpinvfxalt20r_payload_mismatch_rows),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltsafeNonPassRows": " || ".join(nfxqbackstaf2ctrlwnrblglegaltsafe_payload_mismatch_rows),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltlenNonPassRows": " || ".join(nfxqbackstaf2ctrlwnrblglegaltlen_payload_mismatch_rows),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnlenNonPassRows": " || ".join(nfxqbackstaf2ctrlwnlen_eval_non_pass_rows),

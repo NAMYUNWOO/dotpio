@@ -6568,3 +6568,10 @@ Compact decision memory for AI context efficiency.
   - plus helper callout + assertion-label helper entries for `ALT19/ALT19LEN/ALT19R`.
 - Extended `scripts/regression_check_lane_coverage_guardrail.py` to lock ALT14~ALT19 helper adjacency, parse/count ALT19 rows, and emit `...legaltpinvfxalt19*NonPassRows` diagnostics.
 - Backlog/task state synchronized in `TASKS.md` and `POST_RC_BACKLOG.md` with lifecycle trail and completed injected follow-up.
+
+## 2026-04-08 02:31 KST — Cycle IP137 ALT20 docs-order expansion
+- Trigger: ACTION_ITEMS/TASKS/POST_RC fully checked at cycle start; mandatory Game Director loop executed.
+- Selected experiment shipped: docs-order sentinel VFX handoff ALT20 cluster (`...LEGALTPINVFXALT20`, `...ALT20LEN`, `...ALT20R`) to extend reversible phrase-bank coverage without runtime coupling.
+- Durable decision: each new docs-order phrase candidate must ship with same-cycle triad coverage (candidate + LEN + rationale) plus deterministic regression diagnostics keys.
+- Verification bundle PASS (py_compile + regression harness + guardrail json/md regeneration).
+- Next injections: (1) ALT20 sparse mixed-window first-diverged diagnostics tightening, (2) ALT19/ALT20 compact readability comparator payload contract.

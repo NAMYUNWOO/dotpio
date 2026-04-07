@@ -348,3 +348,13 @@
 - Completed top unchecked POST_RC item by shipping map-tier urgency copy variants for combo momentum banner in `src/hud.lua` (`RUINS/FORGE/ABYSS` + deterministic DEFAULT fallback).
 - Durable decision: urgency thresholds remain timing-driven (`<0.9 NOW`, `<1.8 HOLD`, else STABLE); tier flavor only changes bracket copy to avoid combat-semantics drift.
 - Verification bundle PASS (`lua scripts/regression_combat_combo_momentum_banner.lua` + `DOTPIO_EXPERIMENT_DMG_COMBO_DEBUG=1 lua scripts/regression_combat_damage_combo_token.lua`).
+
+## 2026-04-08 02:31 KST — Game Director Cycle IP137 (ALT20)
+- ACTION_ITEMS/TASKS/POST_RC were fully checked, so Game Director cycle ran immediately.
+- Generated 3 ideas (low-risk ALT20 docs-order phrase + eval, mid-risk regression diagnostics extension, high-risk symbolic shorthand), selected low+mid minimal vertical slice.
+- Implemented ALT20 cluster in guardrail output + regression contracts:
+  - `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFXALT20:PIN=GLINT heading|SAFE=SHIELD brace`
+  - `...ALT20LEN:B35|C35|LIM72|PASS`
+  - `...ALT20R:GLINT heading keeps pin handoff explicit|SAFE brace preserves readability`
+- Durable decision: docs-order phrase expansion remains report-only and must include candidate+LEN+rationale with deterministic NonPassRows diagnostics in the same cycle.
+- Verification PASS: `python3 -m py_compile ...` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + guardrail json/md regeneration.
