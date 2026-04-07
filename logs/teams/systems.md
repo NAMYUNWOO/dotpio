@@ -5833,3 +5833,4 @@
 ## 2026-04-07 11:24 KST — Systems
 - Added deterministic report payload key `...TransitionHandoffDecodeHelperAlt` and ensured guardrail row contract includes `TSDCAD24TRICOVSTCMSVHCSTPRLENCUETDX` in the transition-handoff chain.
 - Follow-up: keep alt row report-only and preserve rollback path via diagnostics-driven gating.
+- 2026-04-07 11:47 KST — Reconciled IP128 injected item: `...LEGALTPINVFXALT` alternate handoff phrase (`PIN=GLINT flare|SAFE=SHIELD brace`) already shipped; reran guardrail py_compile + regression + generation bundle and re-checked backlog item as complete.

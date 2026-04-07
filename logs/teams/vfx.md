@@ -716,3 +716,4 @@
 
 - 2026-04-07 08:24 KST — VFX lane co-signed report-only mnemonic wording test under rollback-safe docs gate; no visual/runtime behavior changes.
 - 2026-04-07 08:29 KST — VFX lane unchanged functionally; validated docs-only wording experiment stayed non-runtime.
+- 2026-04-07 11:47 KST — Reconciled IP128 injected item: `...LEGALTPINVFXALT` alternate handoff phrase (`PIN=GLINT flare|SAFE=SHIELD brace`) already shipped; reran guardrail py_compile + regression + generation bundle and re-checked backlog item as complete.

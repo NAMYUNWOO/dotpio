@@ -4110,3 +4110,4 @@
 
 ## 2026-04-07 11:24 KST — Combat
 - Added combat-facing handoff phrasing variant for GH/PP transition readability A/B in offline report output.
+- 2026-04-07 11:47 KST — Reconciled IP128 injected item: `...LEGALTPINVFXALT` alternate handoff phrase (`PIN=GLINT flare|SAFE=SHIELD brace`) already shipped; reran guardrail py_compile + regression + generation bundle and re-checked backlog item as complete.

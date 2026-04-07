@@ -4100,3 +4100,4 @@
 
 ## 2026-04-07 11:24 KST — World
 - Validated transition-handoff wording remains sequencing-readable with new alt helper row (`rise cue`/`settle cue`) adjacent to world decode context.
+- 2026-04-07 11:47 KST — Reconciled IP128 injected item: `...LEGALTPINVFXALT` alternate handoff phrase (`PIN=GLINT flare|SAFE=SHIELD brace`) already shipped; reran guardrail py_compile + regression + generation bundle and re-checked backlog item as complete.
