@@ -6585,3 +6585,8 @@ Compact decision memory for AI context efficiency.
 - Durable decision: each new docs-order phrase candidate must ship with same-cycle triad coverage (candidate + LEN + rationale) plus deterministic regression diagnostics keys.
 - Verification bundle PASS (py_compile + regression harness + guardrail json/md regeneration).
 - Next injections: (1) ALT20 sparse mixed-window first-diverged diagnostics tightening, (2) ALT19/ALT20 compact readability comparator payload contract.
+\n## 2026-04-08 03:30 KST (Cycle IP150)\n- Closed injected ALT19V20 comparator parity follow-up by adding sparse mixed-window row-count assertion linking  to  in ; verification bundle passed (py_compile + regression + guardrail runner).
+
+## 2026-04-08 03:30 KST (Cycle IP150)
+- Closed injected ALT19V20 comparator parity follow-up by adding sparse mixed-window row-count assertion linking ALT19V20LEN to ALT19V20R in scripts/regression_check_lane_coverage_guardrail.py.
+- Verification PASS (py_compile + regression + guardrail runner bundle).

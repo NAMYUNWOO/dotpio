@@ -4476,3 +4476,8 @@
 - Shipped: ALT20 docs-order phrase coverage (`...LEGALTPINVFXALT20`, `...ALT20LEN`, `...ALT20R`) with regression payload/non-pass diagnostics wiring.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
 - Follow-up: ALT20 sparse first-diverged diagnostics tightening + ALT19/ALT20 readability comparator row queued.
+\n## 2026-04-08 03:30 KST (Cycle IP150)\n- Closed injected ALT19V20 comparator parity follow-up by adding sparse mixed-window row-count assertion linking  to  in ; verification bundle passed (py_compile + regression + guardrail runner).
+
+## 2026-04-08 03:30 KST (Cycle IP150)
+- Closed injected ALT19V20 comparator parity follow-up by adding sparse mixed-window row-count assertion linking ALT19V20LEN to ALT19V20R in scripts/regression_check_lane_coverage_guardrail.py.
+- Verification PASS (py_compile + regression + guardrail runner bundle).
