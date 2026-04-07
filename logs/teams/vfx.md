@@ -756,3 +756,8 @@
 
 ## 2026-04-07 22:28 KST — Cycle IP146
 - Preserved VFX cue wording readability contract by locking ALT14/ALT15 helper sequence adjacency in regression.
+
+## 2026-04-08 01:24 KST — ALT18 report-only handoff phrase slice
+- Decision: Added ALT18 docs-order phrase trio (`...LEGALTPINVFXALT18`, `...ALT18LEN`, `...ALT18R`) with compass wording and preserved rollback-safe framing.
+- Evidence: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+- Follow-up: Next Game Director cycle should inject ALT19 candidate or tighten ALT18 sparse-diagnostics copy if triage friction appears.

@@ -4189,3 +4189,8 @@
 - Decision: Kept docs-order helper taxonomy contiguous through ALT18 placeholders so world/design docs remain one-scan triageable.
 - Evidence: assertion-label helper row now includes ALT8..ALT18 family.
 - Follow-up: Validate ALT18 copy wording once payload rows are introduced.
+
+## 2026-04-08 01:24 KST — ALT18 report-only handoff phrase slice
+- Decision: Added ALT18 docs-order phrase trio (`...LEGALTPINVFXALT18`, `...ALT18LEN`, `...ALT18R`) with compass wording and preserved rollback-safe framing.
+- Evidence: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+- Follow-up: Next Game Director cycle should inject ALT19 candidate or tighten ALT18 sparse-diagnostics copy if triage friction appears.

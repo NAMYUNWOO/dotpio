@@ -6550,3 +6550,11 @@ Compact decision memory for AI context efficiency.
 - Durable decision: Docs-order assertion-label helper is now the canonical checklist contract source for ALT8..ALT18 families, including `ALT18`, `ALT18LEN`, `ALT18R` placeholder labels.
 - Verification bundle: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
 - Next: Implement the remaining unchecked ALT18 report-only handoff phrase candidate task.
+
+## 2026-04-08 01:24 KST — ALT18 phrase vertical slice shipped
+- Added docs-order helper + report-only phrase rows for ALT18:
+  - `...LEGALTPINVFXALT18:PIN=GLINT compass|SAFE=SHIELD brace`
+  - `...LEGALTPINVFXALT18LEN:B35|C35|LIM72|PASS`
+  - `...LEGALTPINVFXALT18R:GLINT compass keeps pin handoff explicit|SAFE brace preserves readability`
+- Extended regression contracts to parse/count/diagnose ALT18 payload/eval/rationale drift and kept ALT14~ALT18 adjacency locked before waypoint-vs-vector note.
+- Backlog state synchronized: TASKS + POST_RC ALT18 injected item marked complete with lifecycle + verification bundle.

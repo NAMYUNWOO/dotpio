@@ -5945,3 +5945,8 @@
 - Decision: Extended docs-order assertion-label helper contract to include ALT18 placeholder labels (`...legaltpinvfxalt18NonPassRows`, `...legaltpinvfxalt18lenNonPassRows`, `...legaltpinvfxalt18rNonPassRows`) before payload rows land.
 - Evidence: `scripts/check_lane_coverage_guardrail.py`, `scripts/regression_check_lane_coverage_guardrail.py`.
 - Follow-up: Land ALT18 payload/eval/rationale rows and wire concrete sparse mixed-window mismatch extraction.
+
+## 2026-04-08 01:24 KST — ALT18 report-only handoff phrase slice
+- Decision: Added ALT18 docs-order phrase trio (`...LEGALTPINVFXALT18`, `...ALT18LEN`, `...ALT18R`) with compass wording and preserved rollback-safe framing.
+- Evidence: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+- Follow-up: Next Game Director cycle should inject ALT19 candidate or tighten ALT18 sparse-diagnostics copy if triage friction appears.
