@@ -1,3 +1,7 @@
+
+## 2026-04-07 14:50 KST
+- QA sparse mixed-window coverage now asserts first-diverged fixture output for `...legaltpinvfxalt6NonPassRows` and `...legaltpinvfxalt6lenNonPassRows`.
+
 ## 2026-04-07 13:06 KST
 - Added deterministic QA coverage for `...LEGALTPINVFXALT2` / `...LEGALTPINVFXALT2LEN` so payload and PASS-domain drift are surfaced immediately across balanced/ready/prior sparse fixtures.
 - Verification PASS (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`).

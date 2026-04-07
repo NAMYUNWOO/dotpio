@@ -1,3 +1,7 @@
+
+## 2026-04-07 14:50 KST
+- Added report-only seventh VFX handoff wording candidate `PIN=GLINT sparkline|SAFE=SHIELD brace` for readability A/B expansion under rollback gate.
+
 ## 2026-04-07 13:06 KST
 - Introduced report-only third wording candidate `PIN=GLINT spark|SAFE=SHIELD brace` (`...LEGALTPINVFXALT2`) to expand handoff microcopy A/B space without runtime coupling.
 - Verification PASS (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`).

@@ -1,3 +1,7 @@
+
+## 2026-04-07 14:50 KST
+- Design docs-order narrative extended to include seventh phrase candidate/eval rows without breaking one-scan ordering around baseline/alt variants.
+
 ## 2026-04-07 13:06 KST
 - Added design-facing docs-order phrase candidate variant `PIN=GLINT spark|SAFE=SHIELD brace` with fixed LIM72 eval telemetry so copy comparison stays one-scan.
 - Verification PASS (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`).
