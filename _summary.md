@@ -1,3 +1,10 @@
+## 2026-04-07 13:52 KST — IP132 docs-order VFX fifth phrase candidate slice
+- Coverage check: ACTION_ITEMS/TASKS/POST_RC all remained fully checked, so mandatory Game Director loop executed.
+- Shipped minimal vertical slice: added `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFXALT4:PIN=GLINT guard|SAFE=SHIELD brace` and eval row `...LEGALTPINVFXALT4LEN:B33|C33|LIM72|PASS`.
+- Regression hardening: extended markdown presence assertions, payload extract/mismatch capture, row-count keys, `...alt4NonPassRows`/`...alt4lenNonPassRows`, and sparse mixed-window first-diverged assertions in `scripts/regression_check_lane_coverage_guardrail.py`.
+- Durable decision: docs-order VFX candidate expansion stays report-only and must include same-cycle payload+PASS drift diagnostics prior to backlog closure.
+- Verification bundle PASS (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`).
+
 ## 2026-04-07 10:23 KST — IP128 injected VFX alternate phrase candidate closure
 - Completed the remaining unchecked TASKS item by shipping rollback-gated alternate docs-order VFX handoff wording: `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFXALT:PIN=GLINT flare|SAFE=SHIELD brace`.
 - Added matching regression presence contract in `scripts/regression_check_lane_coverage_guardrail.py` so guardrail markdown output must include the alternate candidate row.

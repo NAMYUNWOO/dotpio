@@ -4117,3 +4117,4 @@
 - 2026-04-07 11:47 KST — Reconciled IP128 injected item: `...LEGALTPINVFXALT` alternate handoff phrase (`PIN=GLINT flare|SAFE=SHIELD brace`) already shipped; reran guardrail py_compile + regression + generation bundle and re-checked backlog item as complete.
 - 2026-04-07 12:24 KST — Cycle IP129: Added alt handoff eval row `...LEGALTPINVFXALTLEN:B33|C33|LIM72|PASS` to preserve one-scan combat cue readability for PIN->SAFE VFX wording candidate.
 - 2026-04-07 13:20 KST — Cycle IP131: Extended combat/VFX handoff cue exploration with ALT3 phrase to test readability cadence while preserving existing baseline cue semantics.
+- 2026-04-07 13:52 KST — Cycle IP132: Extended combat/VFX docs-order handoff phrase set with ALT4 candidate and PASS eval row to support controlled wording experimentation.

@@ -561,6 +561,17 @@
 
 # POST_RC_BACKLOG
 
+## Autonomous Cycle 2026-04-07 (Game Director Review — Cycle IP132)
+- Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog fully checked, so mandatory Game Director loop executed immediately.
+- Candidate ideas generated:
+  - Low-risk Combat/VFX + UX: add fifth docs-order VFX handoff phrase candidate row for wording expansion while keeping report-only safety.
+  - Mid-risk Systems/Ops + QA: add sparse mixed-window diagnostics keys for fifth candidate payload + PASS eval drift.
+  - High-risk AI-content + Design/World: prototype compressed SAFE-gate variant with alias guardrails.
+- [x] Combat/VFX + UX + Systems/Ops + QA Team (selected): added `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFXALT4:PIN=GLINT guard|SAFE=SHIELD brace` and `...LEGALTPINVFXALT4LEN:B33|C33|LIM72|PASS` with deterministic regression contracts and sparse mixed-window first-diverged assertions. *(lifecycle: [ ] -> [~] started: 2026-04-07 13:48 KST -> [x] completed: 2026-04-07 13:52 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle IP132)
+- [x] Systems/Ops + QA Team (injected): add deterministic sparse mixed-window diagnostics key pair for fifth phrase candidate (`...legaltpinvfxalt4NonPassRows`, `...legaltpinvfxalt4lenNonPassRows`) so first-diverged fixture payload/PASS drift surfaces in one scan. *(lifecycle: [ ] -> [~] started: 2026-04-07 13:50 KST -> [x] completed: 2026-04-07 13:52 KST; verification bundle same as above.)*
+
 ## Autonomous Cycle 2026-04-07 (Game Director Review — Cycle IP129)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog fully checked, so mandatory Game Director loop executed immediately.
 - Candidate ideas generated:

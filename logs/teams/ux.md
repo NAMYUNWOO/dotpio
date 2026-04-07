@@ -4362,3 +4362,4 @@
 - 2026-04-07 11:47 KST — Reconciled IP128 injected item: `...LEGALTPINVFXALT` alternate handoff phrase (`PIN=GLINT flare|SAFE=SHIELD brace`) already shipped; reran guardrail py_compile + regression + generation bundle and re-checked backlog item as complete.
 - 2026-04-07 12:24 KST — Cycle IP129: Shipped visible PASS token for alternate VFX phrase width (`B33|C33|LIM72|PASS`) to keep UI/readability checks one-scan.
 - 2026-04-07 13:20 KST — Cycle IP131: Added ALT3 eval row (`B33|C33|LIM72|PASS`) to keep phrase-width affordance explicit and comparable with ALT/ALT2 in one scan.
+- 2026-04-07 13:52 KST — Cycle IP132: Added ALT4 width eval row (`B33|C33|LIM72|PASS`) and regression checks to ensure phrase candidate stays within compact readability budget.

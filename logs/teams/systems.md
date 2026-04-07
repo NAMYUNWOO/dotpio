@@ -5840,3 +5840,4 @@
 - 2026-04-07 11:47 KST — Reconciled IP128 injected item: `...LEGALTPINVFXALT` alternate handoff phrase (`PIN=GLINT flare|SAFE=SHIELD brace`) already shipped; reran guardrail py_compile + regression + generation bundle and re-checked backlog item as complete.
 - 2026-04-07 12:24 KST — Cycle IP129: Added regression key `...legaltpinvfxaltlenNonPassRows` plus sparse mixed-window PASS-domain assertion for `...LEGALTPINVFXALTLEN` to keep alt VFX handoff width drift deterministic.
 - 2026-04-07 13:20 KST — Cycle IP131: Added deterministic row-count + non-pass diagnostics wiring for `...LEGALTPINVFXALT3` and `...LEGALTPINVFXALT3LEN`; sparse mixed-window first-diverged fixture assertions now cover fourth phrase payload/PASS drift.
+- 2026-04-07 13:52 KST — Cycle IP132: Added docs-order fifth VFX handoff candidate regression contract (`...LEGALTPINVFXALT4`, `...ALT4LEN`) with new row-count + non-pass diagnostics keys for sparse mixed-window drift triage.

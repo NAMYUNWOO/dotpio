@@ -4191,3 +4191,4 @@
 - 2026-04-07 11:47 KST — Reconciled IP128 injected item: `...LEGALTPINVFXALT` alternate handoff phrase (`PIN=GLINT flare|SAFE=SHIELD brace`) already shipped; reran guardrail py_compile + regression + generation bundle and re-checked backlog item as complete.
 - 2026-04-07 12:24 KST — Cycle IP129: Kept existing alt phrase `PIN=GLINT flare|SAFE=SHIELD brace`; postponed third-phrase experiment until current width-eval guardrail is stable across sparse fixtures.
 - 2026-04-07 13:20 KST — Cycle IP131: Introduced fourth candidate phrase `PIN=GLINT pulse|SAFE=SHIELD brace` behind report-only gate for continued wording A/B/C comparison without runtime coupling.
+- 2026-04-07 13:52 KST — Cycle IP132: Added report-only fifth phrase candidate (`PIN=GLINT guard|SAFE=SHIELD brace`) for docs-order VFX handoff wording exploration behind rollback-safe guardrails.
