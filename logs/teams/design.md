@@ -4270,3 +4270,4 @@
 - Preserved one-scan decode flow by placing `PRLENCUETDX` immediately after `PRLENCUETD` and before `PRLENCUETDLEN`.
 - 2026-04-07 11:47 KST — Reconciled IP128 injected item: `...LEGALTPINVFXALT` alternate handoff phrase (`PIN=GLINT flare|SAFE=SHIELD brace`) already shipped; reran guardrail py_compile + regression + generation bundle and re-checked backlog item as complete.
 - 2026-04-07 12:24 KST — Cycle IP129: Confirmed alt VFX handoff phrase width telemetry is now explicit via `...LEGALTPINVFXALTLEN`, reducing docs-order ambiguity during review.
+- 2026-04-07 13:20 KST — Cycle IP131: Confirmed docs-order row placement keeps VFX handoff alternatives contiguous and one-scan readable in markdown output.

@@ -4106,3 +4106,4 @@
 - Validated transition-handoff wording remains sequencing-readable with new alt helper row (`rise cue`/`settle cue`) adjacent to world decode context.
 - 2026-04-07 11:47 KST — Reconciled IP128 injected item: `...LEGALTPINVFXALT` alternate handoff phrase (`PIN=GLINT flare|SAFE=SHIELD brace`) already shipped; reran guardrail py_compile + regression + generation bundle and re-checked backlog item as complete.
 - 2026-04-07 12:24 KST — Cycle IP129: No map/portal schema changes; world lane reviewed during ideation and deferred while systems/combat minimal vertical slice shipped.
+- 2026-04-07 13:20 KST — Cycle IP131: Reviewed docs-order narrative readability impact for fourth phrase candidate; kept report-only wording gate so world/theme coherence remains reversible.

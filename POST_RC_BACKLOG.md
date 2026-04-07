@@ -1,3 +1,14 @@
+## Autonomous Cycle 2026-04-07 (Game Director Review — Cycle IP131)
+- Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog fully checked, so mandatory Game Director loop executed immediately.
+- Candidate ideas generated:
+  - Low-risk Combat/VFX + UX: add fourth docs-order VFX handoff phrase candidate row for wording A/B/C comparison while keeping report-only guardrails.
+  - Mid-risk Systems/Ops + QA: add sparse mixed-window diagnostics keys for fourth candidate payload + PASS eval drift (`...legaltpinvfxalt3NonPassRows`, `...legaltpinvfxalt3lenNonPassRows`).
+  - High-risk AI-content + Design/World: prototype compressed phrase with two-stage SAFE alias behind rollback wording gate.
+- [x] Combat/VFX + UX + Systems/Ops + QA Team (selected): added fourth docs-order VFX handoff phrase candidate + eval rows (`...LEGALTPINVFXALT3`, `...LEGALTPINVFXALT3LEN`) with deterministic regression contracts and sparse mixed-window drift assertions. *(lifecycle: [ ] -> [~] started: 2026-04-07 13:16 KST -> [x] completed: 2026-04-07 13:20 KST; implementation: updated `scripts/check_lane_coverage_guardrail.py` + `scripts/regression_check_lane_coverage_guardrail.py` with candidate payload `PIN=GLINT pulse|SAFE=SHIELD brace`, markdown presence assertions, row-count/non-pass keys, and sparse mixed-window first-diverged assertions for payload/PASS drift; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle IP131)
+- [x] Systems/Ops + QA Team (injected): add deterministic sparse mixed-window diagnostics key pair for fourth phrase candidate (`...legaltpinvfxalt3NonPassRows`, `...legaltpinvfxalt3lenNonPassRows`) so first-diverged fixture payload/PASS drift surfaces in one scan. *(lifecycle: [ ] -> [~] started: 2026-04-07 13:18 KST -> [x] completed: 2026-04-07 13:20 KST; verification bundle same as above.)*
+
 ## Autonomous Cycle 2026-04-07 (Game Director Review — Cycle IP130)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog fully checked, so mandatory Game Director loop executed immediately.
 - Candidate ideas generated:

@@ -1,3 +1,14 @@
+## Autonomous Cycle 2026-04-07 (Game Director Review — Cycle IP131)
+- Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog fully checked, so mandatory Game Director loop executed immediately.
+- Candidate ideas generated:
+  - Low-risk Combat/VFX + UX: add fourth docs-order VFX handoff phrase candidate row for wording A/B/C comparison while keeping report-only guardrails.
+  - Mid-risk Systems/Ops + QA: add sparse mixed-window diagnostics keys for fourth candidate payload + PASS eval drift (`...legaltpinvfxalt3NonPassRows`, `...legaltpinvfxalt3lenNonPassRows`).
+  - High-risk AI-content + Design/World: prototype compressed phrase with two-stage SAFE alias behind rollback wording gate.
+- [x] Combat/VFX + UX + Systems/Ops + QA Team (selected): add `...LEGALTPINVFXALT3` + `...LEGALTPINVFXALT3LEN` rows with deterministic regression coverage and sparse mixed-window assertions. *(lifecycle: [ ] -> [~] started: 2026-04-07 13:16 KST -> [x] completed: 2026-04-07 13:20 KST; implementation: updated `scripts/check_lane_coverage_guardrail.py` and `scripts/regression_check_lane_coverage_guardrail.py` with candidate payload `PIN=GLINT pulse|SAFE=SHIELD brace`, markdown presence assertions, row-count keys, non-pass diagnostics keys, and mixed-window first-diverged fixture assertions for payload/PASS drift; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle IP131)
+- [x] Systems/Ops + QA Team (injected): pin dedicated sparse mixed-window diagnostics keys for fourth phrase candidate drift (`...legaltpinvfxalt3NonPassRows`, `...legaltpinvfxalt3lenNonPassRows`) and keep first-diverged fixture surfacing deterministic. *(lifecycle: [ ] -> [~] started: 2026-04-07 13:18 KST -> [x] completed: 2026-04-07 13:20 KST; verification bundle same as above.)*
+
 # TASKS
 
 Last updated: 2026-04-07 08:29 KST
