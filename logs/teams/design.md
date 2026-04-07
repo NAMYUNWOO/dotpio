@@ -4337,3 +4337,6 @@
 ## 2026-04-07 22:28 KST — Cycle IP146
 - Implemented selected Game Director slice: adjacency contract now enforces ALT14 helper -> ALT15 helper -> waypoint-vs-vector helper note ordering.
 - Keeps waypoint-vs-vector comparison discoverable in a single scan.
+
+## 2026-04-07 22:49 KST
+- Updated adjacency regression to require ALT14 -> ALT15 -> ALT16 -> waypoint/vector helper note ordering for one-scan docs readability.

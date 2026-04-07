@@ -6520,3 +6520,6 @@ Compact decision memory for AI context efficiency.
 - Selected experiment (mid-risk systems/qa): added regression adjacency assertion that ALT14 helper + ALT15 helper + waypoint-vs-vector helper note remain contiguous.
 - Durable decision: lock helper-note locality before adding ALT16 candidate rows to prevent docs-order readability regressions.
 - Injected follow-ups: ALT16 helper callout draft (design/ux) and ALT16 assertion-label placeholder contract (systems/qa).
+
+## 2026-04-07 22:49 KST
+- Durable: docs-order helper adjacency now includes ALT16 (`ALT14 -> ALT15 -> ALT16 -> waypoint/vector note`) and ALT16 report-only rows are regression-tracked (`ALT16`, `ALT16LEN`, `ALT16R`, plus `...alt16*NonPassRows`).

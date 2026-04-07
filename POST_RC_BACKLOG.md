@@ -7,7 +7,7 @@
 - [x] Systems/Ops + QA + Design/World + UX Team (selected): shipped adjacency regression lock so `ALT14 helper -> ALT15 helper -> waypoint-vs-vector helper note` must stay contiguous for one-scan docs readability. *(lifecycle: [ ] -> [~] started: 2026-04-07 22:24 KST -> [x] completed: 2026-04-07 22:28 KST; implementation: `scripts/regression_check_lane_coverage_guardrail.py`; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.)*
 
 ## Next Up (Game Director Injection — Cycle IP146)
-- [ ] Design/World + UX Team (injected): add compact ALT16 helper callout draft (`GLINT=beeline pin intent`) for docs-order wording A/B while preserving report-only rollback wording gate.
+- [x] Design/World + UX Team (injected): add compact ALT16 helper callout draft (`GLINT=beeline pin intent`) for docs-order wording A/B while preserving report-only rollback wording gate.
 - [ ] Systems/Ops + QA Team (injected): pre-wire checklist/docs assertion-label placeholders for `...legaltpinvfxalt16*NonPassRows` before payload/eval rows land.
 
 ## Autonomous Cycle 2026-04-07 (Game Director Review — Cycle IP145)

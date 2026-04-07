@@ -4234,20 +4234,21 @@ def run_fixture_case(
         "docs-order waypoint-vs-vector helper note (design/world+ux, report-only gate): **ALT14=GLINT waypoint** keeps route anchor readability while **ALT15=GLINT vector** keeps directional handoff readability; both preserve SAFE brace rollback wording."
         in md_text
     ), f"{name}: markdown output must include ALT14 vs ALT15 waypoint/vector helper note for one-scan docs readability"
-    alt14_alt15_waypoint_vector_adjacency_matches = re.findall(
+    alt14_alt16_waypoint_vector_adjacency_matches = re.findall(
         r"- docs-order ALT14 helper callout \(design/world\+ux\): `\.\.\.LEGALTPINVFXALT14` keeps \*\*GLINT=waypoint pin handoff intent\*\* \+ \*\*SHIELD=SAFE brace readability cue\*\* for one-scan triage\.\n"
         r"- docs-order ALT15 helper callout \(design/world\+ux\): `\.\.\.LEGALTPINVFXALT15` keeps \*\*GLINT=vector pin handoff intent\*\* \+ \*\*SHIELD=SAFE brace readability cue\*\* for one-scan triage\.\n"
+        r"- docs-order ALT16 helper callout \(design/world\+ux\): `\.\.\.LEGALTPINVFXALT16` keeps \*\*GLINT=beeline pin intent\*\* \+ \*\*SHIELD=SAFE brace readability cue\*\* for one-scan triage\.\n"
         r"- docs-order waypoint-vs-vector helper note \(design/world\+ux, report-only gate\): \*\*ALT14=GLINT waypoint\*\* keeps route anchor readability while \*\*ALT15=GLINT vector\*\* keeps directional handoff readability; both preserve SAFE brace rollback wording\.",
         md_text,
     )
-    assert len(alt14_alt15_waypoint_vector_adjacency_matches) >= 1, (
-        f"{name}: ALT14/ALT15 helper callouts must stay immediately adjacent to waypoint-vs-vector helper note for one-scan docs readability"
+    assert len(alt14_alt16_waypoint_vector_adjacency_matches) >= 1, (
+        f"{name}: ALT14/ALT15/ALT16 helper callouts must stay immediately adjacent to waypoint-vs-vector helper note for one-scan docs readability"
     )
     assert (
         "docs-order assertion-label helper (design/world+ux): PINLEN=`assertionLabel=<...legaltpinlenNonPassRows>` | "
         "PINSAFE=`assertionLabel=<...legaltpinsafeNonPassRows>` | SAFE=`assertionLabel=<...legaltsafeNonPassRows>` | "
         "ALTLEN=`assertionLabel=<...legaltlenNonPassRows>` | ALT8=`assertionLabel=<...legaltpinvfxalt8NonPassRows>` | "
-        "ALT8LEN=`assertionLabel=<...legaltpinvfxalt8lenNonPassRows>` | ALT9=`assertionLabel=<...legaltpinvfxalt9NonPassRows>` | ALT9LEN=`assertionLabel=<...legaltpinvfxalt9lenNonPassRows>` | ALT10=`assertionLabel=<...legaltpinvfxalt10NonPassRows>` | ALT10LEN=`assertionLabel=<...legaltpinvfxalt10lenNonPassRows>` | ALT11=`assertionLabel=<...legaltpinvfxalt11NonPassRows>` | ALT11LEN=`assertionLabel=<...legaltpinvfxalt11lenNonPassRows>` | ALT12=`assertionLabel=<...legaltpinvfxalt12NonPassRows>` | ALT12LEN=`assertionLabel=<...legaltpinvfxalt12lenNonPassRows>` | ALT13=`assertionLabel=<...legaltpinvfxalt13NonPassRows>` | ALT13LEN=`assertionLabel=<...legaltpinvfxalt13lenNonPassRows>` | ALT14=`assertionLabel=<...legaltpinvfxalt14NonPassRows>` | ALT14LEN=`assertionLabel=<...legaltpinvfxalt14lenNonPassRows>` | ALT15=`assertionLabel=<...legaltpinvfxalt15NonPassRows>` | ALT15LEN=`assertionLabel=<...legaltpinvfxalt15lenNonPassRows>`."
+        "ALT8LEN=`assertionLabel=<...legaltpinvfxalt8lenNonPassRows>` | ALT9=`assertionLabel=<...legaltpinvfxalt9NonPassRows>` | ALT9LEN=`assertionLabel=<...legaltpinvfxalt9lenNonPassRows>` | ALT10=`assertionLabel=<...legaltpinvfxalt10NonPassRows>` | ALT10LEN=`assertionLabel=<...legaltpinvfxalt10lenNonPassRows>` | ALT11=`assertionLabel=<...legaltpinvfxalt11NonPassRows>` | ALT11LEN=`assertionLabel=<...legaltpinvfxalt11lenNonPassRows>` | ALT12=`assertionLabel=<...legaltpinvfxalt12NonPassRows>` | ALT12LEN=`assertionLabel=<...legaltpinvfxalt12lenNonPassRows>` | ALT13=`assertionLabel=<...legaltpinvfxalt13NonPassRows>` | ALT13LEN=`assertionLabel=<...legaltpinvfxalt13lenNonPassRows>` | ALT14=`assertionLabel=<...legaltpinvfxalt14NonPassRows>` | ALT14LEN=`assertionLabel=<...legaltpinvfxalt14lenNonPassRows>` | ALT15=`assertionLabel=<...legaltpinvfxalt15NonPassRows>` | ALT15LEN=`assertionLabel=<...legaltpinvfxalt15lenNonPassRows>` | ALT16=`assertionLabel=<...legaltpinvfxalt16NonPassRows>` | ALT16LEN=`assertionLabel=<...legaltpinvfxalt16lenNonPassRows>`."
         in md_text
     ), f"{name}: markdown output must include docs-order PINLEN/PINSAFE/SAFE/ALTLEN/ALT8 assertion-label helper row for one-scan triage"
     assert (
@@ -6492,6 +6493,34 @@ def run_fixture_case(
         if payload
         != "GLINT vector keeps pin handoff explicit|SAFE brace preserves readability"
     )
+    nfxqbackstaf2ctrlwnrblglegaltpinvfxalt16_payload_values = re.findall(
+        r"\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFXALT16:([^*\n]+)\*\*",
+        md_text,
+    )
+    nfxqbackstaf2ctrlwnrblglegaltpinvfxalt16_payload_mismatch_rows = tuple(
+        f"occurrence={index} payload={payload}"
+        for index, payload in enumerate(nfxqbackstaf2ctrlwnrblglegaltpinvfxalt16_payload_values)
+        if payload != "PIN=GLINT beeline|SAFE=SHIELD brace"
+    )
+    nfxqbackstaf2ctrlwnrblglegaltpinvfxalt16len_eval_rows = re.findall(
+        r"\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFXALT16LEN:([^*\n]+)\*\*",
+        md_text,
+    )
+    nfxqbackstaf2ctrlwnrblglegaltpinvfxalt16len_payload_mismatch_rows = tuple(
+        f"occurrence={index} payload={payload}"
+        for index, payload in enumerate(nfxqbackstaf2ctrlwnrblglegaltpinvfxalt16len_eval_rows)
+        if payload != "B35|C35|LIM72|PASS"
+    )
+    nfxqbackstaf2ctrlwnrblglegaltpinvfxalt16r_payload_values = re.findall(
+        r"\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFXALT16R:([^*\n]+)\*\*",
+        md_text,
+    )
+    nfxqbackstaf2ctrlwnrblglegaltpinvfxalt16r_payload_mismatch_rows = tuple(
+        f"occurrence={index} payload={payload}"
+        for index, payload in enumerate(nfxqbackstaf2ctrlwnrblglegaltpinvfxalt16r_payload_values)
+        if payload
+        != "GLINT beeline keeps pin handoff explicit|SAFE brace preserves readability"
+    )
     nfxqbackstaf2ctrlwnrb_payload_mismatch_rows = tuple(
         f"occurrence={index} payload={payload}"
         for index, payload in enumerate(nfxqbackstaf2ctrlwnrb_payload_values)
@@ -7528,6 +7557,8 @@ def run_fixture_case(
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt14lenRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFXALT14LEN:B36|C36|LIM72|PASS**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt15RowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFXALT15:PIN=GLINT vector|SAFE=SHIELD brace**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt15lenRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFXALT15LEN:B34|C34|LIM72|PASS**"),
+        "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt16RowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFXALT16:PIN=GLINT beeline|SAFE=SHIELD brace**"),
+        "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt16lenRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFXALT16LEN:B35|C35|LIM72|PASS**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltsafeRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTSAFE:B13|C13|LIM72|PASS**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltlenRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTLEN:B63|C63|LIM72|PASS**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblgleglenRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGLEN:B53|C53|LIM72|PASS**"),
@@ -7607,6 +7638,9 @@ def run_fixture_case(
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt15NonPassRows": " || ".join(nfxqbackstaf2ctrlwnrblglegaltpinvfxalt15_payload_mismatch_rows),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt15lenNonPassRows": " || ".join(nfxqbackstaf2ctrlwnrblglegaltpinvfxalt15len_payload_mismatch_rows),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt15rNonPassRows": " || ".join(nfxqbackstaf2ctrlwnrblglegaltpinvfxalt15r_payload_mismatch_rows),
+        "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt16NonPassRows": " || ".join(nfxqbackstaf2ctrlwnrblglegaltpinvfxalt16_payload_mismatch_rows),
+        "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt16lenNonPassRows": " || ".join(nfxqbackstaf2ctrlwnrblglegaltpinvfxalt16len_payload_mismatch_rows),
+        "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt16rNonPassRows": " || ".join(nfxqbackstaf2ctrlwnrblglegaltpinvfxalt16r_payload_mismatch_rows),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltsafeNonPassRows": " || ".join(nfxqbackstaf2ctrlwnrblglegaltsafe_payload_mismatch_rows),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltlenNonPassRows": " || ".join(nfxqbackstaf2ctrlwnrblglegaltlen_payload_mismatch_rows),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnlenNonPassRows": " || ".join(nfxqbackstaf2ctrlwnlen_eval_non_pass_rows),

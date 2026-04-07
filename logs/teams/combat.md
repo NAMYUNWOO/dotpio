@@ -4173,3 +4173,6 @@
 
 ## 2026-04-07 22:28 KST — Cycle IP146
 - Combat cue docs lane unchanged functionally; added regression guard to preserve existing handoff readability sequence before introducing ALT16 phrasing.
+
+## 2026-04-07 22:49 KST
+- Maintained combat/vfx rollback wording gate while adding ALT16 candidate/eval/rationale rows (`ALT16`, `ALT16LEN`, `ALT16R`).

@@ -5916,3 +5916,6 @@
 ## 2026-04-07 22:28 KST — Cycle IP146
 - Added deterministic regression adjacency lock requiring ALT14 helper, ALT15 helper, and waypoint-vs-vector helper note to remain contiguous in markdown output.
 - Purpose: prevent docs drift that breaks one-scan triage semantics during future phrase expansions.
+
+## 2026-04-07 22:49 KST
+- Added ALT16 sparse diagnostics key placeholders in regression outputs (`...legaltpinvfxalt16*NonPassRows`) so checklist contracts exist before stricter mixed-window assertion wiring.

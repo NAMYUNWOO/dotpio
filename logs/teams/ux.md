@@ -4421,3 +4421,6 @@
 
 ## 2026-04-07 22:28 KST — Cycle IP146
 - UX readability hardening shipped via regression: helper-note comparison block must remain contiguous to avoid split-context operator reading.
+
+## 2026-04-07 22:49 KST
+- Added ALT16 eval contract `B35|C35|LIM72|PASS` and assertion-label helper references for ALT16/ALT16LEN in markdown checks.

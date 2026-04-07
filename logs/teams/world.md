@@ -4162,3 +4162,6 @@
 
 ## 2026-04-07 22:28 KST — Cycle IP146
 - World/design readability contract strengthened: ALT14 waypoint anchor semantics and ALT15 vector direction semantics are now adjacency-locked in regression.
+
+## 2026-04-07 22:49 KST
+- Added docs-order ALT16 helper callout using `GLINT=beeline pin intent` to extend wording A/B vocabulary without changing rollback semantics.
