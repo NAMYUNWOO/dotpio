@@ -1,3 +1,9 @@
+## 2026-04-08 03:01 KST
+- Combat lane held steady while IP138 focused on readability diagnostics; queued ALT21 combat/vfx phrase experiment for next injected cycle.
+
+## 2026-04-08 02:56 KST
+- Combat/VFX handoff copy integrity maintained: ALT20 phrase remains rollout candidate with stronger sparse diagnostics around mismatch surfacing and no gameplay-token drift.
+
 
 ## 2026-04-07 14:50 KST
 - Combat/vfx handoff matrix expanded with `...LEGALTPINVFXALT6` while preserving deterministic SAFE brace semantics and rollback safety gate.

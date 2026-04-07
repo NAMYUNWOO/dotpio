@@ -1,3 +1,10 @@
+## 2026-04-08 03:01 KST
+- IP138 systems/qa slice added mixed-window assertion coverage for `...ALT19V20R` mismatch labels, extending comparator diagnostics to rationale parity checks.
+
+## 2026-04-08 02:56 KST
+- Closed IP137 injected systems/ops+qa follow-up by adding mixed-window first-diverged assertion-label checks for `...ALT20`, `...ALT20LEN`, and `...ALT20R` mismatch keys with fixture + occurrence surfacing in one failure path.
+- Verification PASS (py_compile + regression + guardrail regeneration bundle).
+
 
 ## 2026-04-07 21:40 KST
 - Cycle IP144 systems/ops+qa slice shipped: regression harness now captures ALT15 payload/eval/rationale drift via `...legaltpinvfxalt15NonPassRows`, `...legaltpinvfxalt15lenNonPassRows`, and `...legaltpinvfxalt15rNonPassRows` with deterministic row-count keys.

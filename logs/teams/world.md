@@ -1,3 +1,9 @@
+## 2026-04-08 03:01 KST
+- World lexicon parity decision documented in-token: ALT19 bearing and ALT20 heading remain equivalent readability picks.
+
+## 2026-04-08 02:56 KST
+- World wording lane aligned with comparator decision: `bearing` (ALT19) and `heading` (ALT20) remain co-equal readability candidates under deterministic `PREF:TIE` contract.
+
 
 ## 2026-04-07 14:50 KST
 - Logged world/design docs-order update for seventh VFX handoff phrase candidate; kept report-only gating and deterministic decode adjacency intact.

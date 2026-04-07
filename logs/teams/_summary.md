@@ -1,3 +1,13 @@
+## 2026-04-08 03:01 KST
+- Game Director Cycle IP138 executed immediately after full-check state: selected low-risk+mid-risk hybrid and shipped `...ALT19V20R` rationale vertical slice with deterministic regression coverage.
+- New injections opened: (1) systems/qa row-count parity assertion between `ALT19V20LEN` and `ALT19V20R`, (2) ai-content+combat/vfx ALT21 phrase experiment behind report-only rollback gate.
+- Verification PASS (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`).
+
+## 2026-04-08 02:56 KST
+- Autonomous Cycle IP137 injected follow-ups completed: (1) mixed-window first-diverged assertion-label checks added for ALT20/ALT20LEN/ALT20R mismatch labels with fixture+occurrence diagnostics, (2) ALT19 vs ALT20 compact readability comparator row shipped as `...ALT19V20LEN:B42|C42|LIM72|PREF:TIE|PASS`.
+- Durable decision: every new docs-order phrase pair now needs an explicit compact comparator payload contract plus matching `...NonPassRows` sparse mixed-window assertion-label surfacing before closure.
+- Verification PASS (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`).
+
 ## 2026-04-07 21:40 KST
 - Game Director Cycle IP144 coverage snapshot over latest 10 completions remained all-zero by lane (`systems/world/ai-content/combat/design/vfx/ux/qa`) with no lane above 40%.
 - Cadence stayed `ALERT` with missing buckets (`combat-or-vfx`, `design-or-world`, `systems-or-ops`), so the selected experiment remained forced into combat/vfx and bundled design/world + systems/ops recovery contracts.

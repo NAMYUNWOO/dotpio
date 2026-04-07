@@ -1,3 +1,10 @@
+## 2026-04-08 03:01 KST
+- Design/world readability parity now includes explicit rationale row `...ALT19V20R` explaining bearing-vs-heading tie contract.
+
+## 2026-04-08 02:56 KST
+- Added ALT19 vs ALT20 compact readability comparator token `...ALT19V20LEN:B42|C42|LIM72|PREF:TIE|PASS` to lock bearing-vs-heading copy budget in one scan.
+- Assertion-label helper expanded with `ALT19V20LEN` mapping for deterministic triage.
+
 
 ## 2026-04-07 21:40 KST
 - Cycle IP144 design/world+ux follow-through: added ALT15 docs helper callout (`GLINT=vector pin intent`) and extended assertion-label helper chain to include `ALT15` + `ALT15LEN` for one-scan triage readability.

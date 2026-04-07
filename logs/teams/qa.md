@@ -1,3 +1,10 @@
+## 2026-04-08 03:01 KST
+- QA deterministic matrix now checks `ALT19V20R` payload drift via non-pass key + mixed-window first-diverged assertion-label surfacing.
+
+## 2026-04-08 02:56 KST
+- QA parity tightened for ALT20 cluster: sparse matrix now fails loudly with explicit `assertionLabel=<...alt20*NonPassRows>` plus first diverged fixture and occurrence payload details.
+- Regression contract remains deterministic under balanced/ready/prior-up/prior-down fixtures.
+
 
 ## 2026-04-07 14:50 KST
 - QA sparse mixed-window coverage now asserts first-diverged fixture output for `...legaltpinvfxalt6NonPassRows` and `...legaltpinvfxalt6lenNonPassRows`.

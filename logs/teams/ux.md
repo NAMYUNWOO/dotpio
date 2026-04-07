@@ -1,3 +1,10 @@
+## 2026-04-08 03:01 KST
+- UX one-scan comparator contract extended with rationale companion row so `PREF:TIE` outcomes remain human-readable without leaving compact rail.
+
+## 2026-04-08 02:56 KST
+- UX readability contract now includes explicit comparator row for ALT19/ALT20 with `PREF:TIE` under LIM72 to keep compact payload interpretation stable.
+- Mixed-window diagnostics now narrate ALT20 drift using one-path fixture+occurrence details for faster triage.
+
 
 ## 2026-04-07 14:50 KST
 - UX readability pass added `...LEGALTPINVFXALT6LEN:B37|C37|LIM72|PASS`; kept compact eval token under LIM72 with deterministic PASS semantics.
