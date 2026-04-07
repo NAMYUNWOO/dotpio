@@ -2,6 +2,17 @@
 
 Last updated: 2026-04-07 08:29 KST
 
+## Autonomous Cycle 2026-04-07 (Game Director Review — Cycle IP129)
+- Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog fully checked, so mandatory Game Director loop executed immediately.
+- Candidate ideas generated:
+  - Low-risk Combat/VFX + UX: add eval row for `...LEGALTPINVFXALT` so alternate VFX handoff phrase width PASS status is one-scan visible.
+  - Mid-risk Systems/Ops + QA: add sparse mixed-window non-pass diagnostics key for `...LEGALTPINVFXALTLEN` payload drift.
+  - High-risk AI-content + Design/World: prototype third alternate phrase candidate (`PIN=GLINT pulse|SAFE=SHIELD lock`) behind rollback wording gate.
+- [x] Combat/VFX + UX + Systems/Ops + QA Team (selected): add `...LEGALTPINVFXALTLEN` eval row with deterministic regression coverage and mixed-window non-pass assertion. *(lifecycle: [ ] -> [~] started: 2026-04-07 12:20 KST -> [x] completed: 2026-04-07 12:24 KST; implementation: added `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFXALTLEN:B33|C33|LIM72|PASS` in `scripts/check_lane_coverage_guardrail.py`; extended `scripts/regression_check_lane_coverage_guardrail.py` with markdown presence assertion, fixture extraction, row-count key, non-pass key, and sparse mixed-window PASS-domain assertion for `...LEGALTPINVFXALTLEN`; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle IP129)
+- [x] Systems/Ops + QA Team (injected): pin dedicated sparse mixed-window non-pass diagnostics key for `...LEGALTPINVFXALTLEN` and keep first-diverged fixture surfacing deterministic when alt phrase width payload drifts. *(lifecycle: [ ] -> [~] started: 2026-04-07 12:21 KST -> [x] completed: 2026-04-07 12:24 KST; implementation: added `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxaltlenNonPassRows` extraction + mixed-window assertion in `scripts/regression_check_lane_coverage_guardrail.py`; verification bundle same as above.)*
+
 ## Autonomous Cycle 2026-04-07 (Game Director Review — Cycle IP128)
 - Coverage check (last 10 completions from `logs/weekly_lane_coverage_guardrail.json`): systems=0, world=0, ai-content=0, combat=0, design=0, vfx=0, ux=0, qa=0.
 - Lane cap result: no lane exceeded 40%; cadence buckets still missing (`combat-or-vfx`, `design-or-world`, `systems-or-ops`) so forced underrepresented lane pick remained active.

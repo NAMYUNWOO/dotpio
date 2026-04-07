@@ -6292,3 +6292,4 @@
 - Extended regression contracts for transition-handoff helper alt row: presence, strict order, mixed-window parity, and deterministic mismatch diagnostics key `stprlencuetdxNonPassRows`.
 - Verification bundle: py_compile + regression_check_lane_coverage_guardrail + guardrail regeneration PASS.
 - 2026-04-07 11:47 KST — Reconciled IP128 injected item: `...LEGALTPINVFXALT` alternate handoff phrase (`PIN=GLINT flare|SAFE=SHIELD brace`) already shipped; reran guardrail py_compile + regression + generation bundle and re-checked backlog item as complete.
+- 2026-04-07 12:24 KST — Cycle IP129: Extended regression with markdown presence + fixture extraction + mixed-window PASS assertion for `...LEGALTPINVFXALTLEN`; py_compile/regression/guardrail checks passed.

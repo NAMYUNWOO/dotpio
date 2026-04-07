@@ -539,6 +539,17 @@
 
 # POST_RC_BACKLOG
 
+## Autonomous Cycle 2026-04-07 (Game Director Review — Cycle IP129)
+- Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog fully checked, so mandatory Game Director loop executed immediately.
+- Candidate ideas generated:
+  - Low-risk Combat/VFX + UX: add PASS-width eval row for `...LEGALTPINVFXALT` to keep alternate handoff phrase readability one-scan auditable.
+  - Mid-risk Systems/Ops + QA: add sparse mixed-window non-pass diagnostics for `...LEGALTPINVFXALTLEN` drift.
+  - High-risk AI-content + Design/World: prototype third alternate handoff phrase candidate behind rollback wording gate.
+- [x] Combat/VFX + UX + Systems/Ops + QA Team (selected): added `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFXALTLEN:B33|C33|LIM72|PASS` and regression contracts for deterministic sparse mixed-window PASS enforcement. *(lifecycle: [ ] -> [~] started: 2026-04-07 12:20 KST -> [x] completed: 2026-04-07 12:24 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle IP129)
+- [x] Systems/Ops + QA Team (injected): add deterministic sparse mixed-window diagnostics key `...legaltpinvfxaltlenNonPassRows` for first-diverged fixture surfacing when alt handoff eval payload drifts. *(lifecycle: [ ] -> [~] started: 2026-04-07 12:21 KST -> [x] completed: 2026-04-07 12:24 KST; verification bundle same as above.)*
+
 ## Autonomous Cycle 2026-04-04 (Game Director Review — Cycle IP75)
 - Coverage check (last 10 completed): systems=0, world=0, ai-content=0, combat=0, design=0, ux=0, qa=0, vfx=0.
 - Forced-lane decision: no lane exceeded 40%, but cadence triad buckets remained missing, so cycle forced a cross-lane recovery experiment.
