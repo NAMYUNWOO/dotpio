@@ -6489,3 +6489,5 @@ Compact decision memory for AI context efficiency.
 - Durable decision: combo momentum urgency buckets are global and strict (`t<0.9 NOW`, `t<1.8 HOLD`, else `STABLE`); RUINS/FORGE/ABYSS may localize labels but must not alter boundary semantics.
 - Verification PASS (`lua scripts/regression_combat_combo_momentum_banner.lua` + `DOTPIO_EXPERIMENT_DMG_COMBO_DEBUG=1 lua scripts/regression_combat_damage_combo_token.lua`).
 - Queue status after run: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=0 (next: mandatory Game Director review cycle).
+
+- 2026-04-07 20:31 KST (IP141): Added ALT12 docs-order VFX handoff phrase family (`PIN=GLINT relay|SAFE=SHIELD brace`) with PASS eval + rationale row and assertion-label diagnostics (`...alt12NonPassRows`, `...alt12lenNonPassRows`, `...alt12rNonPassRows`); regression + guardrail regeneration stayed green.
