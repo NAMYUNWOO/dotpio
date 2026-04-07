@@ -4164,3 +4164,5 @@
 - Verification: py_compile + regression_check_lane_coverage_guardrail.py + guardrail regeneration PASS.
 - Follow-up: continue lane-rotation with non-guardrail player-facing slice next cycle.
 - 2026-04-07 20:58 KST — Cycle IP142: Added fourteenth VFX handoff phrase candidate `PIN=GLINT beacon|SAFE=SHIELD brace` (`...LEGALTPINVFXALT13`) for offline combat cue readability bakeoff; no runtime coupling change.
+
+- 2026-04-07 21:22 KST — Cycle IP143: Extended docs-order VFX handoff phrase ladder with ALT14 candidate to preserve combat cue handoff clarity without runtime coupling changes.

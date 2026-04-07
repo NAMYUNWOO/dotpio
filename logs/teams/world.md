@@ -4153,3 +4153,5 @@
 - Verification: py_compile + regression_check_lane_coverage_guardrail.py + guardrail regeneration PASS.
 - Follow-up: continue lane-rotation with non-guardrail player-facing slice next cycle.
 - 2026-04-07 20:58 KST — Cycle IP142: Reviewed docs-order readability impact for ALT13 sentinel phrase; world-facing map/progression content unchanged, but design/world readability lane received helper-callout update.
+
+- 2026-04-07 21:22 KST — Cycle IP143: Confirmed docs-order helper readability now includes ALT14 pin/safe callout (`GLINT=waypoint`, `SHIELD=SAFE brace`) for one-scan map/design triage consistency.

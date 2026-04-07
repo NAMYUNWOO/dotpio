@@ -743,3 +743,5 @@
 - Rationale: create visible "act now" combat pulse without requiring extra particle effects.
 - Follow-up: capture gameplay clip + evaluate readability against red damage flashes.
 - 2026-04-07 20:58 KST — Cycle IP142: Introduced ALT13 cue phrasing (`GLINT beacon`) plus rationale row to preserve pin-before-safe readability under docs-order sentinel flow; retained rollback-safe report-only scope.
+
+- 2026-04-07 21:22 KST — Cycle IP143: Introduced fifteenth docs-order VFX handoff phrase variant (`GLINT waypoint`) as report-only candidate with deterministic regression locks.

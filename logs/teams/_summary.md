@@ -6492,3 +6492,7 @@ Compact decision memory for AI context efficiency.
 
 - 2026-04-07 20:31 KST (IP141): Added ALT12 docs-order VFX handoff phrase family (`PIN=GLINT relay|SAFE=SHIELD brace`) with PASS eval + rationale row and assertion-label diagnostics (`...alt12NonPassRows`, `...alt12lenNonPassRows`, `...alt12rNonPassRows`); regression + guardrail regeneration stayed green.
 - 2026-04-07 20:58 KST — Cycle IP142 shipped ALT13 docs-order sentinel phrase pack (`...LEGALTPINVFXALT13/ALT13LEN/ALT13R`) with helper-callout + assertion-label family (`...alt13NonPassRows`, `...alt13lenNonPassRows`, `...alt13rNonPassRows`). Durable decision: keep extending report-only VFX handoff phrasing via deterministic regression contracts before any runtime adoption.
+
+- 2026-04-07 21:22 KST — Cycle IP143 shipped ALT14 docs-order VFX handoff candidate stack: `...LEGALTPINVFXALT14`, `...ALT14LEN`, `...ALT14R` with payload `PIN=GLINT waypoint|SAFE=SHIELD brace`.
+- Assertion-label helper contract now explicitly includes ALT14 + ALT14LEN family names, and regression matrix enforces first-diverged diagnostics via `...alt14NonPassRows`, `...alt14lenNonPassRows`, `...alt14rNonPassRows`.
+- Verification bundle remains stable: py_compile + regression_check_lane_coverage_guardrail + check_lane_coverage_guardrail guardrail regeneration all passing after ALT14 insertion.

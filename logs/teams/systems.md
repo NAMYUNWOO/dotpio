@@ -5895,3 +5895,5 @@
 - Verification: py_compile + regression_check_lane_coverage_guardrail.py + guardrail regeneration PASS.
 - Follow-up: continue lane-rotation with non-guardrail player-facing slice next cycle.
 - 2026-04-07 20:58 KST — Cycle IP142: Extended docs-order guardrail regression for ALT13 (`...LEGALTPINVFXALT13*`) including row-count keys and mixed-window first-diverged assertion-label surfacing (`...alt13NonPassRows`, `...alt13lenNonPassRows`, `...alt13rNonPassRows`). Decision: keep report-only wording expansion pattern and deterministic PASS-domain constraints.
+
+- 2026-04-07 21:22 KST — Cycle IP143: Added ALT14 diagnostics family (`...alt14NonPassRows`, `...alt14lenNonPassRows`, `...alt14rNonPassRows`) and mixed-window first-diverged assertion-label surfacing in regression guardrail. Follow-up: keep sparse matrix deterministic with each new candidate row.

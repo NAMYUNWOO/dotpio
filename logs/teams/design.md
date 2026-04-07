@@ -4318,3 +4318,5 @@
 - Verification: py_compile + regression_check_lane_coverage_guardrail.py + guardrail regeneration PASS.
 - Follow-up: continue lane-rotation with non-guardrail player-facing slice next cycle.
 - 2026-04-07 20:58 KST — Cycle IP142: Added ALT13 helper callout semantics (`GLINT=beacon pin handoff intent`, `SHIELD=SAFE brace`) and assertion-label helper extension for one-scan triage.
+
+- 2026-04-07 21:22 KST — Cycle IP143: Added ALT14 rationale row (`GLINT waypoint...`) and helper callout to preserve compact readability semantics across docs-order rows.
