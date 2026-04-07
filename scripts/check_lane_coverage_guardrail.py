@@ -4528,6 +4528,7 @@ def to_markdown(
             "- docs-order ALT22 helper callout (design/world+ux): `...LEGALTPINVFXALT22` keeps **GLINT=meridian pin intent** + **SHIELD=SAFE brace readability cue** for one-scan triage.",
             "- docs-order ALT23 helper callout (design/world+ux): `...LEGALTPINVFXALT23` keeps **GLINT=true-north pin intent** + **SHIELD=SAFE brace readability cue** for one-scan triage.",
             "- docs-order ALT24 helper callout (design/world+ux): `...LEGALTPINVFXALT24` keeps **GLINT=keel pin intent** + **SHIELD=SAFE brace readability cue** for one-scan triage.",
+            "- docs-order ALT25 helper callout (design/world+ux): `...LEGALTPINVFXALT25` keeps **GLINT=prow pin intent** + **SHIELD=SAFE brace readability cue** for one-scan triage.",
             "- docs-order sentinel VFX handoff cue fourteenth phrase candidate (ai-content+combat/vfx, report-only + rollback wording gate): **TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFXALT13:PIN=GLINT beacon|SAFE=SHIELD brace**",
             "- docs-order sentinel VFX handoff cue fourteenth phrase eval row (ai-content+ux, report-only + rollback wording gate): **TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFXALT13LEN:B34|C34|LIM72|PASS**",
             "- docs-order sentinel VFX handoff cue fourteenth phrase rationale row (design/world+ux, report-only): **TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFXALT13R:GLINT beacon keeps pin handoff explicit|SAFE brace preserves readability**",

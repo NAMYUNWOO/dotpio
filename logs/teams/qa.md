@@ -1,3 +1,4 @@
+- 2026-04-08 06:28 KST — Cycle IP156: extended docs-order helper continuity through ALT25 (added ALT25 helper callout + ALT14~ALT25 adjacency regression lock); verification PASS (py_compile + regression_check_lane_coverage_guardrail.py + check_lane_coverage_guardrail.py guardrail run).
 ## 2026-04-08 04:00 KST
 - QA coverage added deterministic ALT22 payload/PASS/rationale mismatch extraction and non-pass diagnostics exports for sparse fixture triage.
 

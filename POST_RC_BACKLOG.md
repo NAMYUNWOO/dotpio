@@ -1,3 +1,14 @@
+## Autonomous Cycle 2026-04-08 (Game Director Review — Cycle IP156)
+- Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC were fully checked after IP155 closure, so mandatory Game Director loop executed immediately.
+- Candidate ideas generated:
+  - Low-risk UX/game-feel: add ALT25 helper docs callout parity with ALT24 to preserve one-scan readability.
+  - Mid-risk Systems/Ops + QA: extend ALT14~ALT23 adjacency regression contract through ALT25 for deterministic helper ordering.
+  - High-risk novelty: add ALT24-vs-ALT25 comparator rows with sparse mixed-window diagnostics.
+- [x] Design/World + Systems/Ops + QA Team (selected): shipped helper continuity vertical slice by adding ALT25 docs-order callout and extending adjacency regex/failure contract through ALT25. *(lifecycle: [ ] -> [~] started: 2026-04-08 06:24 KST -> [x] completed: 2026-04-08 06:28 KST; implementation: `scripts/check_lane_coverage_guardrail.py`, `scripts/regression_check_lane_coverage_guardrail.py`; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.)*
+
+## Next Up (Game Director Injection — Cycle IP156)
+- [x] Systems/Ops + QA Team (injected): tighten adjacency-failure text so ALT24/ALT25 drift is surfaced explicitly in one-scan assertion messaging. *(lifecycle: [ ] -> [~] started: 2026-04-08 06:26 KST -> [x] completed: 2026-04-08 06:28 KST; implementation: updated adjacency failure message in `scripts/regression_check_lane_coverage_guardrail.py`; verification bundle same as cycle item.)*
+
 ## Autonomous Cycle 2026-04-08 (Game Director Review — Cycle IP155)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC were fully checked after ALT24 closure, so mandatory Game Director loop executed immediately.
 - Candidate ideas generated:

@@ -1,3 +1,8 @@
+## 2026-04-08 06:28 KST
+- Cycle IP156 shipped low+mid risk slice: `...LEGALTPINVFXALT25` helper-callout continuity now locked by regression adjacency contract spanning ALT14~ALT25 around waypoint-vs-vector note.
+- Durable decision: each newly introduced ALT helper row must update both helper-callout chain ordering regex and adjacency failure text in the same cycle to keep one-scan diagnostics deterministic.
+- Verification PASS (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`).
+
 ## 2026-04-08 04:00 KST
 - Autonomous Cycle IP152 completed injected ALT22 vertical slice after marking in-progress: shipped `...LEGALTPINVFXALT22`, `...ALT22LEN:B36|C36|LIM72|PASS`, and `...ALT22R` plus ALT22 helper callout.
 - Durable decision: continue docs-order phrase expansion with same-cycle deterministic payload/eval/rationale diagnostics keys in regression before checking backlog items done.
