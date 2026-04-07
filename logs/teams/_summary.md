@@ -6558,3 +6558,13 @@ Compact decision memory for AI context efficiency.
   - `...LEGALTPINVFXALT18R:GLINT compass keeps pin handoff explicit|SAFE brace preserves readability`
 - Extended regression contracts to parse/count/diagnose ALT18 payload/eval/rationale drift and kept ALT14~ALT18 adjacency locked before waypoint-vs-vector note.
 - Backlog state synchronized: TASKS + POST_RC ALT18 injected item marked complete with lifecycle + verification bundle.
+
+## 2026-04-08 01:58 KST — Cycle IP149 ALT19 shipped
+- Mandatory Game Director loop executed (queues fully checked) and selected low+mid risk slice: ALT19 docs-order expansion.
+- Added rows in `scripts/check_lane_coverage_guardrail.py`:
+  - `...LEGALTPINVFXALT19:PIN=GLINT bearing|SAFE=SHIELD brace`
+  - `...LEGALTPINVFXALT19LEN:B35|C35|LIM72|PASS`
+  - `...LEGALTPINVFXALT19R:GLINT bearing keeps pin handoff explicit|SAFE brace preserves readability`
+  - plus helper callout + assertion-label helper entries for `ALT19/ALT19LEN/ALT19R`.
+- Extended `scripts/regression_check_lane_coverage_guardrail.py` to lock ALT14~ALT19 helper adjacency, parse/count ALT19 rows, and emit `...legaltpinvfxalt19*NonPassRows` diagnostics.
+- Backlog/task state synchronized in `TASKS.md` and `POST_RC_BACKLOG.md` with lifecycle trail and completed injected follow-up.

@@ -1,3 +1,14 @@
+## Autonomous Cycle 2026-04-08 (Game Director Review — Cycle IP149)
+- Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC all fully checked, so mandatory Game Director loop executed immediately.
+- Candidate ideas generated:
+  - Low-risk UX/game-feel: add ALT19 docs-order helper callout (`GLINT=bearing pin intent`) to keep ALT14~ALT19 helper cluster one-scan readable.
+  - Mid-risk Systems/Ops + QA: extend adjacency and assertion-label contracts from ALT18 to ALT19 (`...legaltpinvfxalt19*NonPassRows`).
+  - High-risk novelty: introduce ALT20 phrase family draft with payload/eval/rationale and sparse diagnostics.
+- [x] Design/World + UX + Systems/Ops + QA Team (selected): shipped low+mid risk vertical slice by adding ALT19 helper + phrase rows and extending regression coverage/contracts for ALT19 payload/eval/rationale drift diagnostics. *(lifecycle: [ ] -> [~] started: 2026-04-08 01:50 KST -> [x] completed: 2026-04-08 01:58 KST; implementation: `scripts/check_lane_coverage_guardrail.py`, `scripts/regression_check_lane_coverage_guardrail.py`; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.)*
+
+## Next Up (Game Director Injection — Cycle IP149)
+- [x] Systems/Ops + QA Team (injected): pre-wire/lock `...legaltpinvfxalt19*NonPassRows` assertion-label helper and sparse mixed-window contract keys for deterministic first-diverged diagnostics. *(lifecycle: [ ] -> [~] started: 2026-04-08 01:54 KST -> [x] completed: 2026-04-08 01:58 KST; implementation: `scripts/check_lane_coverage_guardrail.py`, `scripts/regression_check_lane_coverage_guardrail.py`; verification bundle same as cycle item.)*
+
 ## Autonomous Cycle 2026-04-08 (Game Director Review — Cycle IP148)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC were fully checked after ALT17 placeholder closure, so mandatory Game Director loop executed immediately.
 - Candidate ideas generated:

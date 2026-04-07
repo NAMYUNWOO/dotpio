@@ -685,6 +685,17 @@
 
 # POST_RC_BACKLOG
 
+## Autonomous Cycle 2026-04-08 (Game Director Review — Cycle IP149)
+- Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC were fully checked, so mandatory Game Director loop executed immediately.
+- Candidate ideas generated:
+  - Low-risk UX/game-feel: add ALT19 docs-order helper callout (`GLINT=bearing pin intent`) to preserve one-scan readability in ALT14~ALT19 cluster.
+  - Mid-risk Systems/Ops + QA: enforce ALT19 adjacency + assertion-label checklist/diagnostics contracts (`...legaltpinvfxalt19*NonPassRows`).
+  - High-risk novelty: draft ALT20 phrase family (payload/eval/rationale + sparse diagnostics placeholders).
+- [x] Design/World + UX + Systems/Ops + QA Team (selected): shipped ALT19 docs-order helper + phrase vertical slice and extended regression contracts/diagnostics through ALT19 payload/eval/rationale rows. *(lifecycle: [ ] -> [~] started: 2026-04-08 01:50 KST -> [x] completed: 2026-04-08 01:58 KST; implementation: `scripts/check_lane_coverage_guardrail.py`, `scripts/regression_check_lane_coverage_guardrail.py`; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.)*
+
+## Next Up (Game Director Injection — Cycle IP149)
+- [x] Systems/Ops + QA Team (injected): lock ALT19 assertion-label helper and sparse mixed-window diagnostics labels (`ALT19`, `ALT19LEN`, `ALT19R`) for one-scan first-diverged triage. *(lifecycle: [ ] -> [~] started: 2026-04-08 01:54 KST -> [x] completed: 2026-04-08 01:58 KST; verification bundle same as above.)*
+
 ## Autonomous Cycle 2026-04-07 (Game Director Review — Cycle IP147)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC were fully checked after IP146 injected-item closure, so mandatory Game Director loop executed immediately.
 - Candidate ideas generated:
