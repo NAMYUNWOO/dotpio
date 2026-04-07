@@ -1,3 +1,6 @@
+## Next Up (Game Director Injection — Cycle IP137)
+- [x] Systems/Ops + QA Team (injected): add ALT10 sparse mixed-window diagnostics + assertion labels (`...legaltpinvfxalt10NonPassRows`, `...legaltpinvfxalt10lenNonPassRows`, `...legaltpinvfxalt10rNonPassRows`) for first-diverged payload/PASS/rationale drift surfacing. *(lifecycle: [ ] -> [~] started: 2026-04-07 17:19 KST -> [x] completed: 2026-04-07 17:19 KST; verification bundle same as Cycle IP137.)*
+
 ## Autonomous Cycle 2026-04-07 (Game Director Review — Cycle IP135)
 - Coverage check (last 10 completions): systems=0, world=0, ai-content=0, combat=0, design=0, vfx=0, ux=0, qa=0; no lane >40%.
 - Cadence status: `combat-or-vfx`, `design-or-world`, `systems-or-ops` all missing; forced next slice selected from combat/vfx bucket.

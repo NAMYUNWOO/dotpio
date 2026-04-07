@@ -4129,3 +4129,5 @@
 - Decision: Added report-only tenth handoff phrase candidate `...LEGALTPINVFXALT9` with `PIN=GLINT tether|SAFE=SHIELD brace` plus `...ALT9LEN:B34|C34|LIM72|PASS` and rationale row.
 - Evidence: py_compile + regression guardrail + guardrail regeneration all passed.
 - Follow-up: keep ALT9 in docs-order assertion-label family (`...alt9NonPassRows`, `...alt9lenNonPassRows`) for first-diverged sparse mixed-window triage.
+
+- 2026-04-07 17:19 KST: Cycle IP137 shipped ALT10 docs-order VFX phrase guardrails (`...ALT10`, `...ALT10LEN`, `...ALT10R`) with verification bundle PASS.
