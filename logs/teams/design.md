@@ -4284,3 +4284,4 @@
 - Cycle IP133: shipped docs-order VFX alt5 guardrail slice (`...LEGALTPINVFXALT5`, `...LEGALTPINVFXALT5LEN`) with deterministic sparse mixed-window mismatch keys (`...legaltpinvfxalt5NonPassRows`, `...legaltpinvfxalt5lenNonPassRows`).
 - Verification: py_compile + regression_check_lane_coverage_guardrail.py + check_lane_coverage_guardrail.py regeneration PASS.
 - 2026-04-07 15:24 KST — IP134: Reviewed ALT7 copy as low-risk player-facing clarity tweak under existing sentinel chain constraints.
+- [2026-04-07 15:56 KST] Cycle IP136: Added docs-order ALT8 rationale row `...LEGALTPINVFXALT8R` to preserve one-scan guardrail readability intent; paired with regression presence contract. Follow-up: test ALT9 phrase candidate readability drift.

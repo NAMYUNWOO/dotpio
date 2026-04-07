@@ -4372,3 +4372,4 @@
 - Cycle IP133: shipped docs-order VFX alt5 guardrail slice (`...LEGALTPINVFXALT5`, `...LEGALTPINVFXALT5LEN`) with deterministic sparse mixed-window mismatch keys (`...legaltpinvfxalt5NonPassRows`, `...legaltpinvfxalt5lenNonPassRows`).
 - Verification: py_compile + regression_check_lane_coverage_guardrail.py + check_lane_coverage_guardrail.py regeneration PASS.
 - 2026-04-07 15:24 KST — IP134: Added explicit LEN contract B34|C34|LIM72|PASS for ALT7 cue to preserve one-scan DOS-width readability.
+- [2026-04-07 15:56 KST] Cycle IP136: Shipped ALT8 rationale copy `GLINT guardrail keeps pin intent explicit|SAFE brace preserves readability` for operator one-scan clarity in markdown guardrail output.

@@ -4118,3 +4118,4 @@
 - Cycle IP133: shipped docs-order VFX alt5 guardrail slice (`...LEGALTPINVFXALT5`, `...LEGALTPINVFXALT5LEN`) with deterministic sparse mixed-window mismatch keys (`...legaltpinvfxalt5NonPassRows`, `...legaltpinvfxalt5lenNonPassRows`).
 - Verification: py_compile + regression_check_lane_coverage_guardrail.py + check_lane_coverage_guardrail.py regeneration PASS.
 - 2026-04-07 15:24 KST — IP134: Accepted ALT7 phrase semantics (PIN=GLINT beacon|SAFE=SHIELD brace) as docs-order-safe wording for operator readability tests.
+- [2026-04-07 15:56 KST] Cycle IP136 note: docs-order readability structure around `...LEGALTPINVFX` and ALT8 helper/rationale remains contiguous and world/design guidance-consistent.

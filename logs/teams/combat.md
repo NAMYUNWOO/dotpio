@@ -4127,3 +4127,4 @@
 - Cycle IP133: shipped docs-order VFX alt5 guardrail slice (`...LEGALTPINVFXALT5`, `...LEGALTPINVFXALT5LEN`) with deterministic sparse mixed-window mismatch keys (`...legaltpinvfxalt5NonPassRows`, `...legaltpinvfxalt5lenNonPassRows`).
 - Verification: py_compile + regression_check_lane_coverage_guardrail.py + check_lane_coverage_guardrail.py regeneration PASS.
 - 2026-04-07 15:24 KST — IP134: Expanded handoff cue phrase bank with GLINT beacon variant for PIN->SAFE transition readability A/B.
+- [2026-04-07 15:56 KST] Cycle IP136 note: maintained combat/vfx cue readability semantics by documenting ALT8 guardrail phrasing rationale; no runtime coupling introduced.

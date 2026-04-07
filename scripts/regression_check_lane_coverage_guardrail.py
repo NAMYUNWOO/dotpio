@@ -4145,6 +4145,11 @@ def run_fixture_case(
         in md_text
     ), f"{name}: markdown output must include docs-order sentinel VFX ninth handoff phrase eval row"
     assert (
+        "docs-order sentinel VFX handoff cue ninth phrase rationale row (design/world+ux, report-only): "
+        "**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFXALT8R:GLINT guardrail keeps pin intent explicit|SAFE brace preserves readability**"
+        in md_text
+    ), f"{name}: markdown output must include docs-order sentinel VFX ninth handoff phrase rationale row"
+    assert (
         "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias intensity pack backcompat shelter-tone fallback cue micro-pack control winner confidence-note rollback helper alternate legend length eval row (combat/vfx+ux, report-only): "
         "**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTLEN:B63|C63|LIM72|PASS**"
         in md_text
@@ -4222,11 +4227,16 @@ def run_fixture_case(
         "(`assertionLabel=<...legaltlenNonPassRows>`) alongside PINLEN/PINSAFE/SAFE mismatch semantics"
     )
     assert (
+        "docs-order ALT8 helper callout (design/world+ux): `...LEGALTPINVFXALT8` keeps **GLINT=guardrail pin intent** + **SHIELD=SAFE brace readability cue** for one-scan triage."
+        in md_text
+    ), f"{name}: markdown output must include ALT8 docs-order helper callout for guardrail/SAFE readability"
+    assert (
         "docs-order assertion-label helper (design/world+ux): PINLEN=`assertionLabel=<...legaltpinlenNonPassRows>` | "
         "PINSAFE=`assertionLabel=<...legaltpinsafeNonPassRows>` | SAFE=`assertionLabel=<...legaltsafeNonPassRows>` | "
-        "ALTLEN=`assertionLabel=<...legaltlenNonPassRows>`."
+        "ALTLEN=`assertionLabel=<...legaltlenNonPassRows>` | ALT8=`assertionLabel=<...legaltpinvfxalt8NonPassRows>` | "
+        "ALT8LEN=`assertionLabel=<...legaltpinvfxalt8lenNonPassRows>`."
         in md_text
-    ), f"{name}: markdown output must include docs-order PINLEN/PINSAFE/SAFE/ALTLEN assertion-label helper row for one-scan triage"
+    ), f"{name}: markdown output must include docs-order PINLEN/PINSAFE/SAFE/ALTLEN/ALT8 assertion-label helper row for one-scan triage"
     assert (
         "docs-order mnemonic readability note (ai-content+ux, report-only gate): baseline **ALT>PIN>SAFE>ALTLEN** remains source-of-truth; "
         "candidate **ALT>PIN>SAFE>WIDTH** is emitted as `...LEGALTPINALT` with compactness check `...LEGALTPINALTLEN` before any promotion."
@@ -9239,6 +9249,7 @@ def main() -> int:
         )
         assert mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinvfxalt8_status_mismatch is None, (
             "mixed-window fixture matrix must keep TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFXALT8 payload deterministic across sparse summary + token sections; "
+            "assertionLabel=tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt8NonPassRows; "
             f"first diverged fixture={mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinvfxalt8_status_mismatch[0]} "
             f"rows={mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinvfxalt8_status_mismatch[1]}"
         )
@@ -9263,6 +9274,7 @@ def main() -> int:
         )
         assert mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinvfxalt8len_status_mismatch is None, (
             "mixed-window fixture matrix must keep TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFXALT8LEN domain-constrained to PASS across sparse summary + token sections; "
+            "assertionLabel=tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt8lenNonPassRows; "
             f"first diverged fixture={mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinvfxalt8len_status_mismatch[0]} "
             f"rows={mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinvfxalt8len_status_mismatch[1]}"
         )

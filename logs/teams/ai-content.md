@@ -4201,3 +4201,4 @@
 - Cycle IP133: shipped docs-order VFX alt5 guardrail slice (`...LEGALTPINVFXALT5`, `...LEGALTPINVFXALT5LEN`) with deterministic sparse mixed-window mismatch keys (`...legaltpinvfxalt5NonPassRows`, `...legaltpinvfxalt5lenNonPassRows`).
 - Verification: py_compile + regression_check_lane_coverage_guardrail.py + check_lane_coverage_guardrail.py regeneration PASS.
 - 2026-04-07 15:24 KST — IP134: Added new report-only narrative phrase candidate ALT7 to broaden VFX handoff wording experiments without runtime coupling.
+- [2026-04-07 15:56 KST] Cycle IP136 note: kept report-only ALT phrase lane deterministic; queued ALT9 prototype as next injected experiment.
