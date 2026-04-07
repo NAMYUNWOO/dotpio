@@ -4184,3 +4184,8 @@
 - Cycle IP148 (Game Director mandatory loop) executed after ACTION_ITEMS/TASKS/POST_RC all reached checked state.
 - Shipped selected vertical slice: ALT17 docs-order helper callout added and adjacency regression lock extended so ALT14->ALT15->ALT16->ALT17 stays contiguous before waypoint-vs-vector helper note.
 - Verification PASS (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`).
+
+## 2026-04-08 00:57 KST — Docs readability contract sync
+- Decision: Kept docs-order helper taxonomy contiguous through ALT18 placeholders so world/design docs remain one-scan triageable.
+- Evidence: assertion-label helper row now includes ALT8..ALT18 family.
+- Follow-up: Validate ALT18 copy wording once payload rows are introduced.

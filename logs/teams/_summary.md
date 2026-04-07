@@ -6544,3 +6544,9 @@ Compact decision memory for AI context efficiency.
 - Selected experiment shipped: ALT17 helper callout (`GLINT=trajectory pin intent`) plus regression adjacency contract expansion from ALT14~ALT16 to ALT14~ALT17 contiguous block.
 - Backlog reinjection completed: queued ALT18 diagnostics placeholder pre-wire task (systems/qa) and ALT18 report-only phrase prototype task (combat/vfx + ai-content).
 - Verification PASS (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`).
+
+## 2026-04-08 00:57 KST — ALT18 placeholder contract pre-wire
+- Completed: Systems/Ops + QA injected task to pre-wire ALT18 assertion-label placeholders before payload rows.
+- Durable decision: Docs-order assertion-label helper is now the canonical checklist contract source for ALT8..ALT18 families, including `ALT18`, `ALT18LEN`, `ALT18R` placeholder labels.
+- Verification bundle: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+- Next: Implement the remaining unchecked ALT18 report-only handoff phrase candidate task.

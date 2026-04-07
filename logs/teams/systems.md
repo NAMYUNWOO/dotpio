@@ -5940,3 +5940,8 @@
 - Cycle IP148 (Game Director mandatory loop) executed after ACTION_ITEMS/TASKS/POST_RC all reached checked state.
 - Shipped selected vertical slice: ALT17 docs-order helper callout added and adjacency regression lock extended so ALT14->ALT15->ALT16->ALT17 stays contiguous before waypoint-vs-vector helper note.
 - Verification PASS (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`).
+
+## 2026-04-08 00:57 KST — ALT18 diagnostics placeholder pre-wire
+- Decision: Extended docs-order assertion-label helper contract to include ALT18 placeholder labels (`...legaltpinvfxalt18NonPassRows`, `...legaltpinvfxalt18lenNonPassRows`, `...legaltpinvfxalt18rNonPassRows`) before payload rows land.
+- Evidence: `scripts/check_lane_coverage_guardrail.py`, `scripts/regression_check_lane_coverage_guardrail.py`.
+- Follow-up: Land ALT18 payload/eval/rationale rows and wire concrete sparse mixed-window mismatch extraction.

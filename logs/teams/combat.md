@@ -4195,3 +4195,8 @@
 - Cycle IP148 (Game Director mandatory loop) executed after ACTION_ITEMS/TASKS/POST_RC all reached checked state.
 - Shipped selected vertical slice: ALT17 docs-order helper callout added and adjacency regression lock extended so ALT14->ALT15->ALT16->ALT17 stays contiguous before waypoint-vs-vector helper note.
 - Verification PASS (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`).
+
+## 2026-04-08 00:57 KST — Combat/VFX handoff guardrail prep
+- Decision: Reserved ALT18 assertion-label slots to de-risk next handoff phrase experiment before combat-facing wording changes.
+- Evidence: helper contract expanded in guardrail generator + regression checker.
+- Follow-up: Execute ALT18 handoff phrase slice and verify LIM72/rationale rails.

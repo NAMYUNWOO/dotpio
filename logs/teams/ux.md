@@ -4443,3 +4443,8 @@
 - Cycle IP148 (Game Director mandatory loop) executed after ACTION_ITEMS/TASKS/POST_RC all reached checked state.
 - Shipped selected vertical slice: ALT17 docs-order helper callout added and adjacency regression lock extended so ALT14->ALT15->ALT16->ALT17 stays contiguous before waypoint-vs-vector helper note.
 - Verification PASS (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`).
+
+## 2026-04-08 00:57 KST — UX triage label continuity
+- Decision: Extended assertion-label legend to ALT18 placeholders so future first-diverged diagnostics stay one-scan consistent.
+- Evidence: markdown assertion helper text updated in generator/regression.
+- Follow-up: confirm ALT18 row maintains compact readability and rollback wording gate.
