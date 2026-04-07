@@ -6316,3 +6316,13 @@
   - `python3 scripts/regression_check_lane_coverage_guardrail.py`
   - `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`
 - Result: no regression failures; sparse mixed-window diagnostics now include ALT8R payload drift key.
+
+## 2026-04-07 16:58 KST — Cycle IP136 ALT9 docs-order VFX handoff slice
+- Decision: Added report-only tenth handoff phrase candidate  with  plus  and rationale row.
+- Evidence: py_compile + regression guardrail + guardrail regeneration all passed.
+- Follow-up: keep ALT9 in docs-order assertion-label family (, ) for first-diverged sparse mixed-window triage.
+
+## 2026-04-07 16:58 KST — Cycle IP136 ALT9 docs-order VFX handoff slice
+- Decision: Added report-only tenth handoff phrase candidate `...LEGALTPINVFXALT9` with `PIN=GLINT tether|SAFE=SHIELD brace` plus `...ALT9LEN:B34|C34|LIM72|PASS` and rationale row.
+- Evidence: py_compile + regression guardrail + guardrail regeneration all passed.
+- Follow-up: keep ALT9 in docs-order assertion-label family (`...alt9NonPassRows`, `...alt9lenNonPassRows`) for first-diverged sparse mixed-window triage.

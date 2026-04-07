@@ -4373,3 +4373,13 @@
 - Verification: py_compile + regression_check_lane_coverage_guardrail.py + check_lane_coverage_guardrail.py regeneration PASS.
 - 2026-04-07 15:24 KST — IP134: Added explicit LEN contract B34|C34|LIM72|PASS for ALT7 cue to preserve one-scan DOS-width readability.
 - [2026-04-07 15:56 KST] Cycle IP136: Shipped ALT8 rationale copy `GLINT guardrail keeps pin intent explicit|SAFE brace preserves readability` for operator one-scan clarity in markdown guardrail output.
+
+## 2026-04-07 16:58 KST — Cycle IP136 ALT9 docs-order VFX handoff slice
+- Decision: Added report-only tenth handoff phrase candidate  with  plus  and rationale row.
+- Evidence: py_compile + regression guardrail + guardrail regeneration all passed.
+- Follow-up: keep ALT9 in docs-order assertion-label family (, ) for first-diverged sparse mixed-window triage.
+
+## 2026-04-07 16:58 KST — Cycle IP136 ALT9 docs-order VFX handoff slice
+- Decision: Added report-only tenth handoff phrase candidate `...LEGALTPINVFXALT9` with `PIN=GLINT tether|SAFE=SHIELD brace` plus `...ALT9LEN:B34|C34|LIM72|PASS` and rationale row.
+- Evidence: py_compile + regression guardrail + guardrail regeneration all passed.
+- Follow-up: keep ALT9 in docs-order assertion-label family (`...alt9NonPassRows`, `...alt9lenNonPassRows`) for first-diverged sparse mixed-window triage.

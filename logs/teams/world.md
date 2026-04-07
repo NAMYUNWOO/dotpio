@@ -4119,3 +4119,13 @@
 - Verification: py_compile + regression_check_lane_coverage_guardrail.py + check_lane_coverage_guardrail.py regeneration PASS.
 - 2026-04-07 15:24 KST — IP134: Accepted ALT7 phrase semantics (PIN=GLINT beacon|SAFE=SHIELD brace) as docs-order-safe wording for operator readability tests.
 - [2026-04-07 15:56 KST] Cycle IP136 note: docs-order readability structure around `...LEGALTPINVFX` and ALT8 helper/rationale remains contiguous and world/design guidance-consistent.
+
+## 2026-04-07 16:58 KST — Cycle IP136 ALT9 docs-order VFX handoff slice
+- Decision: Added report-only tenth handoff phrase candidate  with  plus  and rationale row.
+- Evidence: py_compile + regression guardrail + guardrail regeneration all passed.
+- Follow-up: keep ALT9 in docs-order assertion-label family (, ) for first-diverged sparse mixed-window triage.
+
+## 2026-04-07 16:58 KST — Cycle IP136 ALT9 docs-order VFX handoff slice
+- Decision: Added report-only tenth handoff phrase candidate `...LEGALTPINVFXALT9` with `PIN=GLINT tether|SAFE=SHIELD brace` plus `...ALT9LEN:B34|C34|LIM72|PASS` and rationale row.
+- Evidence: py_compile + regression guardrail + guardrail regeneration all passed.
+- Follow-up: keep ALT9 in docs-order assertion-label family (`...alt9NonPassRows`, `...alt9lenNonPassRows`) for first-diverged sparse mixed-window triage.

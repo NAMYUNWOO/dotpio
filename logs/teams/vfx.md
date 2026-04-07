@@ -727,3 +727,13 @@
 - 2026-04-07 08:29 KST — VFX lane unchanged functionally; validated docs-only wording experiment stayed non-runtime.
 - 2026-04-07 11:47 KST — Reconciled IP128 injected item: `...LEGALTPINVFXALT` alternate handoff phrase (`PIN=GLINT flare|SAFE=SHIELD brace`) already shipped; reran guardrail py_compile + regression + generation bundle and re-checked backlog item as complete.
 - 2026-04-07 12:24 KST — Cycle IP129: Added explicit eval telemetry for alternate VFX handoff copy so GLINT/SHIELD brace wording remains rollback-safe under LIM72.
+
+## 2026-04-07 16:58 KST — Cycle IP136 ALT9 docs-order VFX handoff slice
+- Decision: Added report-only tenth handoff phrase candidate  with  plus  and rationale row.
+- Evidence: py_compile + regression guardrail + guardrail regeneration all passed.
+- Follow-up: keep ALT9 in docs-order assertion-label family (, ) for first-diverged sparse mixed-window triage.
+
+## 2026-04-07 16:58 KST — Cycle IP136 ALT9 docs-order VFX handoff slice
+- Decision: Added report-only tenth handoff phrase candidate `...LEGALTPINVFXALT9` with `PIN=GLINT tether|SAFE=SHIELD brace` plus `...ALT9LEN:B34|C34|LIM72|PASS` and rationale row.
+- Evidence: py_compile + regression guardrail + guardrail regeneration all passed.
+- Follow-up: keep ALT9 in docs-order assertion-label family (`...alt9NonPassRows`, `...alt9lenNonPassRows`) for first-diverged sparse mixed-window triage.

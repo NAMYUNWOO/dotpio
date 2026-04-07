@@ -327,3 +327,13 @@
 - Verification PASS: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
 - Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=3, POST_RC_BACKLOG unchecked=3 (next: systems/ops+qa `...legaltpinvfxNonPassRows` diagnostics key + assertion-label surfacing).
 - 2026-04-07 12:24 KST (IP129): Guardrail docs now emit `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFXALTLEN:B33|C33|LIM72|PASS`; regression suite enforces deterministic mixed-window PASS behavior via `...legaltpinvfxaltlenNonPassRows`.
+
+## 2026-04-07 16:58 KST — Cycle IP136 ALT9 docs-order VFX handoff slice
+- Decision: Added report-only tenth handoff phrase candidate  with  plus  and rationale row.
+- Evidence: py_compile + regression guardrail + guardrail regeneration all passed.
+- Follow-up: keep ALT9 in docs-order assertion-label family (, ) for first-diverged sparse mixed-window triage.
+
+## 2026-04-07 16:58 KST — Cycle IP136 ALT9 docs-order VFX handoff slice
+- Decision: Added report-only tenth handoff phrase candidate `...LEGALTPINVFXALT9` with `PIN=GLINT tether|SAFE=SHIELD brace` plus `...ALT9LEN:B34|C34|LIM72|PASS` and rationale row.
+- Evidence: py_compile + regression guardrail + guardrail regeneration all passed.
+- Follow-up: keep ALT9 in docs-order assertion-label family (`...alt9NonPassRows`, `...alt9lenNonPassRows`) for first-diverged sparse mixed-window triage.

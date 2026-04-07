@@ -6448,3 +6448,13 @@ Compact decision memory for AI context efficiency.
 - Promoted ALT8 rationale row drift checks to first-class sparse diagnostics via `...legaltpinvfxalt8rNonPassRows`.
 - Decision: treat rationale rows as payload-contract rows (same first-diverged assertion-label surfacing policy as phrase/eval rows).
 - Queue status: remaining top-priority unchecked item is ALT9 phrase candidate prototype (`...LEGALTPINVFXALT9`).
+
+## 2026-04-07 16:58 KST — Cycle IP136 ALT9 docs-order VFX handoff slice
+- Decision: Added report-only tenth handoff phrase candidate  with  plus  and rationale row.
+- Evidence: py_compile + regression guardrail + guardrail regeneration all passed.
+- Follow-up: keep ALT9 in docs-order assertion-label family (, ) for first-diverged sparse mixed-window triage.
+
+## 2026-04-07 16:58 KST — Cycle IP136 ALT9 docs-order VFX handoff slice
+- Decision: Added report-only tenth handoff phrase candidate `...LEGALTPINVFXALT9` with `PIN=GLINT tether|SAFE=SHIELD brace` plus `...ALT9LEN:B34|C34|LIM72|PASS` and rationale row.
+- Evidence: py_compile + regression guardrail + guardrail regeneration all passed.
+- Follow-up: keep ALT9 in docs-order assertion-label family (`...alt9NonPassRows`, `...alt9lenNonPassRows`) for first-diverged sparse mixed-window triage.
