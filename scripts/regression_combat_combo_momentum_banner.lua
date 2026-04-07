@@ -36,6 +36,20 @@ end
 
 expect(HUD.getComboMomentumUrgencyBucket(1.8) == "STABLE", "1.8s should stay STABLE boundary")
 expect(HUD.getComboMomentumUrgencyBucket(0.9) == "HOLD", "0.9s should stay HOLD boundary")
+expect(HUD.getComboMomentumUrgencyBoundaryNote() == "BOUNDARY: t<0.9 NOW | t<1.8 HOLD | else STABLE", "boundary policy helper note mismatch")
+
+local tierBoundaryFixtures = {
+    { tier = "RUINS", timer = 1.8, expected = "CHAIN x3  HOT  1.8s [STEADY]" },
+    { tier = "RUINS", timer = 0.9, expected = "CHAIN x3  HOT  0.9s [BRACE]" },
+    { tier = "FORGE", timer = 1.8, expected = "CHAIN x3  HOT  1.8s [BANK]" },
+    { tier = "FORGE", timer = 0.9, expected = "CHAIN x3  HOT  0.9s [GRIP]" },
+    { tier = "ABYSS", timer = 1.8, expected = "CHAIN x3  HOT  1.8s [CALM]" },
+    { tier = "ABYSS", timer = 0.9, expected = "CHAIN x3  HOT  0.9s [ANCHOR]" },
+}
+for _, fixture in ipairs(tierBoundaryFixtures) do
+    local boundaryBanner = HUD.formatComboMomentumBanner({ comboCount = 3, comboTimer = fixture.timer, heat = "HOT" }, fixture.tier)
+    expect(boundaryBanner == fixture.expected, string.format("tier boundary copy mismatch tier=%s timer=%.1f got=%s", fixture.tier, fixture.timer, tostring(boundaryBanner)))
+end
 
 local ruins = HUD.formatComboMomentumBanner({ comboCount = 3, comboTimer = 1.6, heat = "HOT" }, "RUINS")
 expect(ruins == "CHAIN x3  HOT  1.6s [BRACE]", "ruins tier banner mismatch: " .. tostring(ruins))

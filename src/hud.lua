@@ -667,6 +667,8 @@ local COMBO_MOMENTUM_URGENCY_COPY_BY_TIER = {
     ABYSS = { STABLE = "CALM", HOLD = "ANCHOR", NOW = "SNAP" },
 }
 
+local COMBO_MOMENTUM_URGENCY_BOUNDARY_NOTE = "BOUNDARY: t<0.9 NOW | t<1.8 HOLD | else STABLE"
+
 function HUD.resolveComboMomentumMapTier(missionState)
     local state = type(missionState) == "table" and missionState or nil
     local candidate = state and (state.comboMomentumMapTier or state.mapTier or state.routeTag or state.lastPackTag)
@@ -685,6 +687,10 @@ function HUD.getComboMomentumUrgencyBucket(comboTimer)
         return "HOLD"
     end
     return "STABLE"
+end
+
+function HUD.getComboMomentumUrgencyBoundaryNote()
+    return COMBO_MOMENTUM_URGENCY_BOUNDARY_NOTE
 end
 
 function HUD.formatComboMomentumBanner(combo, mapTier)

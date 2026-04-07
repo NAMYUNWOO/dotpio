@@ -4224,3 +4224,8 @@
 
 ## 2026-04-07 19:24 KST — AI-content lane status
 - No AI-content generation changes this cycle; focus remained on systems/qa combo urgency determinism.
+
+
+## 2026-04-07 19:48 KST
+- Cycle IP140 follow-up closure: combo momentum boundary policy locked to strict thresholds (t<0.9 -> NOW, t<1.8 -> HOLD, else STABLE) with tier-label overrides only.
+- Verification bundle PASS (`lua scripts/regression_combat_combo_momentum_banner.lua` + `DOTPIO_EXPERIMENT_DMG_COMBO_DEBUG=1 lua scripts/regression_combat_damage_combo_token.lua`).

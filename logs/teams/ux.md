@@ -4397,3 +4397,8 @@
 ## 2026-04-07 19:24 KST — HUD urgency readability reliability
 - Preserved existing combo banner copy while hardening boundary determinism so urgency labels do not flicker from threshold drift.
 - Injected follow-up docs helper task in TASKS Cycle IP140 for one-scan boundary policy visibility.
+
+
+## 2026-04-07 19:48 KST
+- Cycle IP140 follow-up closure: combo momentum boundary policy locked to strict thresholds (t<0.9 -> NOW, t<1.8 -> HOLD, else STABLE) with tier-label overrides only.
+- Verification bundle PASS (`lua scripts/regression_combat_combo_momentum_banner.lua` + `DOTPIO_EXPERIMENT_DMG_COMBO_DEBUG=1 lua scripts/regression_combat_damage_combo_token.lua`).

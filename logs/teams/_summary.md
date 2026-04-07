@@ -6483,3 +6483,9 @@ Compact decision memory for AI context efficiency.
 - Durable threshold contract: `<0.9 => NOW`, `<1.8 => HOLD`, otherwise `STABLE`; deterministic fixture coverage now includes 2.0/1.7/0.8 and exact boundaries 1.8/0.9.
 - Evidence: `lua scripts/regression_combat_combo_momentum_banner.lua` + `DOTPIO_EXPERIMENT_DMG_COMBO_DEBUG=1 lua scripts/regression_combat_damage_combo_token.lua` both PASS.
 - Backlog injection: queued docs helper + tier-boundary parity fixture tasks under `TASKS.md` Cycle IP140 Next Up.
+
+## 2026-04-07 19:48 KST
+- Closed remaining Cycle IP140 injected items in TASKS: (1) docs helper note for combo urgency boundaries, (2) tier-boundary regression fixtures at exact 1.8/0.9 timers.
+- Durable decision: combo momentum urgency buckets are global and strict (`t<0.9 NOW`, `t<1.8 HOLD`, else `STABLE`); RUINS/FORGE/ABYSS may localize labels but must not alter boundary semantics.
+- Verification PASS (`lua scripts/regression_combat_combo_momentum_banner.lua` + `DOTPIO_EXPERIMENT_DMG_COMBO_DEBUG=1 lua scripts/regression_combat_damage_combo_token.lua`).
+- Queue status after run: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=0 (next: mandatory Game Director review cycle).
