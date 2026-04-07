@@ -1,3 +1,9 @@
+## 2026-04-07 09:49 KST — IP128 docs-order sentinel VFX handoff cue slice
+- Coverage check (last 10 completions) stayed all-zero by lane (`systems/world/ai-content/combat/design/vfx/ux/qa`) with no lane >40%; cadence buckets remained missing (`combat-or-vfx`, `design-or-world`, `systems-or-ops`), so forced pick stayed in combat/vfx.
+- Shipped minimal vertical slice: added `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFX:PIN=GLINT latch|SAFE=SHIELD hold` in guardrail markdown output and matching regression presence contract.
+- Verification bundle PASS (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`).
+- Injected queue: design/world decode helper for `...LEGALTPINVFX`, systems/ops sparse diagnostics key `...legaltpinvfxNonPassRows`, ai-content+combat/vfx alternate handoff phrase candidate.
+
 ## 2026-04-07 04:53 KST — IP123 injected docs-order PINSAFE->SAFE diagnostics wording closure
 - Completed highest-priority unchecked TASKS/POST item by tightening docs-order readability copy for sparse first-diverged diagnostics.
 - Implementation: updated markdown callout in `scripts/check_lane_coverage_guardrail.py` and mixed-window LEGALTSAFE parity mismatch assertion text in `scripts/regression_check_lane_coverage_guardrail.py` so the message explicitly narrates `...CTRLWNRBLGLEGALTPINSAFE -> ...CTRLWNRBLGLEGALTSAFE` parity intent in one scan.
@@ -279,6 +285,12 @@
 - Verification PASS: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
 - Backlog injection opened: docs-order assertionLabel note for PINLEN/PINSAFE/SAFE chain, and PINLEN row-count parity assertion-label parity.
 - 2026-04-07 06:48 KST — Autonomous Cycle IP125: closed stale IP124 backlog checkbox and executed Game Director loop. Selected experiment added `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltlenNonPassRows` extraction + mixed-window assertionLabel diagnostics, with docs-order callout extended through `...LEGALTLEN`. Verification: py_compile + regression harness + lane coverage script all PASS. Next item injected: compact ALTLEN assertionLabel docs note.
+
+## 2026-04-07 09:49 KST
+- Game Director Cycle IP128: lane coverage snapshot over last 10 completions stayed all-zero (`systems/world/ai-content/combat/design/vfx/ux/qa`) and no lane exceeded 40%; cadence triad remained missing, so forced next pick stayed in combat/vfx.
+- Selected experiment shipped a minimal vertical slice: docs-order VFX handoff cue row `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFX:PIN=GLINT latch|SAFE=SHIELD hold` with matching regression presence contract.
+- Verification PASS: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+- Injected next tasks: design/world decode-helper note for `...LEGALTPINVFX`, systems/ops sparse diagnostics key `...legaltpinvfxNonPassRows`, and ai-content/combat-vfx alternate handoff cue phrase candidate.
 
 ## 2026-04-07 08:51 KST
 - Closed IP124 injected Systems/Ops+QA item by wiring first-diverged assertion-label surfacing for `...LEGALTPINDIFF` sparse mixed-window drift in regression harness.

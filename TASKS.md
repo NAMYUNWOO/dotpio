@@ -2,6 +2,20 @@
 
 Last updated: 2026-04-07 08:29 KST
 
+## Autonomous Cycle 2026-04-07 (Game Director Review — Cycle IP128)
+- Coverage check (last 10 completions from `logs/weekly_lane_coverage_guardrail.json`): systems=0, world=0, ai-content=0, combat=0, design=0, vfx=0, ux=0, qa=0.
+- Lane cap result: no lane exceeded 40%; cadence buckets still missing (`combat-or-vfx`, `design-or-world`, `systems-or-ops`) so forced underrepresented lane pick remained active.
+- Candidate ideas generated:
+  - Low-risk Combat/VFX + UX: add docs-order PIN safety VFX handoff cue row so `PIN->SAFE` intent is one-scan readable (`GLINT->SHIELD`).
+  - Mid-risk Systems/Ops + QA: add sparse mixed-window payload diagnostics key for the new VFX handoff cue row.
+  - High-risk AI-content + Design/World: prototype alternate sentinel narrative phrase (`PIN=flare latch`) behind report-only wording gate.
+- [x] Combat/VFX + UX + Systems/Ops + QA Team (selected): add docs-order sentinel VFX handoff cue row and regression presence contract. *(lifecycle: [ ] -> [~] started: 2026-04-07 09:44 KST -> [x] completed: 2026-04-07 09:49 KST; implementation: added `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFX:PIN=GLINT latch|SAFE=SHIELD hold` in `scripts/check_lane_coverage_guardrail.py` and added matching presence assertion in `scripts/regression_check_lane_coverage_guardrail.py`; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle IP128)
+- [ ] Design/World + UX Team (injected): add compact decode helper note for `...LEGALTPINVFX` (`GLINT=pin latch`, `SHIELD=safe hold`) adjacent to docs-order callout for one-scan readability.
+- [ ] Systems/Ops + QA Team (injected): add sparse mixed-window payload diagnostics key `...legaltpinvfxNonPassRows` with first-diverged fixture assertion-label surfacing for `...LEGALTPINVFX` drift.
+- [ ] AI-content + Combat/VFX Team (injected): prototype alternate report-only VFX handoff cue phrase candidate for A/B readability (`PIN=GLINT flare|SAFE=SHIELD brace`) behind rollback wording gate.
+
 ## Autonomous Cycle 2026-04-07 (Game Director Review — Cycle IP127)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC were fully checked after IP126 injected item closure, so mandatory Game Director loop executed immediately.
 - Candidate ideas generated:

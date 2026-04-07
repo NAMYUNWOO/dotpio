@@ -1,4 +1,10 @@
 
+## 2026-04-07 09:49 KST
+- Game Director Cycle IP128 coverage snapshot over latest 10 completions stayed all-zero by lane (`systems/world/ai-content/combat/design/vfx/ux/qa`) with no lane >40%; cadence buckets remained missing (`combat-or-vfx`, `design-or-world`, `systems-or-ops`), so selected experiment was forced into combat/vfx.
+- Completed item: added docs-order handoff cue row `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFX:PIN=GLINT latch|SAFE=SHIELD hold` plus matching regression presence assertion.
+- Verification PASS (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`).
+- Queue injection: design/world decode-helper note for `...LEGALTPINVFX`, systems/ops+qa sparse drift assertion-label key for `...legaltpinvfxNonPassRows`, and ai-content+combat/vfx alternate handoff phrase candidate behind report-only wording gate.
+
 ## 2026-04-07 04:23 KST
 - Game Director Cycle IP123 completed (systems/qa slice): regression matrix now enforces `...CTRLWNRBLGLEGALTSAFE` row-count parity with `...CTRLWNRBLGLEGALTPINSAFE` across sparse mixed-window fixtures.
 - Durable decision: sentinel chain parity is now strict through SAFE stage (`PIN -> PINLEN -> PINSAFE -> SAFE`) at row-count level, not only ordering/payload-level diagnostics.

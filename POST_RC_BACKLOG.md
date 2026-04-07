@@ -1,3 +1,13 @@
+## Autonomous Cycle 2026-04-07 (Game Director Review — Cycle IP128)
+- Coverage check (last 10 completions): systems=0, world=0, ai-content=0, combat=0, design=0, vfx=0, ux=0, qa=0; no lane >40%.
+- Cadence status: `combat-or-vfx`, `design-or-world`, `systems-or-ops` all missing, so selected slice forced into combat/vfx bucket.
+- [x] Selected experiment (Combat/VFX + UX + Systems/Ops + QA): added docs-order sentinel VFX handoff cue row `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFX:PIN=GLINT latch|SAFE=SHIELD hold` plus regression presence assertion. *(completed 2026-04-07 09:49 KST; verification bundle: py_compile + regression + guardrail regeneration command)*
+
+## Next Up (Injected from Cycle IP128)
+- [ ] Design/World + UX: add compact decode helper line for `...LEGALTPINVFX` state meanings near docs-order callout.
+- [ ] Systems/Ops + QA: add sparse mixed-window payload diagnostics key + `assertionLabel=<...legaltpinvfxNonPassRows>` surfacing for `...LEGALTPINVFX` drift.
+- [ ] AI-content + Combat/VFX: add report-only alternate handoff phrase candidate (`PIN=GLINT flare|SAFE=SHIELD brace`) with rollback wording gate and readability eval.
+
 ## Autonomous Cycle 2026-04-07 (Game Director Review — Cycle IP127)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC were fully checked after IP126 injected item closure, so mandatory Game Director loop executed immediately.
 - Candidate ideas generated:

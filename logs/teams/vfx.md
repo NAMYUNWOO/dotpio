@@ -1,3 +1,8 @@
+## 2026-04-07 09:49 KST
+- Cycle IP128 selected combat/vfx vertical slice shipped docs-order handoff cue row `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFX:PIN=GLINT latch|SAFE=SHIELD hold`.
+- Scope remains report-only/reversible; no runtime rendering/combat stat mutation.
+- Verification: py_compile + regression + guardrail artifact regeneration PASS.
+
 ## 2026-04-06 15:41 KST
 - Cycle IP108 forced-lane combat/vfx slice shipped: added control-winner VFX pulse cue row `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFX` with deterministic mapping `A/ABR->GLINT-HOLD`, `B/XCF->PULSE-CUT`, `C/SHH->SHIELD-HOLD`.
 - Scope remains report-only/reversible; no runtime rendering/combat stat mutation.

@@ -1,4 +1,7 @@
 
+## 2026-04-07 09:49 KST
+- IP128 injection queued for design/world cadence bucket: add compact decode helper note for `...LEGALTPINVFX` (`GLINT=pin latch`, `SHIELD=safe hold`) adjacent to docs-order callout for one-scan readability.
+
 ## 2026-04-07 03:48 KST
 - Closed IP122 systems+qa payload diagnostics follow-up by adding `...pinsafeNonPassRows` extraction + sparse mixed-window first-diverged fixture assertion for `...CTRLWNRBLGLEGALTPINSAFE` in regression harness.
 - Reconciled docs-order callout tracker: contiguous `...PIN -> ...PINLEN -> ...PINSAFE -> ...SAFE` requirement already present in guardrail markdown docs block and now marked complete in TASKS/POST_RC.

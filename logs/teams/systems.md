@@ -1,4 +1,7 @@
 
+## 2026-04-07 09:49 KST
+- IP128 systems/qa injection queued: add sparse mixed-window payload diagnostics key `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxNonPassRows` and first-diverged `assertionLabel=<...legaltpinvfxNonPassRows>` surfacing for `...LEGALTPINVFX` drift.
+
 ## 2026-04-07 04:23 KST
 - Cycle IP123 selected slice shipped: sparse mixed-window row-count parity now enforces `...CTRLWNRBLGLEGALTSAFE` count parity with `...CTRLWNRBLGLEGALTPINSAFE` across balanced/ready/prior-up/prior-down fixtures.
 - Added deterministic mismatch surface `mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltsafe_row_count_mismatch` in regression harness for faster first-diverged triage.
