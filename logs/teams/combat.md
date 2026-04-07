@@ -4166,3 +4166,10 @@
 - 2026-04-07 20:58 KST — Cycle IP142: Added fourteenth VFX handoff phrase candidate `PIN=GLINT beacon|SAFE=SHIELD brace` (`...LEGALTPINVFXALT13`) for offline combat cue readability bakeoff; no runtime coupling change.
 
 - 2026-04-07 21:22 KST — Cycle IP143: Extended docs-order VFX handoff phrase ladder with ALT14 candidate to preserve combat cue handoff clarity without runtime coupling changes.
+
+## 2026-04-07 22:22 KST — Cycle IP145
+- Combat/VFX wording lane unchanged; retained ALT14/ALT15 handoff readability framing while closing backlog state drift.
+- No runtime combat behavior changes; docs/regression contracts remained stable.
+
+## 2026-04-07 22:28 KST — Cycle IP146
+- Combat cue docs lane unchanged functionally; added regression guard to preserve existing handoff readability sequence before introducing ALT16 phrasing.

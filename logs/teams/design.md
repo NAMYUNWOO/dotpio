@@ -4329,3 +4329,11 @@
 ## 2026-04-07 21:54 KST — Docs helper note for ALT14 vs ALT15
 - Added waypoint-vs-vector helper note adjacent to ALT14/ALT15 docs rows to clarify readability intent split (`waypoint` route anchor vs `vector` directional handoff).
 - Preserved report-only rollback wording gate semantics.
+
+## 2026-04-07 22:22 KST — Cycle IP145
+- Closed pending design/ux injected task by reconciling checkbox with shipped waypoint-vs-vector helper note near ALT14/ALT15 docs-order rows.
+- One-scan A/B readability guidance remains explicit: ALT14=waypoint anchor, ALT15=vector direction, SAFE wording preserved for rollback clarity.
+
+## 2026-04-07 22:28 KST — Cycle IP146
+- Implemented selected Game Director slice: adjacency contract now enforces ALT14 helper -> ALT15 helper -> waypoint-vs-vector helper note ordering.
+- Keeps waypoint-vs-vector comparison discoverable in a single scan.

@@ -750,3 +750,9 @@
 - 2026-04-07 20:58 KST — Cycle IP142: Introduced ALT13 cue phrasing (`GLINT beacon`) plus rationale row to preserve pin-before-safe readability under docs-order sentinel flow; retained rollback-safe report-only scope.
 
 - 2026-04-07 21:22 KST — Cycle IP143: Introduced fifteenth docs-order VFX handoff phrase variant (`GLINT waypoint`) as report-only candidate with deterministic regression locks.
+
+## 2026-04-07 22:22 KST — Cycle IP145
+- VFX-facing docs-order phrase comparison (ALT14 waypoint vs ALT15 vector) confirmed present and unchanged; no new cue token introduced this cycle.
+
+## 2026-04-07 22:28 KST — Cycle IP146
+- Preserved VFX cue wording readability contract by locking ALT14/ALT15 helper sequence adjacency in regression.

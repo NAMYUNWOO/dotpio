@@ -6358,3 +6358,16 @@
 - Extended regression checks so sparse mixed-window parity/payload drift for `...LEGALTPINVFXALT14*` and `...LEGALTPINVFXALT15*` always emit explicit assertion labels.
 - Keeps first-diverged fixture output deterministic and one-scan actionable.
 - Validation suite passed end-to-end.
+
+## 2026-04-07 22:22 KST — Cycle IP145
+- Ran standard verification bundle after backlog reconciliation to prove no regression drift:
+  - python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py
+  - python3 scripts/regression_check_lane_coverage_guardrail.py
+  - python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md
+- Result: PASS; backlog/item state now matches shipped behavior.
+
+## 2026-04-07 22:28 KST — Cycle IP146
+- Verified new adjacency assertion in regression harness plus full guardrail bundle pass:
+  - python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py
+  - python3 scripts/regression_check_lane_coverage_guardrail.py
+  - python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md

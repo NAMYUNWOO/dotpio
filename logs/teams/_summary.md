@@ -6509,3 +6509,14 @@ Compact decision memory for AI context efficiency.
 - Verification bundle remains stable: py_compile + regression_check_lane_coverage_guardrail + check_lane_coverage_guardrail guardrail regeneration all passing after ALT14 insertion.
 
 - 2026-04-07 21:54 KST: Hardened sparse mixed-window diagnostics for docs-order VFX ALT14/ALT15 rows (`...LEGALTPINVFXALT14*`, `...LEGALTPINVFXALT15*`) so first-diverged failures always expose explicit `assertionLabel=...NonPassRows`; also added a waypoint-vs-vector helper note beside ALT14/ALT15 docs rows for one-scan readability under rollback-gated wording.
+
+## 2026-04-07 22:22 KST
+- Cycle IP145 closed the sole remaining unchecked POST_RC injected item by reconciling checklist state with already-shipped docs helper note (`ALT14=waypoint` vs `ALT15=vector`) in `scripts/check_lane_coverage_guardrail.py`.
+- Durable decision: when injected backlog items are already implemented, mark lifecycle `[ ] -> [~] -> [x]` with explicit reconciliation evidence instead of re-mutating code.
+- Verification PASS: py_compile + regression_check_lane_coverage_guardrail + guardrail regeneration command; ACTION_ITEMS/TASKS/POST_RC now all fully checked.
+
+## 2026-04-07 22:28 KST
+- Cycle IP146 executed mandatory Game Director loop after all queues were fully checked.
+- Selected experiment (mid-risk systems/qa): added regression adjacency assertion that ALT14 helper + ALT15 helper + waypoint-vs-vector helper note remain contiguous.
+- Durable decision: lock helper-note locality before adding ALT16 candidate rows to prevent docs-order readability regressions.
+- Injected follow-ups: ALT16 helper callout draft (design/ux) and ALT16 assertion-label placeholder contract (systems/qa).

@@ -1,3 +1,19 @@
+## Autonomous Cycle 2026-04-07 (Game Director Review — Cycle IP146)
+- Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC were fully checked after IP145 reconciliation, so mandatory Game Director loop executed immediately.
+- Candidate ideas generated:
+  - Low-risk UX/game-feel: add one-line docs helper microcopy that contrasts ALT14 waypoint anchor vs ALT15 vector direction with rollback-safe wording.
+  - Mid-risk Systems/Ops + QA: lock deterministic adjacency contract so ALT14 helper -> ALT15 helper -> waypoint-vs-vector helper note remain contiguous in markdown output.
+  - High-risk novelty: introduce ALT16 phrase candidate family with new cue wording and full payload/PASS/rationale drift diagnostics.
+- [x] Systems/Ops + QA + Design/World + UX Team (selected): implemented mid-risk adjacency lock as minimal vertical slice by adding regression assertion that ALT14/ALT15 helper callouts remain immediately adjacent to the waypoint-vs-vector helper note for one-scan readability. *(lifecycle: [ ] -> [~] started: 2026-04-07 22:24 KST -> [x] completed: 2026-04-07 22:28 KST; implementation: updated `scripts/regression_check_lane_coverage_guardrail.py`; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.)*
+
+## Next Up (Game Director Injection — Cycle IP146)
+- [ ] Design/World + UX Team (injected): add compact ALT16 helper callout draft (`GLINT=beeline pin intent`) for docs-order wording A/B while preserving report-only rollback wording gate.
+- [ ] Systems/Ops + QA Team (injected): pre-wire placeholder sparse diagnostics key contract names (`...legaltpinvfxalt16*NonPassRows`) in checklist notes before payload rows land.
+
+## Autonomous Cycle 2026-04-07 (Game Director Review — Cycle IP145)
+- Coverage check (start-of-run): ACTION_ITEMS/TASKS were fully checked; POST_RC had one unchecked injected item, so priority rule closed that item first.
+- [x] Design/World + UX + QA Team (selected, reconciliation slice): closed the remaining POST_RC injected item by reconciling checklist state with already-shipped waypoint-vs-vector docs helper note adjacent to ALT14/ALT15 rows (`...LEGALTPINVFXALT14`/`...LEGALTPINVFXALT15`) under report-only rollback wording gate. *(lifecycle: [ ] -> [~] started: 2026-04-07 22:19 KST -> [x] completed: 2026-04-07 22:22 KST; implementation evidence: existing `scripts/check_lane_coverage_guardrail.py` line includes `docs-order waypoint-vs-vector helper note ... ALT14=GLINT waypoint ... ALT15=GLINT vector ... SAFE brace rollback wording`; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.)*
+
 ## Autonomous Cycle 2026-04-07 (Game Director Review — Cycle IP143)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog fully checked, so mandatory Game Director loop executed immediately.
 - Candidate ideas generated:

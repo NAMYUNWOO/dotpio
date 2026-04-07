@@ -5907,3 +5907,12 @@
 - Added explicit sparse mixed-window first-diverged assertion-label surfacing for docs-order VFX ALT14/ALT15 payload/eval/rationale mismatch paths.
 - New failure strings now include concrete `assertionLabel=...NonPassRows` tokens for rapid fixture triage.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + guardrail regeneration command.
+
+## 2026-04-07 22:22 KST — Cycle IP145
+- Reconciled remaining POST_RC injected checkbox after verifying existing ALT14/ALT15 waypoint-vs-vector docs helper note is already emitted by guardrail report pipeline.
+- Kept regression command bundle unchanged to preserve deterministic contracts and avoid unnecessary code churn.
+- Verification: py_compile + regression_check_lane_coverage_guardrail + check_lane_coverage_guardrail PASS.
+
+## 2026-04-07 22:28 KST — Cycle IP146
+- Added deterministic regression adjacency lock requiring ALT14 helper, ALT15 helper, and waypoint-vs-vector helper note to remain contiguous in markdown output.
+- Purpose: prevent docs drift that breaks one-scan triage semantics during future phrase expansions.

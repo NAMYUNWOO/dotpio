@@ -4414,3 +4414,10 @@
 ## 2026-04-07 21:54 KST — One-scan readability cue update (ALT14/ALT15)
 - Added explicit docs helper copy so operators can quickly distinguish ALT14 (`GLINT waypoint`) vs ALT15 (`GLINT vector`) without scanning full rationale rows.
 - Regression now asserts helper-note presence.
+
+## 2026-04-07 22:22 KST — Cycle IP145
+- UX readability backlog item resolved via reconciliation; helper note already provided immediate ALT14 vs ALT15 distinction without widening copy footprint.
+- Maintained report-only gate language to prevent operator ambiguity during rollback triage.
+
+## 2026-04-07 22:28 KST — Cycle IP146
+- UX readability hardening shipped via regression: helper-note comparison block must remain contiguous to avoid split-context operator reading.
