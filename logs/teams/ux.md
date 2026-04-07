@@ -4425,3 +4425,8 @@
 ## 2026-04-07 22:49 KST
 - Added ALT16 eval contract `B35|C35|LIM72|PASS` and assertion-label helper references for ALT16/ALT16LEN in markdown checks.
 - 2026-04-07 23:21 KST — Operator-facing assertion-label helper copy expanded with ALT16R placeholder, preserving contiguous ALT16 trio readability in docs-order helper line.
+
+## 2026-04-07 23:53 KST — ALT17 docs-order phrase slice
+- Decision: Added report-only ALT17 docs-order trio (`...LEGALTPINVFXALT17`, `...ALT17LEN`, `...ALT17R`) with payload `PIN=GLINT trajectory|SAFE=SHIELD brace` to extend handoff wording bakeoff without runtime coupling.
+- Evidence: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+- Follow-up: Execute remaining Systems/Ops + QA placeholder task for `...legaltpinvfxalt17*NonPassRows` assertion-label + sparse-checklist contracts.

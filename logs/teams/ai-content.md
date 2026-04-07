@@ -4248,3 +4248,8 @@
 ## 2026-04-07 22:49 KST
 - Shipped report-only ALT16 phrase row `...LEGALTPINVFXALT16:PIN=GLINT beeline|SAFE=SHIELD brace` to expand handoff microcopy set.
 - 2026-04-07 23:21 KST — Prepared ALT16 diagnostics naming surface (`ALT16R` placeholder) for upcoming phrase/rationale experimentation without changing active payload wording.
+
+## 2026-04-07 23:53 KST — ALT17 docs-order phrase slice
+- Decision: Added report-only ALT17 docs-order trio (`...LEGALTPINVFXALT17`, `...ALT17LEN`, `...ALT17R`) with payload `PIN=GLINT trajectory|SAFE=SHIELD brace` to extend handoff wording bakeoff without runtime coupling.
+- Evidence: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+- Follow-up: Execute remaining Systems/Ops + QA placeholder task for `...legaltpinvfxalt17*NonPassRows` assertion-label + sparse-checklist contracts.

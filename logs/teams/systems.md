@@ -5922,3 +5922,8 @@
 - 2026-04-07 23:21 KST — Cycle IP146 follow-up: pre-wired docs-order checklist assertion-label placeholder for ALT16 rationale drift (`...legaltpinvfxalt16rNonPassRows`) to keep upcoming payload/eval/rationale diagnostics naming contract complete before further ALT16 row changes.
   - Evidence: updated `scripts/check_lane_coverage_guardrail.py` + `scripts/regression_check_lane_coverage_guardrail.py`; regression/guardrail bundle passed.
   - Follow-up: when ALT16 wording iterates again, keep ALT16/ALT16LEN/ALT16R assertion-label trio synchronized.
+
+## 2026-04-07 23:53 KST — ALT17 docs-order phrase slice
+- Decision: Added report-only ALT17 docs-order trio (`...LEGALTPINVFXALT17`, `...ALT17LEN`, `...ALT17R`) with payload `PIN=GLINT trajectory|SAFE=SHIELD brace` to extend handoff wording bakeoff without runtime coupling.
+- Evidence: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+- Follow-up: Execute remaining Systems/Ops + QA placeholder task for `...legaltpinvfxalt17*NonPassRows` assertion-label + sparse-checklist contracts.

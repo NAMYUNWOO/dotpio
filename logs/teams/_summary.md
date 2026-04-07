@@ -6525,3 +6525,11 @@ Compact decision memory for AI context efficiency.
 - Durable: docs-order helper adjacency now includes ALT16 (`ALT14 -> ALT15 -> ALT16 -> waypoint/vector note`) and ALT16 report-only rows are regression-tracked (`ALT16`, `ALT16LEN`, `ALT16R`, plus `...alt16*NonPassRows`).
 - 2026-04-07 23:21 KST — Cycle IP146 injected Systems/Ops+QA placeholder task completed: docs-order assertion-label helper now includes `ALT16R=assertionLabel=<...legaltpinvfxalt16rNonPassRows>` and regression string expectation was synchronized to lock the checklist contract before further ALT16 payload/eval/rationale changes.
 - 2026-04-07 23:21 KST — Game Director Cycle IP147 completed: selected low+mid risk checklist contract hardening, adding ALT16R assertion-label placeholder in docs-order helper and regression lock. Injected next tasks: (1) ALT17 report-only phrase candidate rows, (2) ALT17 diagnostics placeholder pre-wire (`...alt17*NonPassRows`).
+
+## 2026-04-07 23:53 KST — Cycle IP147 ALT17 slice
+- Completed ALT17 report-only docs-order handoff phrase vertical slice in `scripts/check_lane_coverage_guardrail.py`:
+  - `...LEGALTPINVFXALT17:PIN=GLINT trajectory|SAFE=SHIELD brace`
+  - `...LEGALTPINVFXALT17LEN:B38|C38|LIM72|PASS`
+  - `...LEGALTPINVFXALT17R:GLINT trajectory keeps pin handoff explicit|SAFE brace preserves readability`
+- Verified with py_compile + regression + guardrail regeneration bundle; no runtime-coupled behavior changed.
+- Next priority remains unchecked Systems/Ops + QA placeholder wiring for `...legaltpinvfxalt17*NonPassRows` assertion-label/checklist contracts.
