@@ -6533,3 +6533,8 @@ Compact decision memory for AI context efficiency.
   - `...LEGALTPINVFXALT17R:GLINT trajectory keeps pin handoff explicit|SAFE brace preserves readability`
 - Verified with py_compile + regression + guardrail regeneration bundle; no runtime-coupled behavior changed.
 - Next priority remains unchecked Systems/Ops + QA placeholder wiring for `...legaltpinvfxalt17*NonPassRows` assertion-label/checklist contracts.
+
+## 2026-04-08 00:24 KST
+- Closed TASKS top priority injected Systems/Ops + QA item by pre-wiring ALT17 diagnostics placeholders in both docs-order assertion-label helper text and regression sparse mixed-window checklist contracts.
+- Durable decision: each new docs-order ALT payload/eval/rationale family must reserve assertionLabel + NonPassRows placeholders before (or at latest with) payload-row landing to keep first-diverged diagnostics deterministic.
+- Verification PASS (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`).

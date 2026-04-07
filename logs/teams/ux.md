@@ -4430,3 +4430,11 @@
 - Decision: Added report-only ALT17 docs-order trio (`...LEGALTPINVFXALT17`, `...ALT17LEN`, `...ALT17R`) with payload `PIN=GLINT trajectory|SAFE=SHIELD brace` to extend handoff wording bakeoff without runtime coupling.
 - Evidence: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
 - Follow-up: Execute remaining Systems/Ops + QA placeholder task for `...legaltpinvfxalt17*NonPassRows` assertion-label + sparse-checklist contracts.
+
+## 2026-04-08 00:24 KST
+- Cycle IP147 systems/ops+qa follow-up closed: pre-wired ALT17 diagnostics placeholders in docs-order assertion-label helper and sparse mixed-window checklist contract surfaces (, , ) while keeping report-only rollback wording gate intact.
+- Verification PASS ( + ok: trendScoreBand dispatch-hint/momentum-band regression checks passed + ).
+
+## 2026-04-08 00:24 KST
+- Cycle IP147 systems/ops+qa follow-up closed: pre-wired ALT17 diagnostics placeholders in docs-order assertion-label helper and sparse mixed-window checklist contract surfaces (...legaltpinvfxalt17NonPassRows, ...alt17lenNonPassRows, ...alt17rNonPassRows) while keeping report-only rollback wording gate intact.
+- Verification PASS (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`).
