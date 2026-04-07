@@ -1,3 +1,16 @@
+## Autonomous Cycle 2026-04-07 (Game Director Review — Cycle IP135)
+- Coverage check (last 10 completions from `logs/weekly_lane_coverage_guardrail.json`): systems=0, world=0, ai-content=0, combat=0, design=0, vfx=0, ux=0, qa=0.
+- Lane cap result: no lane exceeded 40%; cadence buckets still missing (`combat-or-vfx`, `design-or-world`, `systems-or-ops`), so forced underrepresented-lane pick targeted `combat-or-vfx` first.
+- Candidate ideas generated:
+  - Low-risk Combat/VFX + UX: add ninth docs-order VFX handoff phrase candidate row + LIM72 eval lock to widen report-only wording bakeoff.
+  - Mid-risk Design/World + UX: add docs-order compact decode helper note for ALT8 phrasing (`guardrail` semantics) to preserve one-scan readability.
+  - High-risk Systems/Ops + QA: add sparse mixed-window assertion-label surfacing for ALT8 drift with strict first-diverged fixture telemetry.
+- [x] Combat/VFX + UX + Systems/Ops + QA Team (selected): add `...LEGALTPINVFXALT8` + `...LEGALTPINVFXALT8LEN` rows with deterministic regression coverage and sparse mixed-window assertions. *(lifecycle: [ ] -> [~] started: 2026-04-07 15:36 KST -> [x] completed: 2026-04-07 15:41 KST; implementation: updated `scripts/check_lane_coverage_guardrail.py` + `scripts/regression_check_lane_coverage_guardrail.py` with candidate payload `PIN=GLINT guardrail|SAFE=SHIELD brace`, markdown presence assertions, row-count/non-pass keys, and sparse mixed-window first-diverged assertions for payload/PASS drift; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle IP135)
+- [ ] Design/World + UX Team (injected): add compact docs-order helper callout for ALT8 (`GLINT guardrail` intent + SAFE brace readability cue) adjacent to existing VFX decode helper row.
+- [ ] Systems/Ops + QA Team (injected): add explicit `assertionLabel=<...legaltpinvfxalt8NonPassRows>` / `...alt8lenNonPassRows` surfacing in first-diverged sparse mixed-window assertions.
+
 ## Autonomous Cycle 2026-04-07 (Game Director Review — Cycle IP133)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog fully checked, so mandatory Game Director loop executed immediately.
 - Candidate ideas generated:

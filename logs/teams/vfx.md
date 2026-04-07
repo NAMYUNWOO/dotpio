@@ -1,3 +1,8 @@
+## 2026-04-07 15:41 KST
+- Cycle IP135 forced-lane combat/vfx slice shipped: added report-only docs-order VFX handoff ALT8 row `...LEGALTPINVFXALT8:PIN=GLINT guardrail|SAFE=SHIELD brace` plus eval row `...LEGALTPINVFXALT8LEN:B37|C37|LIM72|PASS`.
+- Scope remains additive/reversible and telemetry-only; runtime combat/VFX behavior unchanged.
+- Verification PASS (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`).
+
 ## 2026-04-07 13:06 KST
 - VFX cue handoff wording matrix expanded with `...LEGALTPINVFXALT2` (`GLINT spark`/`SHIELD brace`) under report-only rollback gate.
 - Verification PASS (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`).

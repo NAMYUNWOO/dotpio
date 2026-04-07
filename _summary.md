@@ -241,6 +241,13 @@
 - Selected low-risk UX/Design + Systems/QA slice: added `TSDPMFXVWCRITSPMBCBNXDMAPNFXQLEVAL:B35|C35|LIM72|PASS` and strict adjacency lock `...NFXQLEG -> ...NFXQLEVAL -> ...NFXPLEG`.
 - Durable contract: decode-helper expansions now require adjacent eval-row anchoring before downstream decode helpers.
 
+## 2026-04-07 15:41 KST
+- Autonomous Cycle IP135 ran because ACTION_ITEMS/TASKS/POST_RC were fully checked and cadence buckets were still missing in the last-10 guardrail snapshot (combat-or-vfx/design-or-world/systems-or-ops all 0).
+- Idea slate: (1) low-risk combat/vfx ALT8 phrase row, (2) mid-risk design/world ALT8 helper callout, (3) high-risk systems assertion-label surfacing.
+- Selected experiment (combat/vfx forced): shipped report-only docs-order VFX ALT8 candidate + width eval rows and mirrored deterministic regression + mixed-window drift checks.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+- Injected next experiments: Design/World ALT8 readability helper + Systems/Ops explicit assertionLabel surfacing for ALT8 first-diverged diagnostics.
+
 ## 2026-04-05 20:22 KST — Cycle IP92 injected NFXQBACK domain lock
 - Completed injected Systems/Ops + QA task: added fixture-level + mixed-window regression assertions to constrain `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACK` payloads to `AR|XR|SR` with explicit first-diverged fixture/occurrence diagnostics.
 - Verification bundle: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.

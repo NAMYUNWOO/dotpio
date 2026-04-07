@@ -1,4 +1,7 @@
 
+## 2026-04-07 15:41 KST
+- IP135 injected design/world follow-up opened: add compact ALT8 docs-order helper callout clarifying `GLINT guardrail` intent plus SAFE brace readability cue next to the existing VFX decode helper row.
+
 ## 2026-04-07 14:50 KST
 - Design docs-order narrative extended to include seventh phrase candidate/eval rows without breaking one-scan ordering around baseline/alt variants.
 

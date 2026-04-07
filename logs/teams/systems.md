@@ -1,4 +1,8 @@
 
+## 2026-04-07 15:41 KST
+- Cycle IP135 systems/ops coverage expanded with ALT8 sparse drift diagnostics (`...legaltpinvfxalt8NonPassRows`, `...legaltpinvfxalt8lenNonPassRows`) and mixed-window first-diverged assertion checks.
+- Injected systems/qa follow-up opened: surface explicit `assertionLabel=<...alt8NonPassRows>` and `...alt8lenNonPassRows` text in first-diverged failures for one-scan triage.
+
 ## 2026-04-07 14:50 KST
 - Cycle IP133 systems/ops slice shipped: regression harness now tracks seventh docs-order VFX candidate payload + eval drift via `...legaltpinvfxalt6NonPassRows` and `...legaltpinvfxalt6lenNonPassRows`, with sparse mixed-window first-diverged assertions.
 - Verification PASS (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`).

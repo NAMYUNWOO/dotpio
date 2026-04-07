@@ -6317,6 +6317,12 @@ Compact decision memory for AI context efficiency.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
 - Queue status after run: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=0.
 
+## 2026-04-07 15:41 KST
+- Game Director Cycle IP135 executed with forced underrepresented-lane priority (`combat-or-vfx`) because cadence buckets remained missing (CV/DW/SO all 0 in last-10 coverage snapshot).
+- Selected experiment shipped: docs-order VFX ALT8 rows `...LEGALTPINVFXALT8:PIN=GLINT guardrail|SAFE=SHIELD brace` and `...LEGALTPINVFXALT8LEN:B37|C37|LIM72|PASS` with deterministic regression presence/parity/non-pass + sparse mixed-window first-diverged assertions.
+- Injected backlog tasks opened to satisfy cadence recovery: (1) Design/World+UX ALT8 helper callout, (2) Systems/Ops+QA explicit assertion-label surfacing for ALT8 diagnostics.
+- Verification PASS: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+
 ## 2026-04-07 01:56 KST
 - Mandatory Game Director Cycle IP120 executed after queues reached fully-checked state.
 - Ideas considered: (1) sentinel decode helper copy (low risk), (2) sparse payload-drift diagnostics for `...LEGALTPIN` (mid risk, selected), (3) alternate sentinel payload wording behind gate (high risk).
