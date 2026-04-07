@@ -6609,3 +6609,7 @@ Compact decision memory for AI context efficiency.
 - 2026-04-08 05:24 KST — Cycle IP154 follow-up shipped ALT24 report-only handoff phrase rows (`...LEGALTPINVFXALT24`, `...ALT24LEN:B32|C32|LIM72|PASS`, `...ALT24R`) and extended assertion-label helper coverage (ALT24/ALT24LEN/ALT24R). Regression helper-string contract synced; full guardrail verification bundle remains green.
 
 - 2026-04-08 05:31 KST — Cycle IP155 ran mandatory Game Director loop after full-check state; shipped ALT23-vs-ALT24 comparator rows and extended ALT23V24 assertion-label helper aliases. Injected next item: ALT25 phrase prototype (`PIN=GLINT prow|SAFE=SHIELD brace`).
+
+## 2026-04-08 05:56 KST
+- Closed Cycle IP155 injected ALT25 backlog item by shipping report-only docs-order phrase/eval/rationale rows (`...ALT25*`) and assertion-label helper contract sync across guardrail + regression scripts.
+- Verification PASS: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
