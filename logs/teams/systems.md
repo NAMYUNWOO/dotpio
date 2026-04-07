@@ -5841,3 +5841,7 @@
 - 2026-04-07 12:24 KST — Cycle IP129: Added regression key `...legaltpinvfxaltlenNonPassRows` plus sparse mixed-window PASS-domain assertion for `...LEGALTPINVFXALTLEN` to keep alt VFX handoff width drift deterministic.
 - 2026-04-07 13:20 KST — Cycle IP131: Added deterministic row-count + non-pass diagnostics wiring for `...LEGALTPINVFXALT3` and `...LEGALTPINVFXALT3LEN`; sparse mixed-window first-diverged fixture assertions now cover fourth phrase payload/PASS drift.
 - 2026-04-07 13:52 KST — Cycle IP132: Added docs-order fifth VFX handoff candidate regression contract (`...LEGALTPINVFXALT4`, `...ALT4LEN`) with new row-count + non-pass diagnostics keys for sparse mixed-window drift triage.
+
+## 2026-04-07 14:18 KST
+- Cycle IP133: shipped docs-order VFX alt5 guardrail slice (`...LEGALTPINVFXALT5`, `...LEGALTPINVFXALT5LEN`) with deterministic sparse mixed-window mismatch keys (`...legaltpinvfxalt5NonPassRows`, `...legaltpinvfxalt5lenNonPassRows`).
+- Verification: py_compile + regression_check_lane_coverage_guardrail.py + check_lane_coverage_guardrail.py regeneration PASS.

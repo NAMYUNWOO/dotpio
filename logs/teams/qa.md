@@ -6299,3 +6299,7 @@
 - 2026-04-07 12:24 KST — Cycle IP129: Extended regression with markdown presence + fixture extraction + mixed-window PASS assertion for `...LEGALTPINVFXALTLEN`; py_compile/regression/guardrail checks passed.
 - 2026-04-07 13:20 KST — Cycle IP131: Verification PASS (`py_compile`, regression suite, guardrail JSON/MD generation). Added mixed-window assertions for ALT3 non-pass diagnostics to guarantee deterministic failure surfacing.
 - 2026-04-07 13:52 KST — Cycle IP132: Added sparse mixed-window first-diverged diagnostics assertions for ALT4 payload and PASS-domain eval drift (`...alt4NonPassRows`, `...alt4lenNonPassRows`).
+
+## 2026-04-07 14:18 KST
+- Cycle IP133: shipped docs-order VFX alt5 guardrail slice (`...LEGALTPINVFXALT5`, `...LEGALTPINVFXALT5LEN`) with deterministic sparse mixed-window mismatch keys (`...legaltpinvfxalt5NonPassRows`, `...legaltpinvfxalt5lenNonPassRows`).
+- Verification: py_compile + regression_check_lane_coverage_guardrail.py + check_lane_coverage_guardrail.py regeneration PASS.

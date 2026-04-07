@@ -4118,3 +4118,7 @@
 - 2026-04-07 12:24 KST — Cycle IP129: Added alt handoff eval row `...LEGALTPINVFXALTLEN:B33|C33|LIM72|PASS` to preserve one-scan combat cue readability for PIN->SAFE VFX wording candidate.
 - 2026-04-07 13:20 KST — Cycle IP131: Extended combat/VFX handoff cue exploration with ALT3 phrase to test readability cadence while preserving existing baseline cue semantics.
 - 2026-04-07 13:52 KST — Cycle IP132: Extended combat/VFX docs-order handoff phrase set with ALT4 candidate and PASS eval row to support controlled wording experimentation.
+
+## 2026-04-07 14:18 KST
+- Cycle IP133: shipped docs-order VFX alt5 guardrail slice (`...LEGALTPINVFXALT5`, `...LEGALTPINVFXALT5LEN`) with deterministic sparse mixed-window mismatch keys (`...legaltpinvfxalt5NonPassRows`, `...legaltpinvfxalt5lenNonPassRows`).
+- Verification: py_compile + regression_check_lane_coverage_guardrail.py + check_lane_coverage_guardrail.py regeneration PASS.

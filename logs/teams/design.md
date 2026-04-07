@@ -4272,3 +4272,7 @@
 - 2026-04-07 12:24 KST — Cycle IP129: Confirmed alt VFX handoff phrase width telemetry is now explicit via `...LEGALTPINVFXALTLEN`, reducing docs-order ambiguity during review.
 - 2026-04-07 13:20 KST — Cycle IP131: Confirmed docs-order row placement keeps VFX handoff alternatives contiguous and one-scan readable in markdown output.
 - 2026-04-07 13:52 KST — Cycle IP132: Preserved one-scan docs-order narrative by adding ALT4 alongside existing ALT/ALT2/ALT3 variants for side-by-side readability checks.
+
+## 2026-04-07 14:18 KST
+- Cycle IP133: shipped docs-order VFX alt5 guardrail slice (`...LEGALTPINVFXALT5`, `...LEGALTPINVFXALT5LEN`) with deterministic sparse mixed-window mismatch keys (`...legaltpinvfxalt5NonPassRows`, `...legaltpinvfxalt5lenNonPassRows`).
+- Verification: py_compile + regression_check_lane_coverage_guardrail.py + check_lane_coverage_guardrail.py regeneration PASS.

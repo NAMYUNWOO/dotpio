@@ -4363,3 +4363,7 @@
 - 2026-04-07 12:24 KST — Cycle IP129: Shipped visible PASS token for alternate VFX phrase width (`B33|C33|LIM72|PASS`) to keep UI/readability checks one-scan.
 - 2026-04-07 13:20 KST — Cycle IP131: Added ALT3 eval row (`B33|C33|LIM72|PASS`) to keep phrase-width affordance explicit and comparable with ALT/ALT2 in one scan.
 - 2026-04-07 13:52 KST — Cycle IP132: Added ALT4 width eval row (`B33|C33|LIM72|PASS`) and regression checks to ensure phrase candidate stays within compact readability budget.
+
+## 2026-04-07 14:18 KST
+- Cycle IP133: shipped docs-order VFX alt5 guardrail slice (`...LEGALTPINVFXALT5`, `...LEGALTPINVFXALT5LEN`) with deterministic sparse mixed-window mismatch keys (`...legaltpinvfxalt5NonPassRows`, `...legaltpinvfxalt5lenNonPassRows`).
+- Verification: py_compile + regression_check_lane_coverage_guardrail.py + check_lane_coverage_guardrail.py regeneration PASS.

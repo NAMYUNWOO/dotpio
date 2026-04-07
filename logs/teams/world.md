@@ -4108,3 +4108,7 @@
 - 2026-04-07 12:24 KST — Cycle IP129: No map/portal schema changes; world lane reviewed during ideation and deferred while systems/combat minimal vertical slice shipped.
 - 2026-04-07 13:20 KST — Cycle IP131: Reviewed docs-order narrative readability impact for fourth phrase candidate; kept report-only wording gate so world/theme coherence remains reversible.
 - 2026-04-07 13:52 KST — Cycle IP132: Kept docs-order readability progression contiguous while introducing ALT4 candidate wording so operators can compare phrase variants without changing runtime behavior.
+
+## 2026-04-07 14:18 KST
+- Cycle IP133: shipped docs-order VFX alt5 guardrail slice (`...LEGALTPINVFXALT5`, `...LEGALTPINVFXALT5LEN`) with deterministic sparse mixed-window mismatch keys (`...legaltpinvfxalt5NonPassRows`, `...legaltpinvfxalt5lenNonPassRows`).
+- Verification: py_compile + regression_check_lane_coverage_guardrail.py + check_lane_coverage_guardrail.py regeneration PASS.
