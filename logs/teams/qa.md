@@ -6309,3 +6309,10 @@
 - Verification: py_compile + regression_check_lane_coverage_guardrail.py + check_lane_coverage_guardrail.py regeneration PASS.
 - 2026-04-07 15:24 KST — IP134: Added sparse mixed-window first-diverged assertions for ALT7 + ALT7LEN NonPassRows paths.
 - [2026-04-07 15:56 KST] Cycle IP136 verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` (ok: trendScoreBand dispatch-hint/momentum-band regression checks passed) + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`; no sparse mixed-window failures.
+
+## 2026-04-07 16:25 KST — Verification pass for ALT8R sparse diagnostics
+- Validation bundle passed after ALT8R diagnostics insertion:
+  - `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`
+  - `python3 scripts/regression_check_lane_coverage_guardrail.py`
+  - `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`
+- Result: no regression failures; sparse mixed-window diagnostics now include ALT8R payload drift key.

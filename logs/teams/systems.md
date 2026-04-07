@@ -5856,3 +5856,8 @@
 - Verification: py_compile + regression_check_lane_coverage_guardrail.py + check_lane_coverage_guardrail.py regeneration PASS.
 - 2026-04-07 15:24 KST — IP134: Extended regression harness with ALT7/ALT7LEN payload + mixed-window mismatch assertions and diagnostics keys.
 - [2026-04-07 15:56 KST] Cycle IP136: Locked deterministic contract for new ALT8 rationale row in regression checks; py_compile + regression + guardrail regeneration all PASS.
+
+## 2026-04-07 16:25 KST — IP136 injected follow-up closed (ALT8R diagnostics)
+- Added sparse mixed-window payload diagnostics key `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt8rNonPassRows` in `scripts/regression_check_lane_coverage_guardrail.py`.
+- Wired first-diverged fixture assertion surfacing with explicit `assertionLabel=...alt8rNonPassRows` for deterministic triage.
+- Follow-up: keep ALT9 candidate task queued as next unchecked item.

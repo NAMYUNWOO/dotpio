@@ -6443,3 +6443,8 @@ Compact decision memory for AI context efficiency.
 - Queue status after run: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=0 (next: mandatory Game Director review cycle).
 - 2026-04-07 (IP134): Shipped docs-order VFX handoff ALT7 (`PIN=GLINT beacon|SAFE=SHIELD brace`) plus regression parity/non-pass coverage (`ALT7`, `ALT7LEN`) across sparse mixed-window fixtures; verification bundle PASS.
 - 2026-04-07 15:56 KST (Cycle IP136): Completed ALT8 docs-order readability vertical slice by adding rationale row `...LEGALTPINVFXALT8R` and regression presence lock; verified via py_compile + regression + guardrail regeneration. Injected next tasks: (1) sparse diagnostics keying for ALT8R drift, (2) ALT9 phrase prototype.
+
+## 2026-04-07 16:25 KST — Durable decision (IP136 follow-up)
+- Promoted ALT8 rationale row drift checks to first-class sparse diagnostics via `...legaltpinvfxalt8rNonPassRows`.
+- Decision: treat rationale rows as payload-contract rows (same first-diverged assertion-label surfacing policy as phrase/eval rows).
+- Queue status: remaining top-priority unchecked item is ALT9 phrase candidate prototype (`...LEGALTPINVFXALT9`).
