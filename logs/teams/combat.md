@@ -4176,3 +4176,4 @@
 
 ## 2026-04-07 22:49 KST
 - Maintained combat/vfx rollback wording gate while adding ALT16 candidate/eval/rationale rows (`ALT16`, `ALT16LEN`, `ALT16R`).
+- 2026-04-07 23:21 KST — No combat runtime tuning this slice; maintained VFX handoff checklist integrity by pre-wiring ALT16 rationale assertion-label placeholder for upcoming report-only phrase experiments.

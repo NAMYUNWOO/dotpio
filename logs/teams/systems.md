@@ -5919,3 +5919,6 @@
 
 ## 2026-04-07 22:49 KST
 - Added ALT16 sparse diagnostics key placeholders in regression outputs (`...legaltpinvfxalt16*NonPassRows`) so checklist contracts exist before stricter mixed-window assertion wiring.
+- 2026-04-07 23:21 KST — Cycle IP146 follow-up: pre-wired docs-order checklist assertion-label placeholder for ALT16 rationale drift (`...legaltpinvfxalt16rNonPassRows`) to keep upcoming payload/eval/rationale diagnostics naming contract complete before further ALT16 row changes.
+  - Evidence: updated `scripts/check_lane_coverage_guardrail.py` + `scripts/regression_check_lane_coverage_guardrail.py`; regression/guardrail bundle passed.
+  - Follow-up: when ALT16 wording iterates again, keep ALT16/ALT16LEN/ALT16R assertion-label trio synchronized.

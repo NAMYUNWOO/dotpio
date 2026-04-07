@@ -1,3 +1,15 @@
+## Autonomous Cycle 2026-04-07 (Game Director Review — Cycle IP147)
+- Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC were fully checked after IP146 injected-item closure, so mandatory Game Director loop executed immediately.
+- Candidate ideas generated:
+  - Low-risk UX/game-feel: add checklist-level ALT16 rationale placeholder note (`ALT16R`) so operators see payload/eval/rationale trio together before future phrase swaps.
+  - Mid-risk Systems/Ops + QA: lock regression contract so docs-order assertion-label helper must include `ALT16R=assertionLabel=<...legaltpinvfxalt16rNonPassRows>`.
+  - High-risk novelty: introduce ALT17 phrase candidate family with new payload/eval/rationale rows plus sparse diagnostics keys.
+- [x] Systems/Ops + QA + UX Team (selected): shipped low+mid risk vertical slice by extending docs-order assertion-label helper with `ALT16R` placeholder and enforcing it in regression expectation text. *(lifecycle: [ ] -> [~] started: 2026-04-07 23:19 KST -> [x] completed: 2026-04-07 23:21 KST; implementation: `scripts/check_lane_coverage_guardrail.py`, `scripts/regression_check_lane_coverage_guardrail.py`; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.)*
+
+## Next Up (Game Director Injection — Cycle IP147)
+- [ ] Combat/VFX + AI-content Team (injected): prototype ALT17 report-only handoff phrase candidate (`PIN=GLINT trajectory|SAFE=SHIELD brace`) with LIM72 eval + rationale rows while preserving rollback wording gate.
+- [ ] Systems/Ops + QA Team (injected): pre-wire `...legaltpinvfxalt17*NonPassRows` diagnostics placeholders (payload/eval/rationale) in docs-order assertion-label helper and sparse mixed-window checklist contracts before ALT17 payload rows land.
+
 ## Autonomous Cycle 2026-04-07 (Game Director Review — Cycle IP146)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC were fully checked after IP145 reconciliation, so mandatory Game Director loop executed immediately.
 - Candidate ideas generated:
@@ -8,7 +20,7 @@
 
 ## Next Up (Game Director Injection — Cycle IP146)
 - [x] Design/World + UX Team (injected): add compact ALT16 helper callout draft (`GLINT=beeline pin intent`) for docs-order wording A/B while preserving report-only rollback wording gate.
-- [ ] Systems/Ops + QA Team (injected): pre-wire placeholder sparse diagnostics key contract names (`...legaltpinvfxalt16*NonPassRows`) in checklist notes before payload rows land.
+- [x] Systems/Ops + QA Team (injected): pre-wire placeholder sparse diagnostics key contract names (`...legaltpinvfxalt16*NonPassRows`) in checklist notes before payload rows land. *(lifecycle: [ ] -> [~] started: 2026-04-07 23:19 KST -> [x] completed: 2026-04-07 23:21 KST; implementation: extended docs-order assertion-label helper checklist copy to include `ALT16R=assertionLabel=<...legaltpinvfxalt16rNonPassRows>` and aligned regression expectation in `scripts/regression_check_lane_coverage_guardrail.py`; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.)*
 
 ## Autonomous Cycle 2026-04-07 (Game Director Review — Cycle IP145)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS were fully checked; POST_RC had one unchecked injected item, so priority rule closed that item first.

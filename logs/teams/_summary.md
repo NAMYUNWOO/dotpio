@@ -6523,3 +6523,5 @@ Compact decision memory for AI context efficiency.
 
 ## 2026-04-07 22:49 KST
 - Durable: docs-order helper adjacency now includes ALT16 (`ALT14 -> ALT15 -> ALT16 -> waypoint/vector note`) and ALT16 report-only rows are regression-tracked (`ALT16`, `ALT16LEN`, `ALT16R`, plus `...alt16*NonPassRows`).
+- 2026-04-07 23:21 KST — Cycle IP146 injected Systems/Ops+QA placeholder task completed: docs-order assertion-label helper now includes `ALT16R=assertionLabel=<...legaltpinvfxalt16rNonPassRows>` and regression string expectation was synchronized to lock the checklist contract before further ALT16 payload/eval/rationale changes.
+- 2026-04-07 23:21 KST — Game Director Cycle IP147 completed: selected low+mid risk checklist contract hardening, adding ALT16R assertion-label placeholder in docs-order helper and regression lock. Injected next tasks: (1) ALT17 report-only phrase candidate rows, (2) ALT17 diagnostics placeholder pre-wire (`...alt17*NonPassRows`).

@@ -6374,3 +6374,6 @@
 
 ## 2026-04-07 22:49 KST
 - Regression suite now validates ALT16 payload/eval/rationale non-pass diagnostics extraction and row-count tracking.
+- 2026-04-07 23:21 KST — Added regression lock for ALT16 placeholder checklist text to include `ALT16R=assertionLabel=<...legaltpinvfxalt16rNonPassRows>`.
+  - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+  - Follow-up: ensure future ALT16 payload/eval/rationale row additions keep assertion-label helper text and sparse diagnostics keys aligned.

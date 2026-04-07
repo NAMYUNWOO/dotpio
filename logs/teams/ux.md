@@ -4424,3 +4424,4 @@
 
 ## 2026-04-07 22:49 KST
 - Added ALT16 eval contract `B35|C35|LIM72|PASS` and assertion-label helper references for ALT16/ALT16LEN in markdown checks.
+- 2026-04-07 23:21 KST — Operator-facing assertion-label helper copy expanded with ALT16R placeholder, preserving contiguous ALT16 trio readability in docs-order helper line.

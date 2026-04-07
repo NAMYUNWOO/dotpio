@@ -4340,3 +4340,4 @@
 
 ## 2026-04-07 22:49 KST
 - Updated adjacency regression to require ALT14 -> ALT15 -> ALT16 -> waypoint/vector helper note ordering for one-scan docs readability.
+- 2026-04-07 23:21 KST — Docs-order readability checklist now explicitly calls out ALT16 rationale assertion label placeholder (`ALT16R`) for one-scan triage consistency.
