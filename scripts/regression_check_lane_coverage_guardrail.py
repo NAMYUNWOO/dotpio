@@ -4238,7 +4238,7 @@ def run_fixture_case(
         "docs-order ALT22 helper callout (design/world+ux): `...LEGALTPINVFXALT22` keeps **GLINT=meridian pin intent** + **SHIELD=SAFE brace readability cue** for one-scan triage."
         in md_text
     ), f"{name}: markdown output must include ALT22 docs-order helper callout for meridian/SAFE readability"
-    alt14_alt20_waypoint_vector_adjacency_matches = re.findall(
+    alt14_alt22_waypoint_vector_adjacency_matches = re.findall(
         r"- docs-order ALT14 helper callout \(design/world\+ux\): `\.\.\.LEGALTPINVFXALT14` keeps \*\*GLINT=waypoint pin handoff intent\*\* \+ \*\*SHIELD=SAFE brace readability cue\*\* for one-scan triage\.\n"
         r"- docs-order ALT15 helper callout \(design/world\+ux\): `\.\.\.LEGALTPINVFXALT15` keeps \*\*GLINT=vector pin handoff intent\*\* \+ \*\*SHIELD=SAFE brace readability cue\*\* for one-scan triage\.\n"
         r"- docs-order ALT16 helper callout \(design/world\+ux\): `\.\.\.LEGALTPINVFXALT16` keeps \*\*GLINT=beeline pin intent\*\* \+ \*\*SHIELD=SAFE brace readability cue\*\* for one-scan triage\.\n"
@@ -4246,17 +4246,19 @@ def run_fixture_case(
         r"- docs-order ALT18 helper callout \(design/world\+ux\): `\.\.\.LEGALTPINVFXALT18` keeps \*\*GLINT=compass pin intent\*\* \+ \*\*SHIELD=SAFE brace readability cue\*\* for one-scan triage\.\n"
         r"- docs-order ALT19 helper callout \(design/world\+ux\): `\.\.\.LEGALTPINVFXALT19` keeps \*\*GLINT=bearing pin intent\*\* \+ \*\*SHIELD=SAFE brace readability cue\*\* for one-scan triage\.\n"
         r"- docs-order ALT20 helper callout \(design/world\+ux\): `\.\.\.LEGALTPINVFXALT20` keeps \*\*GLINT=heading pin intent\*\* \+ \*\*SHIELD=SAFE brace readability cue\*\* for one-scan triage\.\n"
-        r"- docs-order waypoint-vs-vector helper note \(design/world\+ux, report-only gate\): \*\*ALT14=GLINT waypoint\*\* keeps route anchor readability while \*\*ALT15=GLINT vector\*\* keeps directional handoff readability; both preserve SAFE brace rollback wording\.",
+        r"- docs-order waypoint-vs-vector helper note \(design/world\+ux, report-only gate\): \*\*ALT14=GLINT waypoint\*\* keeps route anchor readability while \*\*ALT15=GLINT vector\*\* keeps directional handoff readability; both preserve SAFE brace rollback wording\."
+        r"\n- docs-order ALT21 helper callout \(design/world\+ux\): `\.\.\.LEGALTPINVFXALT21` keeps \*\*GLINT=azimuth pin intent\*\* \+ \*\*SHIELD=SAFE brace readability cue\*\* for one-scan triage\."
+        r"\n- docs-order ALT22 helper callout \(design/world\+ux\): `\.\.\.LEGALTPINVFXALT22` keeps \*\*GLINT=meridian pin intent\*\* \+ \*\*SHIELD=SAFE brace readability cue\*\* for one-scan triage\.",
         md_text,
     )
-    assert len(alt14_alt20_waypoint_vector_adjacency_matches) >= 1, (
-        f"{name}: ALT14/ALT15/ALT16/ALT17/ALT18/ALT19/ALT20 helper callouts must stay immediately adjacent to waypoint-vs-vector helper note for one-scan docs readability"
+    assert len(alt14_alt22_waypoint_vector_adjacency_matches) >= 1, (
+        f"{name}: ALT14/ALT15/ALT16/ALT17/ALT18/ALT19/ALT20/ALT21/ALT22 helper callouts must stay immediately adjacent to waypoint-vs-vector helper note for one-scan docs readability"
     )
     assert (
         "docs-order assertion-label helper (design/world+ux): PINLEN=`assertionLabel=<...legaltpinlenNonPassRows>` | "
         "PINSAFE=`assertionLabel=<...legaltpinsafeNonPassRows>` | SAFE=`assertionLabel=<...legaltsafeNonPassRows>` | "
         "ALTLEN=`assertionLabel=<...legaltlenNonPassRows>` | ALT8=`assertionLabel=<...legaltpinvfxalt8NonPassRows>` | "
-        "ALT8LEN=`assertionLabel=<...legaltpinvfxalt8lenNonPassRows>` | ALT9=`assertionLabel=<...legaltpinvfxalt9NonPassRows>` | ALT9LEN=`assertionLabel=<...legaltpinvfxalt9lenNonPassRows>` | ALT10=`assertionLabel=<...legaltpinvfxalt10NonPassRows>` | ALT10LEN=`assertionLabel=<...legaltpinvfxalt10lenNonPassRows>` | ALT11=`assertionLabel=<...legaltpinvfxalt11NonPassRows>` | ALT11LEN=`assertionLabel=<...legaltpinvfxalt11lenNonPassRows>` | ALT12=`assertionLabel=<...legaltpinvfxalt12NonPassRows>` | ALT12LEN=`assertionLabel=<...legaltpinvfxalt12lenNonPassRows>` | ALT13=`assertionLabel=<...legaltpinvfxalt13NonPassRows>` | ALT13LEN=`assertionLabel=<...legaltpinvfxalt13lenNonPassRows>` | ALT14=`assertionLabel=<...legaltpinvfxalt14NonPassRows>` | ALT14LEN=`assertionLabel=<...legaltpinvfxalt14lenNonPassRows>` | ALT15=`assertionLabel=<...legaltpinvfxalt15NonPassRows>` | ALT15LEN=`assertionLabel=<...legaltpinvfxalt15lenNonPassRows>` | ALT16=`assertionLabel=<...legaltpinvfxalt16NonPassRows>` | ALT16LEN=`assertionLabel=<...legaltpinvfxalt16lenNonPassRows>` | ALT16R=`assertionLabel=<...legaltpinvfxalt16rNonPassRows>` | ALT17=`assertionLabel=<...legaltpinvfxalt17NonPassRows>` | ALT17LEN=`assertionLabel=<...legaltpinvfxalt17lenNonPassRows>` | ALT17R=`assertionLabel=<...legaltpinvfxalt17rNonPassRows>` | ALT18=`assertionLabel=<...legaltpinvfxalt18NonPassRows>` | ALT18LEN=`assertionLabel=<...legaltpinvfxalt18lenNonPassRows>` | ALT18R=`assertionLabel=<...legaltpinvfxalt18rNonPassRows>` | ALT19=`assertionLabel=<...legaltpinvfxalt19NonPassRows>` | ALT19LEN=`assertionLabel=<...legaltpinvfxalt19lenNonPassRows>` | ALT19R=`assertionLabel=<...legaltpinvfxalt19rNonPassRows>` | ALT20=`assertionLabel=<...legaltpinvfxalt20NonPassRows>` | ALT20LEN=`assertionLabel=<...legaltpinvfxalt20lenNonPassRows>` | ALT20R=`assertionLabel=<...legaltpinvfxalt20rNonPassRows>` | ALT21=`assertionLabel=<...legaltpinvfxalt21NonPassRows>` | ALT21LEN=`assertionLabel=<...legaltpinvfxalt21lenNonPassRows>` | ALT21R=`assertionLabel=<...legaltpinvfxalt21rNonPassRows>` | ALT19V20LEN=`assertionLabel=<...legaltpinvfxalt19v20lenNonPassRows>` | ALT19V20R=`assertionLabel=<...legaltpinvfxalt19v20rNonPassRows>`. "
+        "ALT8LEN=`assertionLabel=<...legaltpinvfxalt8lenNonPassRows>` | ALT9=`assertionLabel=<...legaltpinvfxalt9NonPassRows>` | ALT9LEN=`assertionLabel=<...legaltpinvfxalt9lenNonPassRows>` | ALT10=`assertionLabel=<...legaltpinvfxalt10NonPassRows>` | ALT10LEN=`assertionLabel=<...legaltpinvfxalt10lenNonPassRows>` | ALT11=`assertionLabel=<...legaltpinvfxalt11NonPassRows>` | ALT11LEN=`assertionLabel=<...legaltpinvfxalt11lenNonPassRows>` | ALT12=`assertionLabel=<...legaltpinvfxalt12NonPassRows>` | ALT12LEN=`assertionLabel=<...legaltpinvfxalt12lenNonPassRows>` | ALT13=`assertionLabel=<...legaltpinvfxalt13NonPassRows>` | ALT13LEN=`assertionLabel=<...legaltpinvfxalt13lenNonPassRows>` | ALT14=`assertionLabel=<...legaltpinvfxalt14NonPassRows>` | ALT14LEN=`assertionLabel=<...legaltpinvfxalt14lenNonPassRows>` | ALT15=`assertionLabel=<...legaltpinvfxalt15NonPassRows>` | ALT15LEN=`assertionLabel=<...legaltpinvfxalt15lenNonPassRows>` | ALT16=`assertionLabel=<...legaltpinvfxalt16NonPassRows>` | ALT16LEN=`assertionLabel=<...legaltpinvfxalt16lenNonPassRows>` | ALT16R=`assertionLabel=<...legaltpinvfxalt16rNonPassRows>` | ALT17=`assertionLabel=<...legaltpinvfxalt17NonPassRows>` | ALT17LEN=`assertionLabel=<...legaltpinvfxalt17lenNonPassRows>` | ALT17R=`assertionLabel=<...legaltpinvfxalt17rNonPassRows>` | ALT18=`assertionLabel=<...legaltpinvfxalt18NonPassRows>` | ALT18LEN=`assertionLabel=<...legaltpinvfxalt18lenNonPassRows>` | ALT18R=`assertionLabel=<...legaltpinvfxalt18rNonPassRows>` | ALT19=`assertionLabel=<...legaltpinvfxalt19NonPassRows>` | ALT19LEN=`assertionLabel=<...legaltpinvfxalt19lenNonPassRows>` | ALT19R=`assertionLabel=<...legaltpinvfxalt19rNonPassRows>` | ALT20=`assertionLabel=<...legaltpinvfxalt20NonPassRows>` | ALT20LEN=`assertionLabel=<...legaltpinvfxalt20lenNonPassRows>` | ALT20R=`assertionLabel=<...legaltpinvfxalt20rNonPassRows>` | ALT21=`assertionLabel=<...legaltpinvfxalt21NonPassRows>` | ALT21LEN=`assertionLabel=<...legaltpinvfxalt21lenNonPassRows>` | ALT21R=`assertionLabel=<...legaltpinvfxalt21rNonPassRows>` | ALT22=`assertionLabel=<...legaltpinvfxalt22NonPassRows>` | ALT22LEN=`assertionLabel=<...legaltpinvfxalt22lenNonPassRows>` | ALT22R=`assertionLabel=<...legaltpinvfxalt22rNonPassRows>` | ALT19V20LEN=`assertionLabel=<...legaltpinvfxalt19v20lenNonPassRows>` | ALT19V20R=`assertionLabel=<...legaltpinvfxalt19v20rNonPassRows>`. "
         in md_text
     ), f"{name}: markdown output must include docs-order PINLEN/PINSAFE/SAFE/ALTLEN/ALT8 assertion-label helper row for one-scan triage"
     assert (
@@ -10422,6 +10424,81 @@ def main() -> int:
             "assertionLabel=tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt20rNonPassRows; "
             f"first diverged fixture={mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinvfxalt20r_status_mismatch[0]} "
             f"rows={mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinvfxalt20r_status_mismatch[1]}"
+        )
+        mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinvfxalt22_status_mismatch = next(
+            (
+                (fixture_name, mismatch_rows)
+                for fixture_name, fixture_result in (
+                    ("balanced_tie", balanced_tie_result),
+                    ("ready_mix", ready_mix_result),
+                    ("prior_window_trend_up", prior_window_trend_up_result),
+                    ("prior_window_trend_down", prior_window_trend_down_result),
+                )
+                if (
+                    mismatch_rows := str(
+                        fixture_result[
+                            "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt22NonPassRows"
+                        ]
+                    )
+                )
+            ),
+            None,
+        )
+        assert mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinvfxalt22_status_mismatch is None, (
+            "mixed-window fixture matrix must keep TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFXALT22 payload deterministic across sparse summary + token sections; "
+            "assertionLabel=tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt22NonPassRows; "
+            f"first diverged fixture={mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinvfxalt22_status_mismatch[0]} "
+            f"rows={mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinvfxalt22_status_mismatch[1]}"
+        )
+        mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinvfxalt22len_status_mismatch = next(
+            (
+                (fixture_name, mismatch_rows)
+                for fixture_name, fixture_result in (
+                    ("balanced_tie", balanced_tie_result),
+                    ("ready_mix", ready_mix_result),
+                    ("prior_window_trend_up", prior_window_trend_up_result),
+                    ("prior_window_trend_down", prior_window_trend_down_result),
+                )
+                if (
+                    mismatch_rows := str(
+                        fixture_result[
+                            "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt22lenNonPassRows"
+                        ]
+                    )
+                )
+            ),
+            None,
+        )
+        assert mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinvfxalt22len_status_mismatch is None, (
+            "mixed-window fixture matrix must keep TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFXALT22LEN domain-constrained to PASS across sparse summary + token sections; "
+            "assertionLabel=tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt22lenNonPassRows; "
+            f"first diverged fixture={mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinvfxalt22len_status_mismatch[0]} "
+            f"rows={mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinvfxalt22len_status_mismatch[1]}"
+        )
+        mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinvfxalt22r_status_mismatch = next(
+            (
+                (fixture_name, mismatch_rows)
+                for fixture_name, fixture_result in (
+                    ("balanced_tie", balanced_tie_result),
+                    ("ready_mix", ready_mix_result),
+                    ("prior_window_trend_up", prior_window_trend_up_result),
+                    ("prior_window_trend_down", prior_window_trend_down_result),
+                )
+                if (
+                    mismatch_rows := str(
+                        fixture_result[
+                            "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt22rNonPassRows"
+                        ]
+                    )
+                )
+            ),
+            None,
+        )
+        assert mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinvfxalt22r_status_mismatch is None, (
+            "mixed-window fixture matrix must keep TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFXALT22R payload deterministic across sparse summary + token sections; "
+            "assertionLabel=tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt22rNonPassRows; "
+            f"first diverged fixture={mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinvfxalt22r_status_mismatch[0]} "
+            f"rows={mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinvfxalt22r_status_mismatch[1]}"
         )
         mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinvfxalt19v20len_status_mismatch = next(
             (

@@ -6602,3 +6602,4 @@ Compact decision memory for AI context efficiency.
 ## 2026-04-08 03:30 KST (Cycle IP150)
 - Closed injected ALT19V20 comparator parity follow-up by adding sparse mixed-window row-count assertion linking ALT19V20LEN to ALT19V20R in scripts/regression_check_lane_coverage_guardrail.py.
 - Verification PASS (py_compile + regression + guardrail runner bundle).
+- 2026-04-08 04:38 KST — Cycle IP150 shipped: ALT22 docs-order contract hardening. Updated assertion-label helper text through ALT22, widened ALT14~ALT22 adjacency lock around waypoint-vs-vector helper note, and added mixed-window first-diverged assertions for ALT22 payload/eval/rationale (alt22/alt22len/alt22r NonPassRows). Next injection: ALT23 report-only phrase candidate.
