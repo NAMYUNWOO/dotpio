@@ -4246,3 +4246,6 @@
 
 ## 2026-04-08 05:56 KST
 - Added ALT25 docs-order report-only phrase cluster (`...ALT25`, `...ALT25LEN`, `...ALT25R`) with rollback-gated wording `PIN=GLINT prow|SAFE=SHIELD brace`; verification bundle PASS (`py_compile` + `regression_check_lane_coverage_guardrail.py` + `check_lane_coverage_guardrail.py --backlog ...`).
+## 2026-04-08 06:53 KST — Cycle IP157 combat/vfx readability slice
+- Added ALT26 handoff phrase candidate to preserve combat cue readability expansion cadence in docs-order VFX family.
+- Verification remained green via guardrail regression bundle.

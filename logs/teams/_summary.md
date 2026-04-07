@@ -6618,3 +6618,10 @@ Compact decision memory for AI context efficiency.
 ## 2026-04-08 05:56 KST
 - Closed Cycle IP155 injected ALT25 backlog item by shipping report-only docs-order phrase/eval/rationale rows (`...ALT25*`) and assertion-label helper contract sync across guardrail + regression scripts.
 - Verification PASS: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+
+## 2026-04-08 06:53 KST — Cycle IP157 ALT26 docs-order vertical slice
+- ACTION_ITEMS/TASKS/POST_RC were fully checked at run start, so mandatory Game Director cycle executed.
+- Shipped minimal vertical slice: ALT26 helper + phrase triad (`...ALT26`, `...ALT26LEN:B32|C32|LIM72|PASS`, `...ALT26R`) and regression contract expansion for ALT14~ALT26 adjacency + assertion-label helper alias coverage.
+- Durable decision: maintain maritime docs-order phrase progression (keel -> prow -> mast) while keeping all additions report-only under rollback wording gate.
+- Verification PASS: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+- Next injected item: Systems/Ops + QA comparator diagnostics for ALT25-vs-ALT26 (`...ALT25V26LEN`, `...ALT25V26R`).

@@ -6447,3 +6447,6 @@
 
 ## 2026-04-08 05:56 KST
 - Added ALT25 docs-order report-only phrase cluster (`...ALT25`, `...ALT25LEN`, `...ALT25R`) with rollback-gated wording `PIN=GLINT prow|SAFE=SHIELD brace`; verification bundle PASS (`py_compile` + `regression_check_lane_coverage_guardrail.py` + `check_lane_coverage_guardrail.py --backlog ...`).
+## 2026-04-08 06:53 KST — Cycle IP157 regression verification
+- Added regression expectation for ALT26 helper callout and expanded ALT14~ALT26 adjacency lock assertion text.
+- Full verification PASS: py_compile, regression_check_lane_coverage_guardrail.py, guardrail artifact regeneration.

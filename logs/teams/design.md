@@ -4411,3 +4411,6 @@
 
 ## 2026-04-08 05:56 KST
 - Added ALT25 docs-order report-only phrase cluster (`...ALT25`, `...ALT25LEN`, `...ALT25R`) with rollback-gated wording `PIN=GLINT prow|SAFE=SHIELD brace`; verification bundle PASS (`py_compile` + `regression_check_lane_coverage_guardrail.py` + `check_lane_coverage_guardrail.py --backlog ...`).
+## 2026-04-08 06:53 KST — Cycle IP157 design helper continuity
+- Introduced ALT26 helper callout (`GLINT=mast pin intent`) and kept adjacency near waypoint/vector helper chain for one-scan docs clarity.
+- Durable note: maritime metaphor progression now includes keel/prow/mast sequence.

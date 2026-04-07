@@ -4317,3 +4317,6 @@
 
 ## 2026-04-08 05:56 KST
 - Added ALT25 docs-order report-only phrase cluster (`...ALT25`, `...ALT25LEN`, `...ALT25R`) with rollback-gated wording `PIN=GLINT prow|SAFE=SHIELD brace`; verification bundle PASS (`py_compile` + `regression_check_lane_coverage_guardrail.py` + `check_lane_coverage_guardrail.py --backlog ...`).
+## 2026-04-08 06:53 KST — Cycle IP157 ALT26 phrase candidate
+- Shipped report-only phrase triad: `...LEGALTPINVFXALT26:PIN=GLINT mast|SAFE=SHIELD brace`, `...ALT26LEN:B32|C32|LIM72|PASS`, `...ALT26R` rationale row.
+- Maintained rollback-gated docs-order phrasebank policy (no runtime coupling).

@@ -163,6 +163,17 @@
 
 Last updated: 2026-04-07 08:29 KST
 
+## Autonomous Cycle 2026-04-08 (Game Director Review — Cycle IP157)
+- Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC all fully checked, so mandatory Game Director loop executed immediately.
+- Candidate ideas generated:
+  - Low-risk Design/World + UX: add ALT26 helper callout continuity row so maritime pin-cue family remains one-scan readable after ALT25.
+  - Mid-risk Systems/Ops + QA: extend ALT14~ALT26 waypoint-adjacent helper regex + assertion-label helper contract for deterministic diagnostics parity.
+  - High-risk AI-content + Combat/VFX: add ALT26 report-only phrase triad (`ALT26`, `ALT26LEN`, `ALT26R`) with rollback-gated wording.
+- [x] Design/World + Systems/Ops + QA + AI-content + Combat/VFX Team (selected): shipped ALT26 docs-order vertical slice and regression contract expansion. *(lifecycle: [ ] -> [~] started: 2026-04-08 06:50 KST -> [x] completed: 2026-04-08 06:53 KST; implementation: `scripts/check_lane_coverage_guardrail.py`, `scripts/regression_check_lane_coverage_guardrail.py`; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.)*
+
+## Next Up (Game Director Injection — Cycle IP157)
+- [ ] Systems/Ops + QA Team (injected): add ALT25-vs-ALT26 comparator diagnostics family (`...ALT25V26LEN`, `...ALT25V26R`) with first-diverged assertion-label surfacing.
+
 ## Autonomous Cycle 2026-04-07 (Game Director Review — Cycle IP138)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog fully checked, so mandatory Game Director loop executed immediately.
 - Candidate ideas generated:
