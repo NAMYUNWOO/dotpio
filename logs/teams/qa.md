@@ -6450,3 +6450,7 @@
 ## 2026-04-08 06:53 KST — Cycle IP157 regression verification
 - Added regression expectation for ALT26 helper callout and expanded ALT14~ALT26 adjacency lock assertion text.
 - Full verification PASS: py_compile, regression_check_lane_coverage_guardrail.py, guardrail artifact regeneration.
+
+## 2026-04-08 07:29 KST — Mixed-window comparator parity check
+- Verified sparse fixture matrix now asserts `...ALT25V26LEN` + `...ALT25V26R` payload determinism and rationale row-count parity.
+- Verification bundle PASS (py_compile + regression_check_lane_coverage_guardrail + guardrail artifact regeneration).

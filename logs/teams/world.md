@@ -4238,3 +4238,7 @@
 ## 2026-04-08 06:53 KST — Cycle IP157 ALT26 wording lane update
 - Added docs helper callout for `...LEGALTPINVFXALT26` with `GLINT=mast pin intent` to continue maritime readability progression after ALT25 prow.
 - Decision: keep helper wording report-only and paired with SAFE brace cue for one-scan scanability.
+
+## 2026-04-08 07:29 KST — Maritime handoff wording parity lock
+- Locked maritime pin-cue wording parity checks via ALT25V26 comparator rows and diagnostics family.
+- Follow-up: any new maritime phrase pair should include comparator rationale row before backlog closure.

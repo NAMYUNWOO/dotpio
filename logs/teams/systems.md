@@ -5997,3 +5997,7 @@
 - Extended docs-order assertion-label helper contract through ALT26 (`ALT26/ALT26LEN/ALT26R`) and synced regression expected helper string.
 - Updated ALT14~ALT26 waypoint-adjacent helper continuity regex and failure message for deterministic one-scan diagnostics.
 - Verification PASS (py_compile + regression harness + guardrail regeneration).
+
+## 2026-04-08 07:29 KST — ALT25V26 comparator diagnostics hardening
+- Added ALT25V26 LEN/R diagnostics-family coverage with first-diverged assertionLabel surfacing in regression guardrails.
+- Follow-up: keep future comparator pairs shipped with LEN+R row-count parity assertion in same slice.

@@ -4498,3 +4498,7 @@
 ## 2026-04-08 06:53 KST — Cycle IP157 UX docs readability
 - ALT26 helper + phrase triad surfaced with PASS eval row to keep readability status explicit.
 - Assertion-label helper row now includes ALT26 aliases for faster first-diverged triage.
+
+## 2026-04-08 07:29 KST — Assertion-label helper continuity
+- Assertion-label helper text now includes ALT25V26 diagnostics labels for LEN/R comparator drift surfacing.
+- Follow-up: preserve helper ordering so comparator labels remain adjacent to existing ALT comparator family.

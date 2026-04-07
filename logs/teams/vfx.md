@@ -791,3 +791,7 @@
 ## 2026-04-08 06:53 KST — Cycle IP157 VFX cue phrasebank
 - Added report-only ALT26 VFX handoff cue (`PIN=GLINT mast|SAFE=SHIELD brace`) with paired LEN+rationale rows.
 - Kept rollback wording gate and non-runtime coupling intact.
+
+## 2026-04-08 07:29 KST — VFX handoff comparator observability
+- Added deterministic comparator diagnostics for ALT25/ALT26 handoff wording to keep VFX cue readability parity auditable.
+- Follow-up: require assertionLabel surfacing for future VFX handoff comparator additions.

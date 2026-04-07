@@ -6625,3 +6625,8 @@ Compact decision memory for AI context efficiency.
 - Durable decision: maintain maritime docs-order phrase progression (keel -> prow -> mast) while keeping all additions report-only under rollback wording gate.
 - Verification PASS: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
 - Next injected item: Systems/Ops + QA comparator diagnostics for ALT25-vs-ALT26 (`...ALT25V26LEN`, `...ALT25V26R`).
+
+## 2026-04-08 07:29 KST — ALT25V26 comparator diagnostics closure
+- Shipped comparator diagnostics family for maritime pair (`...ALT25V26LEN`, `...ALT25V26R`) in guardrail markdown + regression fixtures.
+- Durable decision: comparator rows now require first-diverged assertionLabel surfacing and rationale row-count parity checks in the same cycle.
+- Verification: py_compile + regression_check_lane_coverage_guardrail + guardrail artifact regeneration PASS.

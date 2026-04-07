@@ -4414,3 +4414,7 @@
 ## 2026-04-08 06:53 KST — Cycle IP157 design helper continuity
 - Introduced ALT26 helper callout (`GLINT=mast pin intent`) and kept adjacency near waypoint/vector helper chain for one-scan docs clarity.
 - Durable note: maritime metaphor progression now includes keel/prow/mast sequence.
+
+## 2026-04-08 07:29 KST — Docs-order readability comparator extended
+- Added report-only comparator copy for `ALT25 prow` vs `ALT26 mast` readability parity (`...ALT25V26LEN`, `...ALT25V26R`).
+- Decision: keep comparator phrasing explicit (`prow` vs `mast`) for one-scan docs-order triage.

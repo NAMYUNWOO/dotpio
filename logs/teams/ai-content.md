@@ -4320,3 +4320,7 @@
 ## 2026-04-08 06:53 KST — Cycle IP157 ALT26 phrase candidate
 - Shipped report-only phrase triad: `...LEGALTPINVFXALT26:PIN=GLINT mast|SAFE=SHIELD brace`, `...ALT26LEN:B32|C32|LIM72|PASS`, `...ALT26R` rationale row.
 - Maintained rollback-gated docs-order phrasebank policy (no runtime coupling).
+
+## 2026-04-08 07:29 KST — Phrase-family instrumentation update
+- No runtime phrase changes; added report-only instrumentation ensuring ALT25/ALT26 comparator diagnostics remain deterministic.
+- Follow-up: keep future phrase injections paired with comparator diagnostics when semantic proximity is high.

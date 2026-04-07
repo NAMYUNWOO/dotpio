@@ -4249,3 +4249,7 @@
 ## 2026-04-08 06:53 KST — Cycle IP157 combat/vfx readability slice
 - Added ALT26 handoff phrase candidate to preserve combat cue readability expansion cadence in docs-order VFX family.
 - Verification remained green via guardrail regression bundle.
+
+## 2026-04-08 07:29 KST — Combat/VFX docs-order telemetry support
+- Extended docs-order telemetry coverage with ALT25V26 comparator diagnostics to reduce handoff phrase drift blind spots.
+- Follow-up: maintain report-only gate for comparator rows; no gameplay-runtime coupling introduced.
