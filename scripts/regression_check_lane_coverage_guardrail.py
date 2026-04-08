@@ -4262,6 +4262,10 @@ def run_fixture_case(
         "docs-order ALT29 helper callout (design/world+ux): `...LEGALTPINVFXALT29` keeps **GLINT=tide pin intent** + **SHIELD=SAFE brace readability cue** for one-scan triage."
         in md_text
     ), f"{name}: markdown output must include ALT29 docs-order helper callout for tide/SAFE readability"
+    assert (
+        "docs-order nautical progression helper note (design/world+ux): **ALT27=GLINT rudder -> ALT28=GLINT harbor -> ALT29=GLINT tide** keeps route progression one-scan readable next to waypoint-vs-vector context."
+        in md_text
+    ), f"{name}: markdown output must include nautical progression helper note for rudder/harbor/tide readability continuity"
     alt14_alt22_waypoint_vector_adjacency_matches = re.findall(
         r"- docs-order ALT14 helper callout \(design/world\+ux\): `\.\.\.LEGALTPINVFXALT14` keeps \*\*GLINT=waypoint pin handoff intent\*\* \+ \*\*SHIELD=SAFE brace readability cue\*\* for one-scan triage\.\n"
         r"- docs-order ALT15 helper callout \(design/world\+ux\): `\.\.\.LEGALTPINVFXALT15` keeps \*\*GLINT=vector pin handoff intent\*\* \+ \*\*SHIELD=SAFE brace readability cue\*\* for one-scan triage\.\n"
@@ -4278,11 +4282,13 @@ def run_fixture_case(
         r"\n- docs-order ALT25 helper callout \(design/world\+ux\): `\.\.\.LEGALTPINVFXALT25` keeps \*\*GLINT=prow pin intent\*\* \+ \*\*SHIELD=SAFE brace readability cue\*\* for one-scan triage\."
         r"\n- docs-order ALT26 helper callout \(design/world\+ux\): `\.\.\.LEGALTPINVFXALT26` keeps \*\*GLINT=mast pin intent\*\* \+ \*\*SHIELD=SAFE brace readability cue\*\* for one-scan triage\."
         r"\n- docs-order ALT27 helper callout \(design/world\+ux\): `\.\.\.LEGALTPINVFXALT27` keeps \*\*GLINT=rudder pin intent\*\* \+ \*\*SHIELD=SAFE brace readability cue\*\* for one-scan triage\."
-        r"\n- docs-order ALT28 helper callout \(design/world\+ux\): `\.\.\.LEGALTPINVFXALT28` keeps \*\*GLINT=harbor pin intent\*\* \+ \*\*SHIELD=SAFE brace readability cue\*\* for one-scan triage\.",
+        r"\n- docs-order ALT28 helper callout \(design/world\+ux\): `\.\.\.LEGALTPINVFXALT28` keeps \*\*GLINT=harbor pin intent\*\* \+ \*\*SHIELD=SAFE brace readability cue\*\* for one-scan triage\."
+        r"\n- docs-order ALT29 helper callout \(design/world\+ux\): `\.\.\.LEGALTPINVFXALT29` keeps \*\*GLINT=tide pin intent\*\* \+ \*\*SHIELD=SAFE brace readability cue\*\* for one-scan triage\."
+        r"\n- docs-order nautical progression helper note \(design/world\+ux\): \*\*ALT27=GLINT rudder -> ALT28=GLINT harbor -> ALT29=GLINT tide\*\* keeps route progression one-scan readable next to waypoint-vs-vector context\.",
         md_text,
     )
     assert len(alt14_alt22_waypoint_vector_adjacency_matches) >= 1, (
-        f"{name}: ALT14/ALT15/ALT16/ALT17/ALT18/ALT19/ALT20/ALT21/ALT22/ALT23/ALT24/ALT25/ALT26/ALT27/ALT28 helper callouts must stay immediately adjacent to waypoint-vs-vector helper note for one-scan docs readability"
+        f"{name}: ALT14/ALT15/ALT16/ALT17/ALT18/ALT19/ALT20/ALT21/ALT22/ALT23/ALT24/ALT25/ALT26/ALT27/ALT28/ALT29 helper callouts plus nautical progression helper note must stay immediately adjacent to waypoint-vs-vector helper note for one-scan docs readability"
     )
     assert (
         "docs-order assertion-label helper (design/world+ux): PINLEN=`assertionLabel=<...legaltpinlenNonPassRows>` | "

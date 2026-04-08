@@ -6666,3 +6666,5 @@ Compact decision memory for AI context efficiency.
 - 2026-04-08 10:56 KST: Closed injected ALT29 report-only phrase family by adding `...LEGALTPINVFXALT29`, `...LEGALTPINVFXALT29LEN`, and `...LEGALTPINVFXALT29R` rows plus ALT29 helper/assertion-label alias coverage; regression contract now enforces ALT27 -> ALT28 -> ALT29 ordering in docs-order helper diagnostics.
 - Verification: py_compile + regression guardrail script + guardrail regeneration all pass.
 - Next queue: Design/World nautical helper note + adjacency lock (`rudder -> harbor -> tide`).
+
+- 2026-04-08 11:24 KST: Added nautical progression helper continuity (`ALT27 rudder -> ALT28 harbor -> ALT29 tide`) in guardrail markdown and locked adjacency regression near waypoint-vs-vector helper context; verification bundle passed.
