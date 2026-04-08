@@ -374,3 +374,4 @@
 - 2026-04-08 09:43 KST — Game Director IP161: forced lane rebalance after VFX-heavy streak; shipped design/world comparator slice (`...ALT27V28LEN`, `...ALT27V28R`) and queued systems/combat/design injected follow-ups.
 
 - 2026-04-08 10:25 KST (Cycle IP161 follow-up): Implemented deterministic mixed-window parity + first-diverged assertion-label diagnostics for `...ALT27V28LEN` and `...ALT27V28R` in lane-coverage guardrail regression; helper alias contract now includes ALT27V28 labels for one-scan triage.
+- 2026-04-08 12:28 KST — Durable decision: comparator diagnostics parity is now enforced in mixed-window fixtures for both ALT27V28 and ALT28V29 LEN<->R pairs; keep future comparator families wired into row-count parity + payload mismatch keys together.

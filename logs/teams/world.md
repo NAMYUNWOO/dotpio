@@ -4283,3 +4283,4 @@
 - Added docs-order nautical progression helper note tying route readability across `rudder -> harbor -> tide` for one-scan progression context.
 - Follow-up: keep future ALT helper expansions contiguous with nautical progression note.
 - 2026-04-08 11:58 KST — Added nautical readability comparator ALT28 (harbor) vs ALT29 (tide) so world-lexicon progression remains contiguous in one-scan docs-order triage.
+- 2026-04-08 12:28 KST — Cycle IP161 follow-up closed: added ALT28V29 comparator payload mismatch extraction + mixed-window row-count parity assertions (ALT27V28 + ALT28V29) in regression guardrail; verification bundle passed.

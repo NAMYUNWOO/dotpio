@@ -6041,3 +6041,4 @@
 - Locked regression presence + adjacency contract for nautical helper continuity (`ALT27 -> ALT28 -> ALT29`) adjacent to waypoint-vs-vector helper context.
 - Verification: py_compile + regression guardrail + guardrail regeneration bundle passed.
 - 2026-04-08 11:58 KST — Game Director cycle IP161: extended docs-order assertion-label alias map with ALT28V29LEN/ALT28V29R in lane-coverage guardrail output to preserve deterministic diagnostics alias coverage.
+- 2026-04-08 12:28 KST — Cycle IP161 follow-up closed: added ALT28V29 comparator payload mismatch extraction + mixed-window row-count parity assertions (ALT27V28 + ALT28V29) in regression guardrail; verification bundle passed.

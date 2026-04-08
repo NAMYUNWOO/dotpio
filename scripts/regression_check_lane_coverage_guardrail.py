@@ -6882,6 +6882,24 @@ def run_fixture_case(
         for index, payload in enumerate(nfxqbackstaf2ctrlwnrblglegaltpinvfxalt27v28r_payload_values)
         if payload != "ALT27 rudder and ALT28 harbor keep pin readability parity"
     )
+    nfxqbackstaf2ctrlwnrblglegaltpinvfxalt28v29len_eval_rows = re.findall(
+        r"\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFXALT28V29LEN:([^*\n]+)\*\*",
+        md_text,
+    )
+    nfxqbackstaf2ctrlwnrblglegaltpinvfxalt28v29len_payload_mismatch_rows = tuple(
+        f"occurrence={index} payload={payload}"
+        for index, payload in enumerate(nfxqbackstaf2ctrlwnrblglegaltpinvfxalt28v29len_eval_rows)
+        if payload != "B39|C39|LIM72|PREF:TIE|PASS"
+    )
+    nfxqbackstaf2ctrlwnrblglegaltpinvfxalt28v29r_payload_values = re.findall(
+        r"\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFXALT28V29R:([^*\n]+)\*\*",
+        md_text,
+    )
+    nfxqbackstaf2ctrlwnrblglegaltpinvfxalt28v29r_payload_mismatch_rows = tuple(
+        f"occurrence={index} payload={payload}"
+        for index, payload in enumerate(nfxqbackstaf2ctrlwnrblglegaltpinvfxalt28v29r_payload_values)
+        if payload != "ALT28 harbor and ALT29 tide keep pin readability parity"
+    )
     nfxqbackstaf2ctrlwnrb_payload_mismatch_rows = tuple(
         f"occurrence={index} payload={payload}"
         for index, payload in enumerate(nfxqbackstaf2ctrlwnrb_payload_values)
@@ -7951,6 +7969,8 @@ def run_fixture_case(
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt26v27rRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFXALT26V27R:ALT26 mast and ALT27 rudder keep pin readability parity**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt27v28lenRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFXALT27V28LEN:B43|C43|LIM72|PREF:TIE|PASS**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt27v28rRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFXALT27V28R:ALT27 rudder and ALT28 harbor keep pin readability parity**"),
+        "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt28v29lenRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFXALT28V29LEN:B39|C39|LIM72|PREF:TIE|PASS**"),
+        "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt28v29rRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFXALT28V29R:ALT28 harbor and ALT29 tide keep pin readability parity**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltsafeRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTSAFE:B13|C13|LIM72|PASS**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltlenRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTLEN:B63|C63|LIM72|PASS**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblgleglenRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGLEN:B53|C53|LIM72|PASS**"),
@@ -8064,6 +8084,8 @@ def run_fixture_case(
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt26v27rNonPassRows": " || ".join(nfxqbackstaf2ctrlwnrblglegaltpinvfxalt26v27r_payload_mismatch_rows),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt27v28lenNonPassRows": " || ".join(nfxqbackstaf2ctrlwnrblglegaltpinvfxalt27v28len_payload_mismatch_rows),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt27v28rNonPassRows": " || ".join(nfxqbackstaf2ctrlwnrblglegaltpinvfxalt27v28r_payload_mismatch_rows),
+        "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt28v29lenNonPassRows": " || ".join(nfxqbackstaf2ctrlwnrblglegaltpinvfxalt28v29len_payload_mismatch_rows),
+        "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt28v29rNonPassRows": " || ".join(nfxqbackstaf2ctrlwnrblglegaltpinvfxalt28v29r_payload_mismatch_rows),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltsafeNonPassRows": " || ".join(nfxqbackstaf2ctrlwnrblglegaltsafe_payload_mismatch_rows),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltlenNonPassRows": " || ".join(nfxqbackstaf2ctrlwnrblglegaltlen_payload_mismatch_rows),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnlenNonPassRows": " || ".join(nfxqbackstaf2ctrlwnlen_eval_non_pass_rows),
@@ -8130,6 +8152,7 @@ def main() -> int:
         mixed_window_tsdpmfx_nfxqback_vfxdrb_domain_payloads: list[tuple[str, tuple[str, ...]]] = []
         mixed_window_tsdpmfx_nfxqback_vfxw_domain_payloads: list[tuple[str, tuple[str, ...]]] = []
         mixed_window_tsdpmfx_nfxqbackstaf2ctrlwvfxh_domain_payloads: list[tuple[str, tuple[str, ...]]] = []
+        mixed_window_tsdpmfx_alt_comparator_row_count_parity: list[tuple[str, int, int, int, int]] = []
 
         balanced_tie_result = run_fixture_case(
             tmp_path=tmp_path,
@@ -8293,6 +8316,15 @@ def main() -> int:
             (
                 "balanced_tie",
                 tuple(balanced_tie_result["tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwvfxhPayloads"]),
+            )
+        )
+        mixed_window_tsdpmfx_alt_comparator_row_count_parity.append(
+            (
+                "balanced_tie",
+                int(balanced_tie_result["tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt27v28lenRowCount"]),
+                int(balanced_tie_result["tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt27v28rRowCount"]),
+                int(balanced_tie_result["tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt28v29lenRowCount"]),
+                int(balanced_tie_result["tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt28v29rRowCount"]),
             )
         )
 
@@ -8459,6 +8491,15 @@ def main() -> int:
             (
                 "ready_mix",
                 tuple(ready_mix_result["tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwvfxhPayloads"]),
+            )
+        )
+        mixed_window_tsdpmfx_alt_comparator_row_count_parity.append(
+            (
+                "ready_mix",
+                int(ready_mix_result["tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt27v28lenRowCount"]),
+                int(ready_mix_result["tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt27v28rRowCount"]),
+                int(ready_mix_result["tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt28v29lenRowCount"]),
+                int(ready_mix_result["tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt28v29rRowCount"]),
             )
         )
 
@@ -8758,6 +8799,15 @@ def main() -> int:
                 tuple(prior_window_trend_up_result["tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwvfxhPayloads"]),
             )
         )
+        mixed_window_tsdpmfx_alt_comparator_row_count_parity.append(
+            (
+                "prior_window_trend_up",
+                int(prior_window_trend_up_result["tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt27v28lenRowCount"]),
+                int(prior_window_trend_up_result["tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt27v28rRowCount"]),
+                int(prior_window_trend_up_result["tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt28v29lenRowCount"]),
+                int(prior_window_trend_up_result["tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt28v29rRowCount"]),
+            )
+        )
         prior_window_trend_down_result = run_fixture_case(
                 tmp_path=tmp_path,
                 name="prior_window_trend_down",
@@ -8932,6 +8982,15 @@ def main() -> int:
                 tuple(prior_window_trend_down_result["tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwvfxhPayloads"]),
             )
         )
+        mixed_window_tsdpmfx_alt_comparator_row_count_parity.append(
+            (
+                "prior_window_trend_down",
+                int(prior_window_trend_down_result["tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt27v28lenRowCount"]),
+                int(prior_window_trend_down_result["tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt27v28rRowCount"]),
+                int(prior_window_trend_down_result["tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt28v29lenRowCount"]),
+                int(prior_window_trend_down_result["tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt28v29rRowCount"]),
+            )
+        )
 
         assert "UP" in observed_family_trends and "DOWN" in observed_family_trends, (
             "fixture matrix must include explicit prior-window recommendation-family trend transitions for both UP and DOWN"
@@ -9044,6 +9103,32 @@ def main() -> int:
             f"fixture={mixed_window_tsdpmfx_alt_beat_helper_mismatch[0][0]} "
             f"expected={mixed_window_tsdpmfx_alt_beat_helper_mismatch[0][2]} "
             f"actual={mixed_window_tsdpmfx_alt_beat_helper_mismatch[0][3]}"
+        )
+        mixed_window_tsdpmfx_alt_comparator_row_count_mismatch = next(
+            (
+                (fixture_name, "ALT27V28", alt27v28len_count, alt27v28r_count)
+                for fixture_name, alt27v28len_count, alt27v28r_count, _, _ in mixed_window_tsdpmfx_alt_comparator_row_count_parity
+                if alt27v28len_count != alt27v28r_count
+            ),
+            None,
+        )
+        if mixed_window_tsdpmfx_alt_comparator_row_count_mismatch is None:
+            mixed_window_tsdpmfx_alt_comparator_row_count_mismatch = next(
+                (
+                    (fixture_name, "ALT28V29", alt28v29len_count, alt28v29r_count)
+                    for fixture_name, _, _, alt28v29len_count, alt28v29r_count in mixed_window_tsdpmfx_alt_comparator_row_count_parity
+                    if alt28v29len_count != alt28v29r_count
+                ),
+                None,
+            )
+        assert mixed_window_tsdpmfx_alt_comparator_row_count_mismatch is None, (
+            "mixed-window fixture matrix must keep comparator row-count parity for "
+            "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFXALT27V28LEN <-> "
+            "...ALT27V28R and ...ALT28V29LEN <-> ...ALT28V29R across summary + token sections; "
+            f"first diverged fixture={mixed_window_tsdpmfx_alt_comparator_row_count_mismatch[0]} "
+            f"pair={mixed_window_tsdpmfx_alt_comparator_row_count_mismatch[1]} "
+            f"left={mixed_window_tsdpmfx_alt_comparator_row_count_mismatch[2]} "
+            f"right={mixed_window_tsdpmfx_alt_comparator_row_count_mismatch[3]}"
         )
         mixed_window_tsdpmfx_nfxqback_domain_mismatch = next(
             (

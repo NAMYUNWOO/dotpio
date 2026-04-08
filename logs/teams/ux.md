@@ -4539,3 +4539,4 @@
 - Improved docs scanability by adding explicit nautical progression helper row after ALT29 callout.
 - Regression now asserts adjacency so helper context cannot silently drift.
 - 2026-04-08 11:58 KST — Added ALT28V29 LEN row (B39|C39|LIM72|PREF:TIE|PASS) + rationale row to keep quick-scan parity with adjacent comparator set.
+- 2026-04-08 12:28 KST — Cycle IP161 follow-up closed: added ALT28V29 comparator payload mismatch extraction + mixed-window row-count parity assertions (ALT27V28 + ALT28V29) in regression guardrail; verification bundle passed.
