@@ -370,3 +370,5 @@
   - `...ALT20R:GLINT heading keeps pin handoff explicit|SAFE brace preserves readability`
 - Durable decision: docs-order phrase expansion remains report-only and must include candidate+LEN+rationale with deterministic NonPassRows diagnostics in the same cycle.
 - Verification PASS: `python3 -m py_compile ...` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + guardrail json/md regeneration.
+
+- 2026-04-08 09:43 KST — Game Director IP161: forced lane rebalance after VFX-heavy streak; shipped design/world comparator slice (`...ALT27V28LEN`, `...ALT27V28R`) and queued systems/combat/design injected follow-ups.

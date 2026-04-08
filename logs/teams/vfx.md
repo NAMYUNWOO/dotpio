@@ -795,3 +795,7 @@
 ## 2026-04-08 07:29 KST — VFX handoff comparator observability
 - Added deterministic comparator diagnostics for ALT25/ALT26 handoff wording to keep VFX cue readability parity auditable.
 - Follow-up: require assertionLabel surfacing for future VFX handoff comparator additions.
+
+## 2026-04-08 09:43 KST — Cycle IP161 support log
+- No new runtime VFX token added this cycle; VFX lane was intentionally de-prioritized to recover cadence balance.
+- Added cross-lane comparator support row touching docs-order VFX phrasebank (`...ALT27V28*`) for readability continuity only.

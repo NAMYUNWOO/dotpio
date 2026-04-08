@@ -6648,3 +6648,9 @@ Compact decision memory for AI context efficiency.
 - Verification: py_compile + regression_check_lane_coverage_guardrail + guardrail artifact regeneration PASS.
 
 - 2026-04-08 09:21 KST — Cycle IP159 follow-up completed: regression now explicitly enforces ALT26->ALT27->ALT26V27* assertion-label helper order; Cycle IP160 shipped ALT28 helper callout + adjacency lock through ALT28 (`scripts/check_lane_coverage_guardrail.py`, `scripts/regression_check_lane_coverage_guardrail.py`). Next injected focus: ALT27->ALT28 helper consistency assertion.
+
+## 2026-04-08 09:43 KST
+- Game Director Cycle IP161 forced underrepresented lane recovery after VFX-heavy completion streak (>40% in recent 10).
+- Selected/implemented design-world slice: added `...LEGALTPINVFXALT27V28LEN` + `...LEGALTPINVFXALT27V28R` comparator pair in guardrail markdown output.
+- Verification PASS: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+- Injected next triad: systems/qa ALT27V28 diagnostics, combat/vfx+ai-content ALT29 prototype, design/world nautical helper adjacency lock.

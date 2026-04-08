@@ -6014,3 +6014,6 @@
 - Follow-up: Injected next task to lock ALT26->ALT27->ALT26V27 helper ordering assertion.
 
 - 2026-04-08 09:21 KST — Cycle IP160/IP159 closure: added regression assertion for ALT26->ALT27->ALT26V27* assertion-label helper ordering and expanded ALT helper adjacency contract through ALT28 in `scripts/regression_check_lane_coverage_guardrail.py`. Verification bundle passed (py_compile + regression + guardrail regeneration). Follow-up: inject ALT27->ALT28 helper consistency assertion contract.
+
+## 2026-04-08 09:43 KST — Cycle IP161 queued systems follow-up
+- Injected next systems/qa task: add sparse mixed-window row-count parity + first-diverged assertion-label diagnostics for `...ALT27V28LEN` and `...ALT27V28R`.

@@ -4255,3 +4255,7 @@
 - Follow-up: Injected next task to lock ALT26->ALT27->ALT26V27 helper ordering assertion.
 
 - 2026-04-08 09:21 KST — Maritime naming continuity updated: ALT26 (mast) -> ALT27 (rudder) -> ALT28 (harbor) helper callouts now explicit in docs-order output.
+
+## 2026-04-08 09:43 KST — Cycle IP161 nautical readability parity
+- Shipped world-facing wording parity anchor: `ALT27 rudder` vs `ALT28 harbor` comparator + rationale rows.
+- Durable note: nautical phrase progression now explicitly records pairwise readability before introducing next candidate token.

@@ -4431,3 +4431,7 @@
 - Follow-up: Injected next task to lock ALT26->ALT27->ALT26V27 helper ordering assertion.
 
 - 2026-04-08 09:21 KST — Added docs-order ALT28 helper callout copy (`GLINT=harbor pin intent`, `SHIELD=SAFE brace readability cue`) to keep maritime alias chain readable after ALT27.
+
+## 2026-04-08 09:43 KST — Cycle IP161 (selected lane-balancing slice)
+- Added docs-order comparator/rationale rows `...LEGALTPINVFXALT27V28LEN` + `...LEGALTPINVFXALT27V28R` to keep harbor-vs-rudder readability parity explicit.
+- Forced-lane rationale: last 10 completions remained VFX-heavy (>40%), so design/world coverage was prioritized this cycle.
