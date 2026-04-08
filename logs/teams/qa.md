@@ -6467,3 +6467,10 @@
 - Follow-up: Injected next task to lock ALT26->ALT27->ALT26V27 helper ordering assertion.
 
 - 2026-04-08 09:21 KST — Verified guardrail suite after ALT27-vs-ALT26 consistency assertion + ALT28 helper adjacency extension. Commands: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`. All pass.
+
+## 2026-04-08 09:52 KST — Cycle IP160 injected follow-up (ALT27→ALT28 helper consistency)
+- Task: Closed ALT27-vs-ALT28 helper consistency assertion item (`ALT27 -> ALT28 -> ALT26V27*`) for docs-order assertion-label helper determinism.
+- Scope: `scripts/check_lane_coverage_guardrail.py`, `scripts/regression_check_lane_coverage_guardrail.py`, backlog/task state sync.
+- Decision: Added ALT28 alias triplet (`ALT28`, `ALT28LEN`, `ALT28R`) to docs-order assertion-label helper row and updated regression alias-order matcher/message to enforce ALT27→ALT28→ALT26V27* ordering contract.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`
+- Follow-up: Next unchecked queue is ALT27V28 mixed-window diagnostics + ALT29 phrase prototype + nautical helper adjacency task.

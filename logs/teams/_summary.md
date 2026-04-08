@@ -6654,3 +6654,10 @@ Compact decision memory for AI context efficiency.
 - Selected/implemented design-world slice: added `...LEGALTPINVFXALT27V28LEN` + `...LEGALTPINVFXALT27V28R` comparator pair in guardrail markdown output.
 - Verification PASS: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
 - Injected next triad: systems/qa ALT27V28 diagnostics, combat/vfx+ai-content ALT29 prototype, design/world nautical helper adjacency lock.
+
+## 2026-04-08 09:52 KST — IP160 injected follow-up closed
+- Completed item: ALT27-vs-ALT28 helper consistency assertion (`ALT27 -> ALT28 -> ALT26V27*`) in docs-order assertion-label helper path.
+- Durable decision: treat ALT28 helper aliases (`ALT28`, `ALT28LEN`, `ALT28R`) as required docs-order assertion-label helper tokens and keep them ordered between ALT27 triplet and comparator alias group.
+- Regression contract update: alias-order regex now enforces `ALT27 -> ALT28 -> ALT26V27*` deterministic sequence for one-scan diagnostics readability.
+- Evidence: py_compile + regression guardrail script + guardrail regeneration all pass.
+- Next queue: ALT27V28 mixed-window parity/assertion-label surfacing, ALT29 phrase/eval/rationale prototype, nautical helper adjacency callout lock.
