@@ -6474,3 +6474,9 @@
 - Decision: Added ALT28 alias triplet (`ALT28`, `ALT28LEN`, `ALT28R`) to docs-order assertion-label helper row and updated regression alias-order matcher/message to enforce ALT27→ALT28→ALT26V27* ordering contract.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`
 - Follow-up: Next unchecked queue is ALT27V28 mixed-window diagnostics + ALT29 phrase prototype + nautical helper adjacency task.
+
+## 2026-04-08 10:25 KST — Cycle IP161 follow-up (ALT27V28 diagnostics parity)
+- Decision: Completed injected Systems/Ops+QA slice to enforce deterministic mixed-window parity and first-diverged assertion-label surfacing for `...ALT27V28LEN` + `...ALT27V28R`.
+- Implementation: Updated regression contracts in `scripts/regression_check_lane_coverage_guardrail.py` and assertion-label helper copy in `scripts/check_lane_coverage_guardrail.py`.
+- Evidence: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+- Follow-up: Next unchecked item remains ALT29 phrase/eval/rationale prototype.

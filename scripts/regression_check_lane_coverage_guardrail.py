@@ -4284,7 +4284,7 @@ def run_fixture_case(
         "docs-order assertion-label helper (design/world+ux): PINLEN=`assertionLabel=<...legaltpinlenNonPassRows>` | "
         "PINSAFE=`assertionLabel=<...legaltpinsafeNonPassRows>` | SAFE=`assertionLabel=<...legaltsafeNonPassRows>` | "
         "ALTLEN=`assertionLabel=<...legaltlenNonPassRows>` | ALT8=`assertionLabel=<...legaltpinvfxalt8NonPassRows>` | "
-        "ALT8LEN=`assertionLabel=<...legaltpinvfxalt8lenNonPassRows>` | ALT9=`assertionLabel=<...legaltpinvfxalt9NonPassRows>` | ALT9LEN=`assertionLabel=<...legaltpinvfxalt9lenNonPassRows>` | ALT10=`assertionLabel=<...legaltpinvfxalt10NonPassRows>` | ALT10LEN=`assertionLabel=<...legaltpinvfxalt10lenNonPassRows>` | ALT11=`assertionLabel=<...legaltpinvfxalt11NonPassRows>` | ALT11LEN=`assertionLabel=<...legaltpinvfxalt11lenNonPassRows>` | ALT12=`assertionLabel=<...legaltpinvfxalt12NonPassRows>` | ALT12LEN=`assertionLabel=<...legaltpinvfxalt12lenNonPassRows>` | ALT13=`assertionLabel=<...legaltpinvfxalt13NonPassRows>` | ALT13LEN=`assertionLabel=<...legaltpinvfxalt13lenNonPassRows>` | ALT14=`assertionLabel=<...legaltpinvfxalt14NonPassRows>` | ALT14LEN=`assertionLabel=<...legaltpinvfxalt14lenNonPassRows>` | ALT15=`assertionLabel=<...legaltpinvfxalt15NonPassRows>` | ALT15LEN=`assertionLabel=<...legaltpinvfxalt15lenNonPassRows>` | ALT16=`assertionLabel=<...legaltpinvfxalt16NonPassRows>` | ALT16LEN=`assertionLabel=<...legaltpinvfxalt16lenNonPassRows>` | ALT16R=`assertionLabel=<...legaltpinvfxalt16rNonPassRows>` | ALT17=`assertionLabel=<...legaltpinvfxalt17NonPassRows>` | ALT17LEN=`assertionLabel=<...legaltpinvfxalt17lenNonPassRows>` | ALT17R=`assertionLabel=<...legaltpinvfxalt17rNonPassRows>` | ALT18=`assertionLabel=<...legaltpinvfxalt18NonPassRows>` | ALT18LEN=`assertionLabel=<...legaltpinvfxalt18lenNonPassRows>` | ALT18R=`assertionLabel=<...legaltpinvfxalt18rNonPassRows>` | ALT19=`assertionLabel=<...legaltpinvfxalt19NonPassRows>` | ALT19LEN=`assertionLabel=<...legaltpinvfxalt19lenNonPassRows>` | ALT19R=`assertionLabel=<...legaltpinvfxalt19rNonPassRows>` | ALT20=`assertionLabel=<...legaltpinvfxalt20NonPassRows>` | ALT20LEN=`assertionLabel=<...legaltpinvfxalt20lenNonPassRows>` | ALT20R=`assertionLabel=<...legaltpinvfxalt20rNonPassRows>` | ALT21=`assertionLabel=<...legaltpinvfxalt21NonPassRows>` | ALT21LEN=`assertionLabel=<...legaltpinvfxalt21lenNonPassRows>` | ALT21R=`assertionLabel=<...legaltpinvfxalt21rNonPassRows>` | ALT22=`assertionLabel=<...legaltpinvfxalt22NonPassRows>` | ALT22LEN=`assertionLabel=<...legaltpinvfxalt22lenNonPassRows>` | ALT22R=`assertionLabel=<...legaltpinvfxalt22rNonPassRows>` | ALT23=`assertionLabel=<...legaltpinvfxalt23NonPassRows>` | ALT23LEN=`assertionLabel=<...legaltpinvfxalt23lenNonPassRows>` | ALT23R=`assertionLabel=<...legaltpinvfxalt23rNonPassRows>` | ALT24=`assertionLabel=<...legaltpinvfxalt24NonPassRows>` | ALT24LEN=`assertionLabel=<...legaltpinvfxalt24lenNonPassRows>` | ALT24R=`assertionLabel=<...legaltpinvfxalt24rNonPassRows>` | ALT25=`assertionLabel=<...legaltpinvfxalt25NonPassRows>` | ALT25LEN=`assertionLabel=<...legaltpinvfxalt25lenNonPassRows>` | ALT25R=`assertionLabel=<...legaltpinvfxalt25rNonPassRows>` | ALT26=`assertionLabel=<...legaltpinvfxalt26NonPassRows>` | ALT26LEN=`assertionLabel=<...legaltpinvfxalt26lenNonPassRows>` | ALT26R=`assertionLabel=<...legaltpinvfxalt26rNonPassRows>` | ALT27=`assertionLabel=<...legaltpinvfxalt27NonPassRows>` | ALT27LEN=`assertionLabel=<...legaltpinvfxalt27lenNonPassRows>` | ALT27R=`assertionLabel=<...legaltpinvfxalt27rNonPassRows>` | ALT28=`assertionLabel=<...legaltpinvfxalt28NonPassRows>` | ALT28LEN=`assertionLabel=<...legaltpinvfxalt28lenNonPassRows>` | ALT28R=`assertionLabel=<...legaltpinvfxalt28rNonPassRows>` | ALT22V23LEN=`assertionLabel=<...legaltpinvfxalt22v23lenNonPassRows>` | ALT22V23R=`assertionLabel=<...legaltpinvfxalt22v23rNonPassRows>` | ALT23V24LEN=`assertionLabel=<...legaltpinvfxalt23v24lenNonPassRows>` | ALT23V24R=`assertionLabel=<...legaltpinvfxalt23v24rNonPassRows>` | ALT19V20LEN=`assertionLabel=<...legaltpinvfxalt19v20lenNonPassRows>` | ALT19V20R=`assertionLabel=<...legaltpinvfxalt19v20rNonPassRows>` | ALT25V26LEN=`assertionLabel=<...legaltpinvfxalt25v26lenNonPassRows>` | ALT25V26R=`assertionLabel=<...legaltpinvfxalt25v26rNonPassRows>` | ALT26V27LEN=`assertionLabel=<...legaltpinvfxalt26v27lenNonPassRows>` | ALT26V27R=`assertionLabel=<...legaltpinvfxalt26v27rNonPassRows>`. "
+        "ALT8LEN=`assertionLabel=<...legaltpinvfxalt8lenNonPassRows>` | ALT9=`assertionLabel=<...legaltpinvfxalt9NonPassRows>` | ALT9LEN=`assertionLabel=<...legaltpinvfxalt9lenNonPassRows>` | ALT10=`assertionLabel=<...legaltpinvfxalt10NonPassRows>` | ALT10LEN=`assertionLabel=<...legaltpinvfxalt10lenNonPassRows>` | ALT11=`assertionLabel=<...legaltpinvfxalt11NonPassRows>` | ALT11LEN=`assertionLabel=<...legaltpinvfxalt11lenNonPassRows>` | ALT12=`assertionLabel=<...legaltpinvfxalt12NonPassRows>` | ALT12LEN=`assertionLabel=<...legaltpinvfxalt12lenNonPassRows>` | ALT13=`assertionLabel=<...legaltpinvfxalt13NonPassRows>` | ALT13LEN=`assertionLabel=<...legaltpinvfxalt13lenNonPassRows>` | ALT14=`assertionLabel=<...legaltpinvfxalt14NonPassRows>` | ALT14LEN=`assertionLabel=<...legaltpinvfxalt14lenNonPassRows>` | ALT15=`assertionLabel=<...legaltpinvfxalt15NonPassRows>` | ALT15LEN=`assertionLabel=<...legaltpinvfxalt15lenNonPassRows>` | ALT16=`assertionLabel=<...legaltpinvfxalt16NonPassRows>` | ALT16LEN=`assertionLabel=<...legaltpinvfxalt16lenNonPassRows>` | ALT16R=`assertionLabel=<...legaltpinvfxalt16rNonPassRows>` | ALT17=`assertionLabel=<...legaltpinvfxalt17NonPassRows>` | ALT17LEN=`assertionLabel=<...legaltpinvfxalt17lenNonPassRows>` | ALT17R=`assertionLabel=<...legaltpinvfxalt17rNonPassRows>` | ALT18=`assertionLabel=<...legaltpinvfxalt18NonPassRows>` | ALT18LEN=`assertionLabel=<...legaltpinvfxalt18lenNonPassRows>` | ALT18R=`assertionLabel=<...legaltpinvfxalt18rNonPassRows>` | ALT19=`assertionLabel=<...legaltpinvfxalt19NonPassRows>` | ALT19LEN=`assertionLabel=<...legaltpinvfxalt19lenNonPassRows>` | ALT19R=`assertionLabel=<...legaltpinvfxalt19rNonPassRows>` | ALT20=`assertionLabel=<...legaltpinvfxalt20NonPassRows>` | ALT20LEN=`assertionLabel=<...legaltpinvfxalt20lenNonPassRows>` | ALT20R=`assertionLabel=<...legaltpinvfxalt20rNonPassRows>` | ALT21=`assertionLabel=<...legaltpinvfxalt21NonPassRows>` | ALT21LEN=`assertionLabel=<...legaltpinvfxalt21lenNonPassRows>` | ALT21R=`assertionLabel=<...legaltpinvfxalt21rNonPassRows>` | ALT22=`assertionLabel=<...legaltpinvfxalt22NonPassRows>` | ALT22LEN=`assertionLabel=<...legaltpinvfxalt22lenNonPassRows>` | ALT22R=`assertionLabel=<...legaltpinvfxalt22rNonPassRows>` | ALT23=`assertionLabel=<...legaltpinvfxalt23NonPassRows>` | ALT23LEN=`assertionLabel=<...legaltpinvfxalt23lenNonPassRows>` | ALT23R=`assertionLabel=<...legaltpinvfxalt23rNonPassRows>` | ALT24=`assertionLabel=<...legaltpinvfxalt24NonPassRows>` | ALT24LEN=`assertionLabel=<...legaltpinvfxalt24lenNonPassRows>` | ALT24R=`assertionLabel=<...legaltpinvfxalt24rNonPassRows>` | ALT25=`assertionLabel=<...legaltpinvfxalt25NonPassRows>` | ALT25LEN=`assertionLabel=<...legaltpinvfxalt25lenNonPassRows>` | ALT25R=`assertionLabel=<...legaltpinvfxalt25rNonPassRows>` | ALT26=`assertionLabel=<...legaltpinvfxalt26NonPassRows>` | ALT26LEN=`assertionLabel=<...legaltpinvfxalt26lenNonPassRows>` | ALT26R=`assertionLabel=<...legaltpinvfxalt26rNonPassRows>` | ALT27=`assertionLabel=<...legaltpinvfxalt27NonPassRows>` | ALT27LEN=`assertionLabel=<...legaltpinvfxalt27lenNonPassRows>` | ALT27R=`assertionLabel=<...legaltpinvfxalt27rNonPassRows>` | ALT28=`assertionLabel=<...legaltpinvfxalt28NonPassRows>` | ALT28LEN=`assertionLabel=<...legaltpinvfxalt28lenNonPassRows>` | ALT28R=`assertionLabel=<...legaltpinvfxalt28rNonPassRows>` | ALT22V23LEN=`assertionLabel=<...legaltpinvfxalt22v23lenNonPassRows>` | ALT22V23R=`assertionLabel=<...legaltpinvfxalt22v23rNonPassRows>` | ALT23V24LEN=`assertionLabel=<...legaltpinvfxalt23v24lenNonPassRows>` | ALT23V24R=`assertionLabel=<...legaltpinvfxalt23v24rNonPassRows>` | ALT19V20LEN=`assertionLabel=<...legaltpinvfxalt19v20lenNonPassRows>` | ALT19V20R=`assertionLabel=<...legaltpinvfxalt19v20rNonPassRows>` | ALT25V26LEN=`assertionLabel=<...legaltpinvfxalt25v26lenNonPassRows>` | ALT25V26R=`assertionLabel=<...legaltpinvfxalt25v26rNonPassRows>` | ALT26V27LEN=`assertionLabel=<...legaltpinvfxalt26v27lenNonPassRows>` | ALT26V27R=`assertionLabel=<...legaltpinvfxalt26v27rNonPassRows>` | ALT27V28LEN=`assertionLabel=<...legaltpinvfxalt27v28lenNonPassRows>` | ALT27V28R=`assertionLabel=<...legaltpinvfxalt27v28rNonPassRows>`. "
         in md_text
     ), f"{name}: markdown output must include docs-order PINLEN/PINSAFE/SAFE/ALTLEN/ALT8 assertion-label helper row for one-scan triage"
     alt27_alt28_alias_order_matches = re.findall(
@@ -4303,11 +4303,13 @@ def run_fixture_case(
         r"ALT25V26LEN=`assertionLabel=<\.\.\.legaltpinvfxalt25v26lenNonPassRows>` \| "
         r"ALT25V26R=`assertionLabel=<\.\.\.legaltpinvfxalt25v26rNonPassRows>` \| "
         r"ALT26V27LEN=`assertionLabel=<\.\.\.legaltpinvfxalt26v27lenNonPassRows>` \| "
-        r"ALT26V27R=`assertionLabel=<\.\.\.legaltpinvfxalt26v27rNonPassRows>`\.",
+        r"ALT26V27R=`assertionLabel=<\.\.\.legaltpinvfxalt26v27rNonPassRows>` \| "
+        r"ALT27V28LEN=`assertionLabel=<\.\.\.legaltpinvfxalt27v28lenNonPassRows>` \| "
+        r"ALT27V28R=`assertionLabel=<\.\.\.legaltpinvfxalt27v28rNonPassRows>`\.",
         md_text,
     )
     assert len(alt27_alt28_alias_order_matches) >= 1, (
-        f"{name}: docs-order assertion-label helper must preserve ALT27 -> ALT28 -> ALT26V27* alias ordering for deterministic one-scan diagnostics"
+        f"{name}: docs-order assertion-label helper must preserve ALT27 -> ALT28 -> ALT26V27* -> ALT27V28* alias ordering for deterministic one-scan diagnostics"
     )
     assert (
         "docs-order mnemonic readability note (ai-content+ux, report-only gate): baseline **ALT>PIN>SAFE>ALTLEN** remains source-of-truth; "
@@ -6847,6 +6849,24 @@ def run_fixture_case(
         for index, payload in enumerate(nfxqbackstaf2ctrlwnrblglegaltpinvfxalt26v27r_payload_values)
         if payload != "ALT26 mast and ALT27 rudder keep pin readability parity"
     )
+    nfxqbackstaf2ctrlwnrblglegaltpinvfxalt27v28len_eval_rows = re.findall(
+        r"\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFXALT27V28LEN:([^*\n]+)\*\*",
+        md_text,
+    )
+    nfxqbackstaf2ctrlwnrblglegaltpinvfxalt27v28len_payload_mismatch_rows = tuple(
+        f"occurrence={index} payload={payload}"
+        for index, payload in enumerate(nfxqbackstaf2ctrlwnrblglegaltpinvfxalt27v28len_eval_rows)
+        if payload != "B43|C43|LIM72|PREF:TIE|PASS"
+    )
+    nfxqbackstaf2ctrlwnrblglegaltpinvfxalt27v28r_payload_values = re.findall(
+        r"\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFXALT27V28R:([^*\n]+)\*\*",
+        md_text,
+    )
+    nfxqbackstaf2ctrlwnrblglegaltpinvfxalt27v28r_payload_mismatch_rows = tuple(
+        f"occurrence={index} payload={payload}"
+        for index, payload in enumerate(nfxqbackstaf2ctrlwnrblglegaltpinvfxalt27v28r_payload_values)
+        if payload != "ALT27 rudder and ALT28 harbor keep pin readability parity"
+    )
     nfxqbackstaf2ctrlwnrb_payload_mismatch_rows = tuple(
         f"occurrence={index} payload={payload}"
         for index, payload in enumerate(nfxqbackstaf2ctrlwnrb_payload_values)
@@ -7914,6 +7934,8 @@ def run_fixture_case(
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt27rRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFXALT27R:GLINT rudder keeps pin handoff explicit|SAFE brace preserves readability**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt26v27lenRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFXALT26V27LEN:B39|C39|LIM72|PREF:TIE|PASS**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt26v27rRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFXALT26V27R:ALT26 mast and ALT27 rudder keep pin readability parity**"),
+        "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt27v28lenRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFXALT27V28LEN:B43|C43|LIM72|PREF:TIE|PASS**"),
+        "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt27v28rRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFXALT27V28R:ALT27 rudder and ALT28 harbor keep pin readability parity**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltsafeRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTSAFE:B13|C13|LIM72|PASS**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltlenRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTLEN:B63|C63|LIM72|PASS**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblgleglenRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGLEN:B53|C53|LIM72|PASS**"),
@@ -8025,6 +8047,8 @@ def run_fixture_case(
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt27rNonPassRows": " || ".join(nfxqbackstaf2ctrlwnrblglegaltpinvfxalt27r_payload_mismatch_rows),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt26v27lenNonPassRows": " || ".join(nfxqbackstaf2ctrlwnrblglegaltpinvfxalt26v27len_payload_mismatch_rows),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt26v27rNonPassRows": " || ".join(nfxqbackstaf2ctrlwnrblglegaltpinvfxalt26v27r_payload_mismatch_rows),
+        "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt27v28lenNonPassRows": " || ".join(nfxqbackstaf2ctrlwnrblglegaltpinvfxalt27v28len_payload_mismatch_rows),
+        "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt27v28rNonPassRows": " || ".join(nfxqbackstaf2ctrlwnrblglegaltpinvfxalt27v28r_payload_mismatch_rows),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltsafeNonPassRows": " || ".join(nfxqbackstaf2ctrlwnrblglegaltsafe_payload_mismatch_rows),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltlenNonPassRows": " || ".join(nfxqbackstaf2ctrlwnrblglegaltlen_payload_mismatch_rows),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnlenNonPassRows": " || ".join(nfxqbackstaf2ctrlwnlen_eval_non_pass_rows),
@@ -11223,6 +11247,104 @@ def main() -> int:
             f"first diverged fixture={mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinvfxalt26v27r_row_count_mismatch[0]} "
             f"expected={mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinvfxalt26v27r_row_count_mismatch[1]} "
             f"actual={mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinvfxalt26v27r_row_count_mismatch[2]}"
+        )
+        mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinvfxalt27v28len_status_mismatch = next(
+            (
+                (fixture_name, mismatch_rows)
+                for fixture_name, fixture_result in (
+                    ("balanced_tie", balanced_tie_result),
+                    ("ready_mix", ready_mix_result),
+                    ("prior_window_trend_up", prior_window_trend_up_result),
+                    ("prior_window_trend_down", prior_window_trend_down_result),
+                )
+                if (
+                    mismatch_rows := str(
+                        fixture_result[
+                            "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt27v28lenNonPassRows"
+                        ]
+                    )
+                )
+            ),
+            None,
+        )
+        assert mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinvfxalt27v28len_status_mismatch is None, (
+            "mixed-window fixture matrix must keep TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFXALT27V28LEN payload deterministic across sparse summary + token sections; "
+            "assertionLabel=tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt27v28lenNonPassRows; "
+            f"first diverged fixture={mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinvfxalt27v28len_status_mismatch[0]} "
+            f"rows={mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinvfxalt27v28len_status_mismatch[1]}"
+        )
+        mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinvfxalt27v28r_status_mismatch = next(
+            (
+                (fixture_name, mismatch_rows)
+                for fixture_name, fixture_result in (
+                    ("balanced_tie", balanced_tie_result),
+                    ("ready_mix", ready_mix_result),
+                    ("prior_window_trend_up", prior_window_trend_up_result),
+                    ("prior_window_trend_down", prior_window_trend_down_result),
+                )
+                if (
+                    mismatch_rows := str(
+                        fixture_result[
+                            "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt27v28rNonPassRows"
+                        ]
+                    )
+                )
+            ),
+            None,
+        )
+        assert mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinvfxalt27v28r_status_mismatch is None, (
+            "mixed-window fixture matrix must keep TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFXALT27V28R payload deterministic across sparse summary + token sections; "
+            "assertionLabel=tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt27v28rNonPassRows; "
+            f"first diverged fixture={mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinvfxalt27v28r_status_mismatch[0]} "
+            f"rows={mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinvfxalt27v28r_status_mismatch[1]}"
+        )
+        mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinvfxalt27v28r_row_count_mismatch = next(
+            (
+                (
+                    fixture_name,
+                    int(
+                        fixture_result[
+                            "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt27v28lenRowCount"
+                        ]
+                    ),
+                    int(
+                        fixture_result[
+                            "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt27v28rRowCount"
+                        ]
+                    ),
+                )
+                for fixture_name, fixture_result in (
+                    ("balanced_tie", balanced_tie_result),
+                    ("ready_mix", ready_mix_result),
+                    ("prior_window_trend_up", prior_window_trend_up_result),
+                    ("prior_window_trend_down", prior_window_trend_down_result),
+                )
+                if int(
+                    fixture_result[
+                        "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt27v28lenRowCount"
+                    ]
+                )
+                > 0
+                and int(
+                    fixture_result[
+                        "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt27v28rRowCount"
+                    ]
+                )
+                != int(
+                    fixture_result[
+                        "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt27v28lenRowCount"
+                    ]
+                )
+            ),
+            None,
+        )
+        assert mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinvfxalt27v28r_row_count_mismatch is None, (
+            "mixed-window fixture matrix must keep TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFXALT27V28R row-count parity with "
+            "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFXALT27V28LEN so missing rationale rows expose comparator occurrence context in one failure path; "
+            "assertionLabel=tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt27v28rNonPassRows; "
+            f"first diverged fixture={mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinvfxalt27v28r_row_count_mismatch[0]} "
+            f"expected={mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinvfxalt27v28r_row_count_mismatch[1]} "
+            f"actual={mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinvfxalt27v28r_row_count_mismatch[2]}"
         )
         mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnlen_status_mismatch = next(
             (

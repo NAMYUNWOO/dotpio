@@ -372,3 +372,5 @@
 - Verification PASS: `python3 -m py_compile ...` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + guardrail json/md regeneration.
 
 - 2026-04-08 09:43 KST — Game Director IP161: forced lane rebalance after VFX-heavy streak; shipped design/world comparator slice (`...ALT27V28LEN`, `...ALT27V28R`) and queued systems/combat/design injected follow-ups.
+
+- 2026-04-08 10:25 KST (Cycle IP161 follow-up): Implemented deterministic mixed-window parity + first-diverged assertion-label diagnostics for `...ALT27V28LEN` and `...ALT27V28R` in lane-coverage guardrail regression; helper alias contract now includes ALT27V28 labels for one-scan triage.

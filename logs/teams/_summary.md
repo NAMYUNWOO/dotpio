@@ -6661,3 +6661,5 @@ Compact decision memory for AI context efficiency.
 - Regression contract update: alias-order regex now enforces `ALT27 -> ALT28 -> ALT26V27*` deterministic sequence for one-scan diagnostics readability.
 - Evidence: py_compile + regression guardrail script + guardrail regeneration all pass.
 - Next queue: ALT27V28 mixed-window parity/assertion-label surfacing, ALT29 phrase/eval/rationale prototype, nautical helper adjacency callout lock.
+
+- 2026-04-08 10:25 KST: Closed Cycle IP161 Systems/Ops+QA follow-up by adding ALT27V28 comparator mixed-window payload drift assertions (`...alt27v28lenNonPassRows`, `...alt27v28rNonPassRows`) plus row-count parity lock and first-diverged `assertionLabel` surfacing. Guardrail helper copy now includes ALT27V28 labels.
