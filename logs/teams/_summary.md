@@ -6646,3 +6646,5 @@ Compact decision memory for AI context efficiency.
 - Shipped comparator diagnostics family for maritime pair (`...ALT25V26LEN`, `...ALT25V26R`) in guardrail markdown + regression fixtures.
 - Durable decision: comparator rows now require first-diverged assertionLabel surfacing and rationale row-count parity checks in the same cycle.
 - Verification: py_compile + regression_check_lane_coverage_guardrail + guardrail artifact regeneration PASS.
+
+- 2026-04-08 09:21 KST — Cycle IP159 follow-up completed: regression now explicitly enforces ALT26->ALT27->ALT26V27* assertion-label helper order; Cycle IP160 shipped ALT28 helper callout + adjacency lock through ALT28 (`scripts/check_lane_coverage_guardrail.py`, `scripts/regression_check_lane_coverage_guardrail.py`). Next injected focus: ALT27->ALT28 helper consistency assertion.

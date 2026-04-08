@@ -4250,6 +4250,14 @@ def run_fixture_case(
         "docs-order ALT26 helper callout (design/world+ux): `...LEGALTPINVFXALT26` keeps **GLINT=mast pin intent** + **SHIELD=SAFE brace readability cue** for one-scan triage."
         in md_text
     ), f"{name}: markdown output must include ALT26 docs-order helper callout for mast/SAFE readability"
+    assert (
+        "docs-order ALT27 helper callout (design/world+ux): `...LEGALTPINVFXALT27` keeps **GLINT=rudder pin intent** + **SHIELD=SAFE brace readability cue** for one-scan triage."
+        in md_text
+    ), f"{name}: markdown output must include ALT27 docs-order helper callout for rudder/SAFE readability"
+    assert (
+        "docs-order ALT28 helper callout (design/world+ux): `...LEGALTPINVFXALT28` keeps **GLINT=harbor pin intent** + **SHIELD=SAFE brace readability cue** for one-scan triage."
+        in md_text
+    ), f"{name}: markdown output must include ALT28 docs-order helper callout for harbor/SAFE readability"
     alt14_alt22_waypoint_vector_adjacency_matches = re.findall(
         r"- docs-order ALT14 helper callout \(design/world\+ux\): `\.\.\.LEGALTPINVFXALT14` keeps \*\*GLINT=waypoint pin handoff intent\*\* \+ \*\*SHIELD=SAFE brace readability cue\*\* for one-scan triage\.\n"
         r"- docs-order ALT15 helper callout \(design/world\+ux\): `\.\.\.LEGALTPINVFXALT15` keeps \*\*GLINT=vector pin handoff intent\*\* \+ \*\*SHIELD=SAFE brace readability cue\*\* for one-scan triage\.\n"
@@ -4264,11 +4272,13 @@ def run_fixture_case(
         r"\n- docs-order ALT23 helper callout \(design/world\+ux\): `\.\.\.LEGALTPINVFXALT23` keeps \*\*GLINT=true-north pin intent\*\* \+ \*\*SHIELD=SAFE brace readability cue\*\* for one-scan triage\."
         r"\n- docs-order ALT24 helper callout \(design/world\+ux\): `\.\.\.LEGALTPINVFXALT24` keeps \*\*GLINT=keel pin intent\*\* \+ \*\*SHIELD=SAFE brace readability cue\*\* for one-scan triage\."
         r"\n- docs-order ALT25 helper callout \(design/world\+ux\): `\.\.\.LEGALTPINVFXALT25` keeps \*\*GLINT=prow pin intent\*\* \+ \*\*SHIELD=SAFE brace readability cue\*\* for one-scan triage\."
-        r"\n- docs-order ALT26 helper callout \(design/world\+ux\): `\.\.\.LEGALTPINVFXALT26` keeps \*\*GLINT=mast pin intent\*\* \+ \*\*SHIELD=SAFE brace readability cue\*\* for one-scan triage\.",
+        r"\n- docs-order ALT26 helper callout \(design/world\+ux\): `\.\.\.LEGALTPINVFXALT26` keeps \*\*GLINT=mast pin intent\*\* \+ \*\*SHIELD=SAFE brace readability cue\*\* for one-scan triage\."
+        r"\n- docs-order ALT27 helper callout \(design/world\+ux\): `\.\.\.LEGALTPINVFXALT27` keeps \*\*GLINT=rudder pin intent\*\* \+ \*\*SHIELD=SAFE brace readability cue\*\* for one-scan triage\."
+        r"\n- docs-order ALT28 helper callout \(design/world\+ux\): `\.\.\.LEGALTPINVFXALT28` keeps \*\*GLINT=harbor pin intent\*\* \+ \*\*SHIELD=SAFE brace readability cue\*\* for one-scan triage\.",
         md_text,
     )
     assert len(alt14_alt22_waypoint_vector_adjacency_matches) >= 1, (
-        f"{name}: ALT14/ALT15/ALT16/ALT17/ALT18/ALT19/ALT20/ALT21/ALT22/ALT23/ALT24/ALT25/ALT26 helper callouts must stay immediately adjacent to waypoint-vs-vector helper note for one-scan docs readability"
+        f"{name}: ALT14/ALT15/ALT16/ALT17/ALT18/ALT19/ALT20/ALT21/ALT22/ALT23/ALT24/ALT25/ALT26/ALT27/ALT28 helper callouts must stay immediately adjacent to waypoint-vs-vector helper note for one-scan docs readability"
     )
     assert (
         "docs-order assertion-label helper (design/world+ux): PINLEN=`assertionLabel=<...legaltpinlenNonPassRows>` | "
@@ -4277,6 +4287,28 @@ def run_fixture_case(
         "ALT8LEN=`assertionLabel=<...legaltpinvfxalt8lenNonPassRows>` | ALT9=`assertionLabel=<...legaltpinvfxalt9NonPassRows>` | ALT9LEN=`assertionLabel=<...legaltpinvfxalt9lenNonPassRows>` | ALT10=`assertionLabel=<...legaltpinvfxalt10NonPassRows>` | ALT10LEN=`assertionLabel=<...legaltpinvfxalt10lenNonPassRows>` | ALT11=`assertionLabel=<...legaltpinvfxalt11NonPassRows>` | ALT11LEN=`assertionLabel=<...legaltpinvfxalt11lenNonPassRows>` | ALT12=`assertionLabel=<...legaltpinvfxalt12NonPassRows>` | ALT12LEN=`assertionLabel=<...legaltpinvfxalt12lenNonPassRows>` | ALT13=`assertionLabel=<...legaltpinvfxalt13NonPassRows>` | ALT13LEN=`assertionLabel=<...legaltpinvfxalt13lenNonPassRows>` | ALT14=`assertionLabel=<...legaltpinvfxalt14NonPassRows>` | ALT14LEN=`assertionLabel=<...legaltpinvfxalt14lenNonPassRows>` | ALT15=`assertionLabel=<...legaltpinvfxalt15NonPassRows>` | ALT15LEN=`assertionLabel=<...legaltpinvfxalt15lenNonPassRows>` | ALT16=`assertionLabel=<...legaltpinvfxalt16NonPassRows>` | ALT16LEN=`assertionLabel=<...legaltpinvfxalt16lenNonPassRows>` | ALT16R=`assertionLabel=<...legaltpinvfxalt16rNonPassRows>` | ALT17=`assertionLabel=<...legaltpinvfxalt17NonPassRows>` | ALT17LEN=`assertionLabel=<...legaltpinvfxalt17lenNonPassRows>` | ALT17R=`assertionLabel=<...legaltpinvfxalt17rNonPassRows>` | ALT18=`assertionLabel=<...legaltpinvfxalt18NonPassRows>` | ALT18LEN=`assertionLabel=<...legaltpinvfxalt18lenNonPassRows>` | ALT18R=`assertionLabel=<...legaltpinvfxalt18rNonPassRows>` | ALT19=`assertionLabel=<...legaltpinvfxalt19NonPassRows>` | ALT19LEN=`assertionLabel=<...legaltpinvfxalt19lenNonPassRows>` | ALT19R=`assertionLabel=<...legaltpinvfxalt19rNonPassRows>` | ALT20=`assertionLabel=<...legaltpinvfxalt20NonPassRows>` | ALT20LEN=`assertionLabel=<...legaltpinvfxalt20lenNonPassRows>` | ALT20R=`assertionLabel=<...legaltpinvfxalt20rNonPassRows>` | ALT21=`assertionLabel=<...legaltpinvfxalt21NonPassRows>` | ALT21LEN=`assertionLabel=<...legaltpinvfxalt21lenNonPassRows>` | ALT21R=`assertionLabel=<...legaltpinvfxalt21rNonPassRows>` | ALT22=`assertionLabel=<...legaltpinvfxalt22NonPassRows>` | ALT22LEN=`assertionLabel=<...legaltpinvfxalt22lenNonPassRows>` | ALT22R=`assertionLabel=<...legaltpinvfxalt22rNonPassRows>` | ALT23=`assertionLabel=<...legaltpinvfxalt23NonPassRows>` | ALT23LEN=`assertionLabel=<...legaltpinvfxalt23lenNonPassRows>` | ALT23R=`assertionLabel=<...legaltpinvfxalt23rNonPassRows>` | ALT24=`assertionLabel=<...legaltpinvfxalt24NonPassRows>` | ALT24LEN=`assertionLabel=<...legaltpinvfxalt24lenNonPassRows>` | ALT24R=`assertionLabel=<...legaltpinvfxalt24rNonPassRows>` | ALT25=`assertionLabel=<...legaltpinvfxalt25NonPassRows>` | ALT25LEN=`assertionLabel=<...legaltpinvfxalt25lenNonPassRows>` | ALT25R=`assertionLabel=<...legaltpinvfxalt25rNonPassRows>` | ALT26=`assertionLabel=<...legaltpinvfxalt26NonPassRows>` | ALT26LEN=`assertionLabel=<...legaltpinvfxalt26lenNonPassRows>` | ALT26R=`assertionLabel=<...legaltpinvfxalt26rNonPassRows>` | ALT27=`assertionLabel=<...legaltpinvfxalt27NonPassRows>` | ALT27LEN=`assertionLabel=<...legaltpinvfxalt27lenNonPassRows>` | ALT27R=`assertionLabel=<...legaltpinvfxalt27rNonPassRows>` | ALT22V23LEN=`assertionLabel=<...legaltpinvfxalt22v23lenNonPassRows>` | ALT22V23R=`assertionLabel=<...legaltpinvfxalt22v23rNonPassRows>` | ALT23V24LEN=`assertionLabel=<...legaltpinvfxalt23v24lenNonPassRows>` | ALT23V24R=`assertionLabel=<...legaltpinvfxalt23v24rNonPassRows>` | ALT19V20LEN=`assertionLabel=<...legaltpinvfxalt19v20lenNonPassRows>` | ALT19V20R=`assertionLabel=<...legaltpinvfxalt19v20rNonPassRows>` | ALT25V26LEN=`assertionLabel=<...legaltpinvfxalt25v26lenNonPassRows>` | ALT25V26R=`assertionLabel=<...legaltpinvfxalt25v26rNonPassRows>` | ALT26V27LEN=`assertionLabel=<...legaltpinvfxalt26v27lenNonPassRows>` | ALT26V27R=`assertionLabel=<...legaltpinvfxalt26v27rNonPassRows>`. "
         in md_text
     ), f"{name}: markdown output must include docs-order PINLEN/PINSAFE/SAFE/ALTLEN/ALT8 assertion-label helper row for one-scan triage"
+    alt26_alt27_alias_order_matches = re.findall(
+        r"ALT26=`assertionLabel=<\.\.\.legaltpinvfxalt26NonPassRows>` \| "
+        r"ALT26LEN=`assertionLabel=<\.\.\.legaltpinvfxalt26lenNonPassRows>` \| "
+        r"ALT26R=`assertionLabel=<\.\.\.legaltpinvfxalt26rNonPassRows>` \| "
+        r"ALT27=`assertionLabel=<\.\.\.legaltpinvfxalt27NonPassRows>` \| "
+        r"ALT27LEN=`assertionLabel=<\.\.\.legaltpinvfxalt27lenNonPassRows>` \| "
+        r"ALT27R=`assertionLabel=<\.\.\.legaltpinvfxalt27rNonPassRows>` \| "
+        r"ALT22V23LEN=`assertionLabel=<\.\.\.legaltpinvfxalt22v23lenNonPassRows>` \| "
+        r"ALT22V23R=`assertionLabel=<\.\.\.legaltpinvfxalt22v23rNonPassRows>` \| "
+        r"ALT23V24LEN=`assertionLabel=<\.\.\.legaltpinvfxalt23v24lenNonPassRows>` \| "
+        r"ALT23V24R=`assertionLabel=<\.\.\.legaltpinvfxalt23v24rNonPassRows>` \| "
+        r"ALT19V20LEN=`assertionLabel=<\.\.\.legaltpinvfxalt19v20lenNonPassRows>` \| "
+        r"ALT19V20R=`assertionLabel=<\.\.\.legaltpinvfxalt19v20rNonPassRows>` \| "
+        r"ALT25V26LEN=`assertionLabel=<\.\.\.legaltpinvfxalt25v26lenNonPassRows>` \| "
+        r"ALT25V26R=`assertionLabel=<\.\.\.legaltpinvfxalt25v26rNonPassRows>` \| "
+        r"ALT26V27LEN=`assertionLabel=<\.\.\.legaltpinvfxalt26v27lenNonPassRows>` \| "
+        r"ALT26V27R=`assertionLabel=<\.\.\.legaltpinvfxalt26v27rNonPassRows>`\.",
+        md_text,
+    )
+    assert len(alt26_alt27_alias_order_matches) >= 1, (
+        f"{name}: docs-order assertion-label helper must preserve ALT26 -> ALT27 -> ALT26V27* alias ordering for deterministic one-scan diagnostics"
+    )
     assert (
         "docs-order mnemonic readability note (ai-content+ux, report-only gate): baseline **ALT>PIN>SAFE>ALTLEN** remains source-of-truth; "
         "candidate **ALT>PIN>SAFE>WIDTH** is emitted as `...LEGALTPINALT` with compactness check `...LEGALTPINALTLEN` before any promotion."

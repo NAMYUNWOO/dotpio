@@ -6465,3 +6465,5 @@
 - Decision: Extended docs-order assertion-label helper contract with ALT27/ALT27LEN/ALT27R aliases to align docs triage text with shipped ALT27 diagnostics extraction.
 - Evidence: scripts/check_lane_coverage_guardrail.py + scripts/regression_check_lane_coverage_guardrail.py updated and validated via py_compile + regression + guardrail regeneration commands.
 - Follow-up: Injected next task to lock ALT26->ALT27->ALT26V27 helper ordering assertion.
+
+- 2026-04-08 09:21 KST — Verified guardrail suite after ALT27-vs-ALT26 consistency assertion + ALT28 helper adjacency extension. Commands: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`. All pass.

@@ -352,6 +352,7 @@
 - docs-order ALT25 helper callout (design/world+ux): `...LEGALTPINVFXALT25` keeps **GLINT=prow pin intent** + **SHIELD=SAFE brace readability cue** for one-scan triage.
 - docs-order ALT26 helper callout (design/world+ux): `...LEGALTPINVFXALT26` keeps **GLINT=mast pin intent** + **SHIELD=SAFE brace readability cue** for one-scan triage.
 - docs-order ALT27 helper callout (design/world+ux): `...LEGALTPINVFXALT27` keeps **GLINT=rudder pin intent** + **SHIELD=SAFE brace readability cue** for one-scan triage.
+- docs-order ALT28 helper callout (design/world+ux): `...LEGALTPINVFXALT28` keeps **GLINT=harbor pin intent** + **SHIELD=SAFE brace readability cue** for one-scan triage.
 - docs-order sentinel VFX handoff cue fourteenth phrase candidate (ai-content+combat/vfx, report-only + rollback wording gate): **TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFXALT13:PIN=GLINT beacon|SAFE=SHIELD brace**
 - docs-order sentinel VFX handoff cue fourteenth phrase eval row (ai-content+ux, report-only + rollback wording gate): **TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFXALT13LEN:B34|C34|LIM72|PASS**
 - docs-order sentinel VFX handoff cue fourteenth phrase rationale row (design/world+ux, report-only): **TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFXALT13R:GLINT beacon keeps pin handoff explicit|SAFE brace preserves readability**
