@@ -6042,3 +6042,7 @@
 - Verification: py_compile + regression guardrail + guardrail regeneration bundle passed.
 - 2026-04-08 11:58 KST — Game Director cycle IP161: extended docs-order assertion-label alias map with ALT28V29LEN/ALT28V29R in lane-coverage guardrail output to preserve deterministic diagnostics alias coverage.
 - 2026-04-08 12:28 KST — Cycle IP161 follow-up closed: added ALT28V29 comparator payload mismatch extraction + mixed-window row-count parity assertions (ALT27V28 + ALT28V29) in regression guardrail; verification bundle passed.
+## 2026-04-08 12:58 KST — IP162 comparator-order contract lock
+- Added deterministic docs-order adjacency assertion in regression harness to keep comparator rows contiguous: `...ALT27V28LEN -> ...ALT27V28R -> ...ALT28V29LEN -> ...ALT28V29R`.
+- Durable decision: every new comparator family must ship with explicit adjacency contract before introducing the next family token.
+- Verification PASS (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`).

@@ -4326,6 +4326,20 @@ def run_fixture_case(
     assert len(alt27_alt28_alias_order_matches) >= 1, (
         f"{name}: docs-order assertion-label helper must preserve ALT27 -> ALT28 -> ALT29 -> ALT26V27* -> ALT27V28* -> ALT28V29* alias ordering for deterministic one-scan diagnostics"
     )
+    alt27v28_alt28v29_docs_order_matches = re.findall(
+        r"\n- docs-order ALT27 vs ALT28 readability comparator row \(design/world\+ux, report-only\): "
+        r"\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFXALT27V28LEN:B43\|C43\|LIM72\|PREF:TIE\|PASS\*\*"
+        r"\n- docs-order ALT27 vs ALT28 readability rationale row \(design/world\+ux, report-only\): "
+        r"\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFXALT27V28R:ALT27 rudder and ALT28 harbor keep pin readability parity\*\*"
+        r"\n- docs-order ALT28 vs ALT29 readability comparator row \(design/world\+ux, report-only\): "
+        r"\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFXALT28V29LEN:B39\|C39\|LIM72\|PREF:TIE\|PASS\*\*"
+        r"\n- docs-order ALT28 vs ALT29 readability rationale row \(design/world\+ux, report-only\): "
+        r"\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFXALT28V29R:ALT28 harbor and ALT29 tide keep pin readability parity\*\*",
+        md_text,
+    )
+    assert len(alt27v28_alt28v29_docs_order_matches) >= 1, (
+        f"{name}: docs-order comparator rows must preserve ALT27V28 -> ALT28V29 contiguous ordering for one-scan nautical parity diagnostics"
+    )
     assert (
         "docs-order mnemonic readability note (ai-content+ux, report-only gate): baseline **ALT>PIN>SAFE>ALTLEN** remains source-of-truth; "
         "candidate **ALT>PIN>SAFE>WIDTH** is emitted as `...LEGALTPINALT` with compactness check `...LEGALTPINALTLEN` before any promotion."

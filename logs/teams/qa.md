@@ -6492,3 +6492,7 @@
 - Validation bundle: py_compile, regression script, and markdown/json regeneration all green.
 - 2026-04-08 11:58 KST — Verification passed: py_compile + regression_check_lane_coverage_guardrail + guardrail generator command; no assertion regressions after helper alias update.
 - 2026-04-08 12:28 KST — Cycle IP161 follow-up closed: added ALT28V29 comparator payload mismatch extraction + mixed-window row-count parity assertions (ALT27V28 + ALT28V29) in regression guardrail; verification bundle passed.
+## 2026-04-08 12:58 KST — IP162 comparator adjacency regression
+- Added regex-based guard so markdown output fails fast if ALT comparator ordering drifts from `ALT27V28` block into `ALT28V29` block.
+- This gives one-scan failure context before mixed-window parity checks and prevents hidden docs-order churn.
+- Verification bundle PASS (py_compile + regression harness + guardrail generation command).

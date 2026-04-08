@@ -6670,3 +6670,9 @@ Compact decision memory for AI context efficiency.
 - 2026-04-08 11:24 KST: Added nautical progression helper continuity (`ALT27 rudder -> ALT28 harbor -> ALT29 tide`) in guardrail markdown and locked adjacency regression near waypoint-vs-vector helper context; verification bundle passed.
 - 2026-04-08 11:58 KST — Durable decision: keep nautical comparator chain expanding incrementally; IP161 added ALT28V29 comparator rows + assertion-label aliases in guardrail output, and synchronized regression helper expectations. Next: add dedicated mixed-window row-count parity assertions for ALT28V29 (injected backlog item).
 - 2026-04-08 12:28 KST — Closed injected follow-up: ALT28V29 comparator checks now mirror ALT27V28 with dedicated mixed-window parity assertions and NonPassRows extraction keys.
+
+## 2026-04-08 12:58 KST — Game Director Cycle IP162 comparator-order guardrail
+- ACTION_ITEMS/TASKS/POST_RC were fully checked, so mandatory Game Director cycle ran (3 ideas generated; selected mid-risk Systems/Ops + QA slice).
+- Shipped minimal vertical slice: regression now enforces contiguous docs-order comparator block `ALT27V28LEN/R -> ALT28V29LEN/R`.
+- Durable decision: comparator families require explicit adjacency assertions before expanding to the next comparator generation.
+- Verification PASS: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.

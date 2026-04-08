@@ -762,6 +762,18 @@
 
 # POST_RC_BACKLOG
 
+## Autonomous Cycle 2026-04-08 (Game Director Review — Cycle IP162)
+- Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC were fully checked, so mandatory Game Director loop executed immediately.
+- Candidate ideas generated:
+  - Low-risk Design/World + UX: add ALT29-to-next helper continuity note so nautical phrase evolution remains one-scan readable.
+  - Mid-risk Systems/Ops + QA: enforce comparator adjacency contract requiring `ALT27V28` rows to stay immediately before `ALT28V29` rows in markdown docs-order output.
+  - High-risk AI-content + Combat/VFX: stage ALT30 phrase family (`...ALT30`, `...ALT29V30*`) with sparse mixed-window diagnostics.
+- [x] Systems/Ops + QA Team (selected): shipped comparator-order guardrail vertical slice by adding deterministic regression assertion that `ALT27V28LEN/R` and `ALT28V29LEN/R` rows remain contiguous in docs-order markdown output. *(lifecycle: [ ] -> [~] started: 2026-04-08 12:55 KST -> [x] completed: 2026-04-08 12:58 KST; implementation: `scripts/regression_check_lane_coverage_guardrail.py`; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.)*
+
+## Next Up (Game Director Injection — Cycle IP162)
+- [ ] Design/World + UX Team (injected): extend nautical progression helper note to include ALT30 placeholder wording once comparator sequencing is locked (`ALT28=harbor -> ALT29=tide -> ALT30=<candidate>`), keeping one-scan readability.
+- [ ] Systems/Ops + QA Team (injected): add mixed-window comparator row-count parity contract for future `ALT29V30LEN <-> ALT29V30R` pair so new comparator families cannot ship without symmetric diagnostics.
+
 ## Autonomous Cycle 2026-04-08 (Game Director Review — Cycle IP161)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC were fully checked, so mandatory Game Director loop executed immediately.
 - Candidate ideas generated:
