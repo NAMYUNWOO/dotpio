@@ -6663,3 +6663,6 @@ Compact decision memory for AI context efficiency.
 - Next queue: ALT27V28 mixed-window parity/assertion-label surfacing, ALT29 phrase/eval/rationale prototype, nautical helper adjacency callout lock.
 
 - 2026-04-08 10:25 KST: Closed Cycle IP161 Systems/Ops+QA follow-up by adding ALT27V28 comparator mixed-window payload drift assertions (`...alt27v28lenNonPassRows`, `...alt27v28rNonPassRows`) plus row-count parity lock and first-diverged `assertionLabel` surfacing. Guardrail helper copy now includes ALT27V28 labels.
+- 2026-04-08 10:56 KST: Closed injected ALT29 report-only phrase family by adding `...LEGALTPINVFXALT29`, `...LEGALTPINVFXALT29LEN`, and `...LEGALTPINVFXALT29R` rows plus ALT29 helper/assertion-label alias coverage; regression contract now enforces ALT27 -> ALT28 -> ALT29 ordering in docs-order helper diagnostics.
+- Verification: py_compile + regression guardrail script + guardrail regeneration all pass.
+- Next queue: Design/World nautical helper note + adjacency lock (`rudder -> harbor -> tide`).

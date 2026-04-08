@@ -4448,3 +4448,9 @@
 - Implementation: Updated regression contracts in `scripts/regression_check_lane_coverage_guardrail.py` and assertion-label helper copy in `scripts/check_lane_coverage_guardrail.py`.
 - Evidence: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
 - Follow-up: Next unchecked item remains ALT29 phrase/eval/rationale prototype.
+
+## 2026-04-08 10:56 KST — Cycle IP161 injected ALT29 phrase trio
+- Decision: Closed injected Combat/VFX + AI-content slice by shipping report-only ALT29 phrase/eval/rationale coverage (PIN=GLINT tide|SAFE=SHIELD brace) and keeping rollback wording gate semantics explicit.
+- Implementation: Updated scripts/check_lane_coverage_guardrail.py (ALT29 candidate/eval/rationale rows + helper callout + assertion-label helper aliases) and scripts/regression_check_lane_coverage_guardrail.py (ALT29 helper expectation + assertion-label alias-order regex/contract updates).
+- Evidence: python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py + python3 scripts/regression_check_lane_coverage_guardrail.py + python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md.
+- Follow-up: Next unchecked queue item is Design/World nautical progression helper adjacency lock (rudder -> harbor -> tide).
