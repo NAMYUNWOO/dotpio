@@ -6668,3 +6668,4 @@ Compact decision memory for AI context efficiency.
 - Next queue: Design/World nautical helper note + adjacency lock (`rudder -> harbor -> tide`).
 
 - 2026-04-08 11:24 KST: Added nautical progression helper continuity (`ALT27 rudder -> ALT28 harbor -> ALT29 tide`) in guardrail markdown and locked adjacency regression near waypoint-vs-vector helper context; verification bundle passed.
+- 2026-04-08 11:58 KST — Durable decision: keep nautical comparator chain expanding incrementally; IP161 added ALT28V29 comparator rows + assertion-label aliases in guardrail output, and synchronized regression helper expectations. Next: add dedicated mixed-window row-count parity assertions for ALT28V29 (injected backlog item).

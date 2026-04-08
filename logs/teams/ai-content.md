@@ -4359,3 +4359,4 @@
 
 ## 2026-04-08 11:24 KST — AI-content
 - No payload phrase mutation this cycle; maintained report-only phrase family stability while docs-order helper context was extended.
+- 2026-04-08 11:58 KST — Kept GLINT phrase progression stable while adding ALT28V29 comparator metadata; no token legend semantics changed.

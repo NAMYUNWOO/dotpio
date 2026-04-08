@@ -762,6 +762,15 @@
 
 # POST_RC_BACKLOG
 
+## Autonomous Cycle 2026-04-08 (Game Director Review — Cycle IP161)
+- Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC were fully checked, so mandatory Game Director loop executed immediately.
+- Candidate ideas generated:
+  - Low-risk Design/World + UX: add ALT28-vs-ALT29 comparator docs row so nautical helper progression keeps one-scan parity through tide handoff.
+  - Mid-risk Systems/Ops + QA: extend assertion-label helper alias map to include ALT28V29 comparator diagnostics labels.
+  - High-risk AI-content + Combat/VFX: stage ALT30 phrase family (`...ALT30`, `...ALT29V30*`) with sparse mixed-window diagnostics.
+- [x] Design/World + UX + Systems/Ops + QA Team (selected): implement ALT28-vs-ALT29 comparator vertical slice in guardrail markdown output + assertion-label helper alias mapping. *(lifecycle: [ ] -> [~] started: 2026-04-08 11:53 KST -> [x] done: 2026-04-08 11:58 KST; implementation target: `scripts/check_lane_coverage_guardrail.py`; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.)*
+- [ ] Injected follow-up (next cycle candidate): mirror ALT28V29 comparator payload checks into dedicated mixed-window row-count parity assertions (`...ALT28V29LEN` <-> `...ALT28V29R`) inside `scripts/regression_check_lane_coverage_guardrail.py` to keep comparator diagnostics coverage symmetric with ALT27V28.
+
 ## Autonomous Cycle 2026-04-08 (Game Director Review — Cycle IP159)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC were fully checked, so mandatory Game Director loop executed immediately.
 - Candidate ideas generated:

@@ -6490,3 +6490,4 @@
 ## 2026-04-08 11:24 KST — QA
 - Added deterministic assertion for nautical progression helper-note presence and adjacency in regression suite.
 - Validation bundle: py_compile, regression script, and markdown/json regeneration all green.
+- 2026-04-08 11:58 KST — Verification passed: py_compile + regression_check_lane_coverage_guardrail + guardrail generator command; no assertion regressions after helper alias update.

@@ -4282,3 +4282,4 @@
 ## 2026-04-08 11:24 KST — World
 - Added docs-order nautical progression helper note tying route readability across `rudder -> harbor -> tide` for one-scan progression context.
 - Follow-up: keep future ALT helper expansions contiguous with nautical progression note.
+- 2026-04-08 11:58 KST — Added nautical readability comparator ALT28 (harbor) vs ALT29 (tide) so world-lexicon progression remains contiguous in one-scan docs-order triage.

@@ -4288,3 +4288,4 @@
 
 ## 2026-04-08 11:24 KST — Combat
 - No combat balance/runtime change this cycle; guardrail docs/regression update only to preserve readable phrase progression context.
+- 2026-04-08 11:58 KST — Comparator slice maintains combat/vfx handoff readability parity constraints while extending downstream diagnostics aliases.

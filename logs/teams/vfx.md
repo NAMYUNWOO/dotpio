@@ -799,3 +799,4 @@
 ## 2026-04-08 09:43 KST — Cycle IP161 support log
 - No new runtime VFX token added this cycle; VFX lane was intentionally de-prioritized to recover cadence balance.
 - Added cross-lane comparator support row touching docs-order VFX phrasebank (`...ALT27V28*`) for readability continuity only.
+- 2026-04-08 11:58 KST — Preserved VFX-facing GLINT/SHIELD readability chain while introducing ALT28V29 docs comparator diagnostics.

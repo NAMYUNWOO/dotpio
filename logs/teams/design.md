@@ -4458,3 +4458,4 @@
 ## 2026-04-08 11:24 KST — Design
 - Shipped compact helper copy for maritime progression continuity near existing waypoint-vs-vector readability guidance.
 - Outcome: helper cluster now narrates anchor/vector plus rudder/harbor/tide progression in one block.
+- 2026-04-08 11:58 KST — Game Director selected low-risk readability experiment; shipped ALT28V29 parity row as minimal vertical slice.

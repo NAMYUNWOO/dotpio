@@ -4538,3 +4538,4 @@
 ## 2026-04-08 11:24 KST — UX
 - Improved docs scanability by adding explicit nautical progression helper row after ALT29 callout.
 - Regression now asserts adjacency so helper context cannot silently drift.
+- 2026-04-08 11:58 KST — Added ALT28V29 LEN row (B39|C39|LIM72|PREF:TIE|PASS) + rationale row to keep quick-scan parity with adjacent comparator set.
